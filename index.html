@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonte Walker - Designer & Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">DW</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-wrapper">
+            <!-- Left Pill - Logo -->
+            <div class="nav-pill nav-pill-left">
+                <a href="#top" class="nav-logo">DW</a>
+            </div>
+
+            <!-- Right Pill - Links -->
+            <div class="nav-pill nav-pill-right">
+                <div class="nav-links">
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="Hello!/Resume.pdf" class="nav-resume" target="_blank">Resume</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="top" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello!</p>
+            <h1 class="hero-title">
+                I'm <span class="highlight">Demonte Walker</span>,
+                <br><span class="typing-wrapper">a <span class="typing-text"></span><span class="typing-cursor">|</span></span>
+            </h1>
+            <p class="hero-subtitle">
+                Building at the intersection of design, technology, and human connection.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="Hello!/Resume.pdf" class="btn-secondary" target="_blank">Download Resume</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2 class="section-title">Selected Work</h2>
+            <p class="section-subtitle">Click into each project to learn more about its creation, goal and current version.</p>
+        </div>
+
+        <div class="project-grid">
+            <!-- Visualizer -->
+            <article class="project-card featured" data-project="visualizer">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span>Visualizer</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Web App</span>
+                        <span>UI/UX</span>
+                    </div>
+                    <h3>Visualizer</h3>
+                    <p>Transform complex audio data into an engaging, interactive experience using visual effects.</p>
+                    <div class="project-meta">
+                        <span class="role">Founder / Developer / Designer</span>
+                        <span class="link">visualizerwebsite.com</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Coral Gala -->
+            <article class="project-card" data-project="coralgala">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                        <span>Coral Gala</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Web App</span>
+                        <span>Interactive</span>
+                    </div>
+                    <h3>Coral Gala</h3>
+                    <p>A virtual fish tank experience built as a live, browser-based aquarium with real-time multiplayer.</p>
+                    <div class="project-meta">
+                        <span class="role">Founder / Web Developer</span>
+                        <span class="link">coralgala.live</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Old York Times -->
+            <article class="project-card" data-project="oldyorktimes">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #434343 0%, #000000 100%);">
+                        <span>Old York Times</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Website</span>
+                        <span>Publication</span>
+                    </div>
+                    <h3>Old York Times</h3>
+                    <p>A news website evoking the timeless charm of pulp fiction and classic 1930s journalism.</p>
+                    <div class="project-meta">
+                        <span class="role">Web Developer / Designer</span>
+                        <span class="link">oldyorktimes.com</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Vosyn -->
+            <article class="project-card" data-project="vosyn">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);">
+                        <span>Vosyn</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Website</span>
+                        <span>AI Startup</span>
+                    </div>
+                    <h3>Vosyn</h3>
+                    <p>Redesigned the tech startup's website with industry-leading design and enhanced user engagement.</p>
+                    <div class="project-meta">
+                        <span class="role">UI/UX Designer / Web Developer Intern</span>
+                        <span class="link">vosyn.ai</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Artist Website -->
+            <article class="project-card" data-project="artist">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #C33764 0%, #1D2671 100%);">
+                        <span>Artist Website</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Website</span>
+                        <span>Three.js</span>
+                    </div>
+                    <h3>Artist Website</h3>
+                    <p>An engaging online portfolio with interactive features to immerse users in the artist's aesthetic.</p>
+                    <div class="project-meta">
+                        <span class="role">Web Developer / Designer</span>
+                        <span class="link">deshaunwalker.art</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- OURS Studio -->
+            <article class="project-card" data-project="ours">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span>OURS Studio</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Website</span>
+                        <span>Production</span>
+                    </div>
+                    <h3>OURS Studio</h3>
+                    <p>Revamped and modernized the production studio's online presence with modern design elements.</p>
+                    <div class="project-meta">
+                        <span class="role">UI/UX Designer / Web Developer</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- QuickER -->
+            <article class="project-card" data-project="quicker">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);">
+                        <span>QuickER</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Mobile App</span>
+                        <span>Healthcare</span>
+                    </div>
+                    <h3>QuickER</h3>
+                    <p>Streamline the emergency room experience for patients with remote check-in capabilities.</p>
+                    <div class="project-meta">
+                        <span class="role">UI/UX Designer / Mobile Developer</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PeerPair -->
+            <article class="project-card" data-project="peerpair">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);">
+                        <span>PeerPair</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Mobile App</span>
+                        <span>iOS</span>
+                    </div>
+                    <h3>PeerPair</h3>
+                    <p>A unique platform that matches users based on their TikTok activity and preferences.</p>
+                    <div class="project-meta">
+                        <span class="role">UI/UX Designer / Mobile Developer</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Amaze Web -->
+            <article class="project-card featured" data-project="amazeweb">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);">
+                        <span>Amaze Web</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Service</span>
+                        <span>Web Design</span>
+                    </div>
+                    <h3>Amaze Web</h3>
+                    <p>Digital products ranging from website templates to AI Automation Kits for business owners and creators.</p>
+                    <div class="project-meta">
+                        <span class="role">Founder / Designer / Developer</span>
+                        <span class="link">amazeweb.shop</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Creator Website -->
+            <article class="project-card" data-project="creator">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <span>Creator Website</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Website</span>
+                        <span>Webflow</span>
+                    </div>
+                    <h3>Creator Website</h3>
+                    <p>Blending modern design elements with classic blog aesthetics for a unique portfolio.</p>
+                    <div class="project-meta">
+                        <span class="role">Web Developer / Designer</span>
+                        <span class="link">jazlynromer.com</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Clothing Brand -->
+            <article class="project-card" data-project="clothing">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);">
+                        <span>Clothing Brand</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>E-commerce</span>
+                        <span>Shopify</span>
+                    </div>
+                    <h3>Clothing Brand Website</h3>
+                    <p>Established a strong branding strategy with modern design elements for fashion retail.</p>
+                    <div class="project-meta">
+                        <span class="role">Web Developer / Designer</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Safe Browsing+ -->
+            <article class="project-card" data-project="safebrowsing">
+                <div class="project-image">
+                    <div class="project-placeholder" style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);">
+                        <span>Safe Browsing+</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span>Chrome Extension</span>
+                        <span>Web App</span>
+                    </div>
+                    <h3>Safe Browsing+</h3>
+                    <p>Chrome extension enhancing online safety by selectively blurring harmful content.</p>
+                    <div class="project-meta">
+                        <span class="role">UI/UX Designer / Developer</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Apple Watch Apps Section -->
+        <div class="project-category">
+            <h3 class="category-title">Apple Watch Apps</h3>
+            <div class="project-grid small">
+                <!-- Reflex-o -->
+                <article class="project-card compact" data-project="reflexo">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);">
+                            <span>Reflex-o</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Reflex-o</h3>
+                        <p>Fast-paced reflex game using voice commands and haptic feedback.</p>
+                    </div>
+                </article>
+
+                <!-- Fibber -->
+                <article class="project-card compact" data-project="fibber">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%);">
+                            <span>Fibber</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Fibber - Truth Detector</h3>
+                        <p>Simulates a lie-detector using heart-rate data via HealthKit.</p>
+                    </div>
+                </article>
+
+                <!-- Mood Ring -->
+                <article class="project-card compact" data-project="moodring">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);">
+                            <span>Mood Ring</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mood Ring</h3>
+                        <p>Transforms biometric data into a dynamic, color-shifting mood ring.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Flipper Zero Apps Section -->
+        <div class="project-category">
+            <h3 class="category-title">Flipper Zero Apps</h3>
+            <div class="project-grid small">
+                <!-- PackTrack -->
+                <article class="project-card compact" data-project="packtrack">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #373B44 0%, #4286f4 100%);">
+                            <span>PackTrack</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>PackTrack</h3>
+                        <p>Seamless parcel tracking directly on your Flipper Zero device.</p>
+                    </div>
+                </article>
+
+                <!-- Roulette -->
+                <article class="project-card compact" data-project="roulette">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #232526 0%, #414345 100%);">
+                            <span>Roulette</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Roulette</h3>
+                        <p>Dramatic, sound-enhanced party game with digital suspense.</p>
+                    </div>
+                </article>
+
+                <!-- Battle Pass -->
+                <article class="project-card compact" data-project="battlepass">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #5f2c82 0%, #49a09d 100%);">
+                            <span>Battle Pass</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Battle Pass</h3>
+                        <p>Nintendo StreetPass-inspired battles between Flipper devices.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- AR Section -->
+        <div class="project-category">
+            <h3 class="category-title">AR & Experimental</h3>
+            <div class="project-grid small">
+                <!-- AR Filter Games -->
+                <article class="project-card compact" data-project="arfilter">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #00d2ff 0%, #928DAB 100%);">
+                            <span>AR Filters</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AR Filter Games</h3>
+                        <p>Interactive TikTok game filters with fast, reflex-based challenges.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-lead">
+                        I am a dedicated designer eager to offer my skills and creativity to enhance user experiences.
+                    </p>
+                    <p>
+                        With expertise spanning UI/UX design, web development, and mobile applications, I bring ideas to life through thoughtful design and clean code. My work ranges from startup websites to innovative Apple Watch apps, always focusing on creating impactful experiences.
+                    </p>
+                    <div class="skills">
+                        <h4>Tools & Technologies</h4>
+                        <div class="skill-tags">
+                            <span>Figma</span>
+                            <span>Swift</span>
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>Three.js</span>
+                            <span>Flutter</span>
+                            <span>Webflow</span>
+                            <span>Shopify</span>
+                            <span>WordPress</span>
+                            <span>Xcode</span>
+                            <span>Effect House</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Platforms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/demonte-walker-83506017b/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/thecoolguy2001" target="_blank">GitHub</a>
+                <a href="mailto:demontewalker12@gmail.com">Email</a>
+                <a href="tel:4045933269">Call</a>
+            </div>
+            <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
