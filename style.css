@@ -1249,6 +1249,19 @@ button {
         grid-template-columns: 1fr;
     }
 
+    /* Disable scroll animations on mobile - show cards immediately */
+    .project-card {
+        opacity: 1;
+        transform: none;
+    }
+
+    .section-title,
+    .section-subtitle,
+    .category-title {
+        opacity: 1;
+        transform: none;
+    }
+
     .about-stats {
         flex-direction: column;
     }
