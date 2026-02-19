@@ -224,7 +224,7 @@ button {
 }
 
 .nav-logo img {
-    height: 36px;
+    height: 56px;
     width: auto;
     object-fit: contain;
 }
@@ -1207,7 +1207,7 @@ button {
 }
 
 .loader-logo img {
-    height: 80px;
+    height: 120px;
     width: auto;
     object-fit: contain;
 }
@@ -1292,7 +1292,7 @@ button {
     }
 
     .nav-logo img {
-        height: 32px;
+        height: 48px;
     }
 
     .nav-resume {
