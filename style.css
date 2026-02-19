@@ -1305,6 +1305,14 @@ button {
         padding: var(--space-2xl) var(--container-padding);
     }
 
+    .hero-greeting {
+        font-size: 0.8rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
     .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -1357,7 +1365,11 @@ button {
     }
 
     .hero-greeting {
-        font-size: 1rem;
+        font-size: 0.7rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
     }
 
     .section-title {
