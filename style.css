@@ -217,11 +217,16 @@ button {
 .nav-logo {
     position: relative;
     z-index: 1;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-logo:hover {
@@ -1194,11 +1199,14 @@ button {
 }
 
 .loader-logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-black);
     margin-bottom: 1rem;
     animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loader-logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
 }
 
 @keyframes pulse {
@@ -1280,8 +1288,8 @@ button {
         display: none;
     }
 
-    .nav-logo {
-        font-size: 0.9375rem;
+    .nav-logo img {
+        height: 24px;
     }
 
     .nav-resume {
