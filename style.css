@@ -59,7 +59,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 50px;
+    scroll-padding-top: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
