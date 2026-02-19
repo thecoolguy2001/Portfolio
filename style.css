@@ -388,9 +388,9 @@ button {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.05;
     color: var(--color-black);
     margin-bottom: var(--space-lg);
@@ -1376,8 +1376,9 @@ button {
    Utility Classes
    ============================================ */
 .cli-font {
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
-    letter-spacing: -0.02em;
+    font-family: 'IBM Plex Mono', 'Menlo', monospace;
+    letter-spacing: -0.01em;
+    font-weight: 400;
 }
 
 .visually-hidden {
