@@ -591,6 +591,7 @@ button {
         flex-direction: column;
         align-items: center;
         gap: 4px;
+        animation: chevronContainerBounce 1.5s ease-in-out infinite;
     }
 
     .scroll-indicator::before,
@@ -609,22 +610,29 @@ button {
 
     .scroll-indicator::before {
         top: 0;
-        animation: chevronBounce 1.5s ease-in-out infinite;
+        animation: chevronFade 1.5s ease-in-out infinite;
     }
 
     .scroll-indicator::after {
         top: 12px;
-        animation: chevronBounce 1.5s ease-in-out infinite 0.15s;
+        animation: chevronFade 1.5s ease-in-out infinite 0.15s;
     }
 }
 
-@keyframes chevronBounce {
+@keyframes chevronContainerBounce {
     0%, 100% {
-        transform: translateX(-50%) rotate(45deg) translateY(0);
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+@keyframes chevronFade {
+    0%, 100% {
         opacity: 0.4;
     }
     50% {
-        transform: translateX(-50%) rotate(45deg) translateY(6px);
         opacity: 1;
     }
 }
