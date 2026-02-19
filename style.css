@@ -580,6 +580,63 @@ button {
     50% { transform: translateX(-50%) translateY(8px); opacity: 0.3; }
 }
 
+/* Mobile: Finger swipe animation */
+@media (max-width: 768px) {
+    .scroll-indicator {
+        width: 32px;
+        height: 48px;
+        border: none;
+        border-radius: 0;
+    }
+
+    .scroll-indicator::before {
+        /* Finger/hand shape */
+        width: 16px;
+        height: 24px;
+        top: auto;
+        bottom: 16px;
+        background: var(--color-gray-400);
+        border-radius: 8px 8px 4px 4px;
+        animation: fingerSwipe 1.5s ease-in-out infinite;
+    }
+
+    .scroll-indicator::after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid var(--color-gray-400);
+        border-bottom: 2px solid var(--color-gray-400);
+        transform: translateX(-50%) rotate(-45deg);
+        animation: arrowPulse 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes fingerSwipe {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-12px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes arrowPulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateX(-50%) rotate(-45deg) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) rotate(-45deg) translateY(-4px);
+    }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
