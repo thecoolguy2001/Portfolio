@@ -1004,18 +1004,27 @@ button {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: var(--space-xl);
+    align-items: center;
+    gap: var(--space-lg);
     margin-bottom: var(--space-lg);
 }
 
 .footer-links a {
-    font-size: 0.9375rem;
     color: var(--color-gray-300);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links a svg {
+    width: 24px;
+    height: 24px;
 }
 
 .footer-links a:hover {
     color: var(--color-white);
+    transform: translateY(-2px);
 }
 
 .footer-copyright {
