@@ -224,7 +224,7 @@ button {
 }
 
 .nav-logo img {
-    height: 28px;
+    height: 36px;
     width: auto;
     object-fit: contain;
 }
@@ -1201,10 +1201,13 @@ button {
 .loader-logo {
     margin-bottom: 1rem;
     animation: pulse 1.5s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader-logo img {
-    height: 48px;
+    height: 80px;
     width: auto;
     object-fit: contain;
 }
@@ -1289,7 +1292,7 @@ button {
     }
 
     .nav-logo img {
-        height: 24px;
+        height: 32px;
     }
 
     .nav-resume {
