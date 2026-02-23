@@ -12,6 +12,7 @@ const projectData = {
         timeline: "October 21, 2024 → September 29, 2025",
         tools: "API, CSS, Figma, Github, HTML, JS, Swift, Xcode",
         link: "https://www.visualizerwebsite.com",
+        page: "projects/visualizer.html",
         summary: "The development of the Visualizer Website aimed to transform complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality. This project was made specifically for music enthusiast of all kinds to be able to enjoy their personal favorite music in a refreshing new way.",
         problem: "Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it, many options were either outdated or too complicated for the average user.",
         solution: "The solution was to develop a dynamic website that utilizes modern UI elements and interactive design features to transform data into visually digestible and engaging formats. The website offers interactive effects, animations, and intuitive navigation to help users explore and understand data effortlessly.",
@@ -303,11 +304,18 @@ function openModal(projectId) {
             <p>${project.learned}</p>
         </div>
 
-        ${project.link ? `
-            <a href="${project.link}" class="modal-link" target="_blank">
-                Visit Project →
-            </a>
-        ` : ''}
+        <div class="modal-actions">
+            ${project.page ? `
+                <a href="${project.page}" class="modal-link case-study">
+                    View Full Case Study →
+                </a>
+            ` : ''}
+            ${project.link ? `
+                <a href="${project.link}" class="modal-link" target="_blank">
+                    Visit Project →
+                </a>
+            ` : ''}
+        </div>
     `;
 
     modal.classList.add('active');

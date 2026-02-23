@@ -1169,17 +1169,37 @@ button {
     font-weight: 500;
 }
 
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
 .modal-link {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
     color: var(--color-accent);
     font-weight: 500;
-    margin-top: var(--space-md);
+    padding: var(--space-sm) 0;
 }
 
 .modal-link:hover {
     text-decoration: underline;
+}
+
+.modal-link.case-study {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    justify-content: center;
+}
+
+.modal-link.case-study:hover {
+    background: var(--color-gray-900);
+    text-decoration: none;
 }
 
 /* ============================================
