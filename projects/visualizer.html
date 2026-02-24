@@ -8,542 +8,437 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
     <title>Visualizer - Demonte Walker</title>
+    <link rel="stylesheet" href="../style.css">
     <style>
-        :root {
-            --color-black: #1d1d1f;
-            --color-gray-500: #6e6e73;
-            --color-gray-400: #86868b;
-            --color-gray-200: #d2d2d7;
-            --color-gray-100: #f5f5f7;
-            --color-white: #ffffff;
-            --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        /* Project Page Styles */
+        .project-page {
+            padding-top: 100px;
         }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .project-hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px var(--container-padding);
+            text-align: center;
         }
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        .project-hero-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
 
-        body {
-            font-family: var(--font-system);
-            font-size: 17px;
-            line-height: 1.47;
+        .project-hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
             color: var(--color-black);
-            background: var(--color-white);
+            margin-bottom: 20px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .project-hero-subtitle {
+            font-size: 1.375rem;
+            color: var(--color-gray-500);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        /* Navigation */
-        .nav {
+        .project-image {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .project-image-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: var(--radius-lg);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image-placeholder span {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .project-meta {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px var(--container-padding);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .project-meta-item h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .project-meta-item p {
+            font-size: 1rem;
+            color: var(--color-black);
+            font-weight: 500;
+        }
+
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px var(--container-padding);
+        }
+
+        .project-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .project-section p {
+            font-size: 1.125rem;
+            color: var(--color-gray-500);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-section-gray {
+            background: var(--color-gray-100);
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .project-feature h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 12px;
+        }
+
+        .project-feature p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .project-process {
+            margin-top: 40px;
+        }
+
+        .process-step {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .process-step:first-child {
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .process-step-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .process-step h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            margin-bottom: 0;
+        }
+
+        .project-cta {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 80px var(--container-padding);
+            text-align: center;
+        }
+
+        .project-cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 24px;
+        }
+
+        .project-cta .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-cta .btn-primary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Back Navigation */
+        .project-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .nav-back {
+        .project-nav-back {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #0071e3;
+            color: var(--color-accent);
             font-size: 1rem;
-            font-weight: 400;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
         }
 
-        .nav-back:hover {
-            text-decoration: underline;
+        .project-nav-back:hover {
+            opacity: 0.7;
         }
 
-        .nav-back svg {
-            width: 12px;
-            height: 12px;
+        .project-nav-back svg {
+            width: 20px;
+            height: 20px;
         }
 
-        .nav-logo {
+        .project-nav-logo {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .nav-logo img {
+        .project-nav-logo img {
             height: 40px;
         }
 
-        /* Hero */
-        .hero {
-            padding: 140px 24px 80px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .hero-eyebrow {
-            font-size: 1.0625rem;
-            font-weight: 600;
-            color: var(--color-gray-500);
-            margin-bottom: 8px;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-            color: var(--color-black);
-            margin-bottom: 16px;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            font-weight: 400;
-            color: var(--color-gray-500);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.3;
-        }
-
-        /* Hero Image */
-        .hero-image {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 24px;
-        }
-
-        .hero-image-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            border-radius: 20px;
-            aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-image-container span {
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-        }
-
-        /* Section */
-        .section {
-            padding: 100px 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section-wide {
-            max-width: 1000px;
-        }
-
-        .section-headline {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            color: var(--color-black);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .section-text {
-            font-size: 1.125rem;
-            color: var(--color-gray-500);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .section-text:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Meta Info */
-        .meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 48px;
-            padding: 60px 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-top: 1px solid var(--color-gray-200);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .meta-item {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .meta-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--color-gray-400);
-            margin-bottom: 8px;
-        }
-
-        .meta-value {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--color-black);
-            line-height: 1.4;
-        }
-
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 48px;
-        }
-
-        .feature {
-            text-align: left;
-        }
-
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 8px;
-        }
-
-        .feature-text {
-            font-size: 1rem;
-            color: var(--color-gray-500);
-            line-height: 1.5;
-        }
-
-        /* Process Section */
-        .process-list {
-            margin-top: 48px;
-        }
-
-        .process-item {
-            padding: 32px 0;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .process-item:first-child {
-            border-top: 1px solid var(--color-gray-200);
-        }
-
-        .process-number {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--color-gray-400);
-            margin-bottom: 12px;
-        }
-
-        .process-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 12px;
-        }
-
-        .process-text {
-            font-size: 1rem;
-            color: var(--color-gray-500);
-            line-height: 1.6;
-        }
-
-        /* Quote */
-        .quote {
-            padding: 80px 24px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .quote-text {
-            font-size: clamp(1.5rem, 4vw, 2.25rem);
-            font-weight: 600;
-            color: var(--color-black);
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-
-        /* Gray Section */
-        .section-gray {
-            background: var(--color-gray-100);
-            padding: 100px 24px;
-        }
-
-        .section-gray-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* CTA */
-        .cta {
-            padding: 100px 24px;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--color-black);
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 32px;
-            background: #0071e3;
-            color: white;
-            font-size: 1.0625rem;
-            font-weight: 500;
-            border-radius: 980px;
-            transition: background 0.2s ease;
-        }
-
-        .cta-button:hover {
-            background: #0077ed;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--color-gray-100);
-            padding: 40px 24px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: var(--color-gray-400);
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-black);
-        }
-
-        .footer-links svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer-copyright {
-            font-size: 0.8125rem;
-            color: var(--color-gray-400);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 120px 20px 60px;
+            .project-hero {
+                padding: 40px var(--container-padding);
             }
 
-            .section {
-                padding: 60px 20px;
+            .project-section {
+                padding: 60px var(--container-padding);
             }
 
-            .meta-row {
-                padding: 40px 20px;
-                gap: 32px;
+            .project-cta {
+                padding: 60px var(--container-padding);
             }
 
-            .quote {
-                padding: 60px 20px;
-            }
-
-            .section-gray {
-                padding: 60px 20px;
-            }
-
-            .cta {
-                padding: 60px 20px;
-            }
-
-            .nav {
+            .project-nav {
                 padding: 12px 16px;
             }
 
-            .nav-logo img {
+            .project-nav-logo img {
                 height: 32px;
-            }
-
-            .feature-grid {
-                gap: 32px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
-        <a href="../index.html#projects" class="nav-back">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            Projects
+    <nav class="project-nav">
+        <a href="../index.html#projects" class="project-nav-back">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
         </a>
-        <a href="../index.html" class="nav-logo">
+        <a href="../index.html" class="project-nav-logo">
             <img src="../portfolio_logo.png" alt="DW Logo">
         </a>
-        <div style="width: 80px;"></div>
+        <div style="width: 60px;"></div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <p class="hero-eyebrow">Web Application</p>
-        <h1 class="hero-title">Visualizer</h1>
-        <p class="hero-subtitle">Transforming audio into an immersive visual experience for music enthusiasts.</p>
-    </section>
+    <main class="project-page">
+        <!-- Hero -->
+        <section class="project-hero">
+            <p class="project-hero-label">Web Application</p>
+            <h1 class="project-hero-title">Visualizer</h1>
+            <p class="project-hero-subtitle">Transforming audio into an immersive visual experience for music enthusiasts.</p>
+        </section>
 
-    <!-- Hero Image -->
-    <div class="hero-image">
-        <div class="hero-image-container">
-            <span>Project Preview</span>
-        </div>
-    </div>
-
-    <!-- Meta -->
-    <div class="meta-row">
-        <div class="meta-item">
-            <p class="meta-label">Role</p>
-            <p class="meta-value">Founder, Developer, Designer</p>
-        </div>
-        <div class="meta-item">
-            <p class="meta-label">Timeline</p>
-            <p class="meta-value">October 2024 - September 2025</p>
-        </div>
-        <div class="meta-item">
-            <p class="meta-label">Tools</p>
-            <p class="meta-value">JavaScript, Swift, Figma, Xcode</p>
-        </div>
-    </div>
-
-    <!-- Overview -->
-    <section class="section section-wide">
-        <h2 class="section-headline">A modern audio visualizer built for the way people experience music today.</h2>
-        <p class="section-text">The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
-        <p class="section-text">This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
-    </section>
-
-    <!-- Problem -->
-    <section class="quote">
-        <p class="quote-text">"Users struggle with finding the optimal way to enjoy music with visualizers. Many options are either outdated or too complicated for the average user."</p>
-    </section>
-
-    <!-- Solution -->
-    <section class="section section-wide">
-        <h2 class="section-headline">The solution: a dynamic, intuitive experience.</h2>
-        <p class="section-text">A website utilizing modern UI elements and interactive design features to transform audio into visually engaging formats.</p>
-
-        <div class="feature-grid">
-            <div class="feature">
-                <h3 class="feature-title">Immersive Experience</h3>
-                <p class="feature-text">Modern design trends and interactive elements create an immersive visualization experience that keeps users engaged.</p>
-            </div>
-            <div class="feature">
-                <h3 class="feature-title">Clear & Accessible</h3>
-                <p class="feature-text">Data presented in a clear, accessible format with intuitive navigation and fully responsive design.</p>
-            </div>
-            <div class="feature">
-                <h3 class="feature-title">Interactive Features</h3>
-                <p class="feature-text">Animations and interactive features keep users engaged while exploring complex audio data.</p>
+        <!-- Project Image -->
+        <div class="project-image">
+            <div class="project-image-placeholder">
+                <span>Project Preview</span>
             </div>
         </div>
-    </section>
 
-    <!-- Process -->
-    <div class="section-gray">
-        <div class="section-gray-content">
-            <h2 class="section-headline">The process.</h2>
-            <p class="section-text">From research to final implementation, the project followed a user-centered design approach.</p>
-
-            <div class="process-list">
-                <div class="process-item">
-                    <p class="process-number">01</p>
-                    <h3 class="process-title">User Research</h3>
-                    <p class="process-text">Research began by looking at past versions of visualizers that users have modern pain points for. Having a modern visualizer that can be used to listen to music, study, or create unique experiences was something that felt missing.</p>
-                </div>
-                <div class="process-item">
-                    <p class="process-number">02</p>
-                    <h3 class="process-title">Sketches & Concepts</h3>
-                    <p class="process-text">Preliminary design concepts were developed to map out the core structure. Controls were important - keyboard was the more intuitive choice as it can be quickly executed without interrupting the experience.</p>
-                </div>
-                <div class="process-item">
-                    <p class="process-number">03</p>
-                    <h3 class="process-title">Prototyping</h3>
-                    <p class="process-text">Interactive prototypes were developed to test the new design elements and functionality. Many users instantly understood and were curious to interact with the application to explore modes.</p>
-                </div>
-                <div class="process-item">
-                    <p class="process-number">04</p>
-                    <h3 class="process-title">Usability Testing</h3>
-                    <p class="process-text">Usability testing was conducted to identify any issues with the design and ensure that the visualizer was both intuitive and effective.</p>
-                </div>
+        <!-- Meta -->
+        <div class="project-meta">
+            <div class="project-meta-item">
+                <h4>Role</h4>
+                <p>Founder / Developer / Designer</p>
+            </div>
+            <div class="project-meta-item">
+                <h4>Timeline</h4>
+                <p>October 2024 - September 2025</p>
+            </div>
+            <div class="project-meta-item">
+                <h4>Team</h4>
+                <p>Demonte Walker</p>
+            </div>
+            <div class="project-meta-item">
+                <h4>Tools</h4>
+                <p>JavaScript, Swift, Figma, Xcode</p>
             </div>
         </div>
-    </div>
 
-    <!-- Results -->
-    <section class="section section-wide">
-        <h2 class="section-headline">The results.</h2>
-        <p class="section-text">The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
-        <p class="section-text">The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
-    </section>
+        <!-- Summary -->
+        <section class="project-section">
+            <h2>Summary</h2>
+            <p>The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
+            <p>This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
+        </section>
 
-    <!-- Learnings -->
-    <div class="section-gray">
-        <div class="section-gray-content">
-            <h2 class="section-headline">What I learned.</h2>
-            <p class="section-text">This project provided valuable insights into creating user-centered design working with audio visualization. I learned the value of iterative development and real user feedback in creating a product that is both functional and aesthetically engaging.</p>
-        </div>
-    </div>
+        <!-- Problem -->
+        <section class="project-section project-section-gray">
+            <h2>The Problem</h2>
+            <p>Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it. Many options were either outdated or too complicated for the average user.</p>
+            <p>Users struggle with dense data sets due to poor presentation and overwhelming information architecture. The challenge was to create something both accessible and visually compelling.</p>
+        </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <h2 class="cta-title">Experience Visualizer</h2>
-        <a href="https://www.visualizerwebsite.com" class="cta-button" target="_blank">Visit Project</a>
-    </section>
+        <!-- Solution -->
+        <section class="project-section">
+            <h2>The Solution</h2>
+            <p>A dynamic website utilizing modern UI elements and interactive design features to transform data into visually digestible and engaging formats.</p>
+
+            <div class="project-features">
+                <div class="project-feature">
+                    <h3>Immersive Experience</h3>
+                    <p>Modern design trends and interactive elements create an immersive visualization experience that keeps users engaged.</p>
+                </div>
+                <div class="project-feature">
+                    <h3>Clear & Accessible</h3>
+                    <p>Data presented in a clear, accessible format with intuitive navigation and fully responsive design.</p>
+                </div>
+                <div class="project-feature">
+                    <h3>Interactive Features</h3>
+                    <p>Animations and interactive features keep users engaged while exploring complex audio data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="project-section project-section-gray">
+            <h2>The Process</h2>
+            <p>From research to final implementation, the project followed a user-centered design approach.</p>
+
+            <div class="project-process">
+                <div class="process-step">
+                    <p class="process-step-number">01</p>
+                    <h3>User Research</h3>
+                    <p>Research began by looking at past versions of visualizers that users have modern pain points for. Having a modern visualizer that can be used to listen to music, study, or create unique experiences was something that felt missing.</p>
+                </div>
+                <div class="process-step">
+                    <p class="process-step-number">02</p>
+                    <h3>Sketches</h3>
+                    <p>Preliminary design concepts were developed to map out the core structure. Controls were important - keyboard was the more intuitive choice as it can be quickly executed without interrupting the experience.</p>
+                </div>
+                <div class="process-step">
+                    <p class="process-step-number">03</p>
+                    <h3>Wireframes & Prototypes</h3>
+                    <p>Interactive prototypes were developed to test the new design elements and functionality. Many users instantly understood and were curious to interact with the application to explore modes.</p>
+                </div>
+                <div class="process-step">
+                    <p class="process-step-number">04</p>
+                    <h3>Usability Study</h3>
+                    <p>Usability testing was conducted to identify any issues with the design and ensure that the visualizer was both intuitive and effective.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iterations -->
+        <section class="project-section">
+            <h2>Design Iterations</h2>
+            <div class="project-features">
+                <div class="project-feature">
+                    <h3>Iteration 1: Core Framework</h3>
+                    <p>Established the primary structure and basic visualizations. The first menu was created with an on-screen interface that users tapped to access files from their computer.</p>
+                </div>
+                <div class="project-feature">
+                    <h3>Iteration 2: Interactive Features</h3>
+                    <p>Enhanced the website with animations, dynamic filtering options, and improved navigation. A major step toward making the application as frictionless as possible.</p>
+                </div>
+                <div class="project-feature">
+                    <h3>Iteration 3: Polish & Performance</h3>
+                    <p>Optimized performance and refined aesthetic details. User feedback drove improvements in responsiveness, visual transitions, and overall usability.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="project-section project-section-gray">
+            <h2>The Results</h2>
+            <p>The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
+            <p>The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
+        </section>
+
+        <!-- Learnings -->
+        <section class="project-section">
+            <h2>What I Learned</h2>
+            <p>This project provided valuable insights into creating user-centered design working with audio visualization. I learned the value of iterative development and real user feedback in creating a product that is both functional and aesthetically engaging.</p>
+        </section>
+
+        <!-- CTA -->
+        <section class="project-cta">
+            <h2>Experience Visualizer</h2>
+            <a href="https://www.visualizerwebsite.com" class="btn-primary" target="_blank">
+                Visit Project
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/demonte-walker-83506017b/" target="_blank" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://github.com/thecoolguy2001" target="_blank" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </a>
-            <a href="mailto:demontewalker12@gmail.com" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-            </a>
-            <a href="tel:4045933269" aria-label="Call">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/></svg>
-            </a>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/demonte-walker-83506017b/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://github.com/thecoolguy2001" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="mailto:demontewalker12@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                </a>
+                <a href="tel:4045933269" aria-label="Call">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/></svg>
+                </a>
+            </div>
+            <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
         </div>
-        <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
