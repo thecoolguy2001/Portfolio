@@ -8,23 +8,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
     <title>Visualizer - Demonte Walker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-black: #1d1d1f;
-            --color-gray-900: #2d2d2d;
-            --color-gray-700: #424245;
             --color-gray-500: #6e6e73;
             --color-gray-400: #86868b;
-            --color-gray-300: #a1a1a6;
             --color-gray-200: #d2d2d7;
             --color-gray-100: #f5f5f7;
             --color-white: #ffffff;
-            --color-accent: #667eea;
             --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --transition-smooth: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         *, *::before, *::after {
@@ -45,26 +37,12 @@
             line-height: 1.47;
             color: var(--color-black);
             background: var(--color-white);
-            overflow-x: hidden;
         }
 
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
-                        transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
 
         /* Navigation */
         .nav {
@@ -77,10 +55,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.4s ease;
-        }
-
-        .nav.scrolled {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -90,25 +64,18 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--color-white);
-            font-size: 0.9375rem;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .nav.scrolled .nav-back {
-            color: var(--color-black);
-            text-shadow: none;
+            color: #0071e3;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .nav-back:hover {
-            opacity: 0.7;
+            text-decoration: underline;
         }
 
         .nav-back svg {
-            width: 20px;
-            height: 20px;
+            width: 12px;
+            height: 12px;
         }
 
         .nav-logo {
@@ -119,691 +86,303 @@
 
         .nav-logo img {
             height: 40px;
-            filter: brightness(0) invert(1);
-            transition: filter 0.4s ease;
         }
 
-        .nav.scrolled .nav-logo img {
-            filter: none;
-        }
-
-        /* Hero - Full Bleed Cinematic */
+        /* Hero */
         .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            overflow: hidden;
+            padding: 140px 24px 80px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 80px;
-            padding-top: 200px;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-        }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 16px;
+        .hero-eyebrow {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--color-gray-500);
+            margin-bottom: 8px;
         }
 
         .hero-title {
-            font-size: clamp(4rem, 12vw, 8rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 0.95;
-            color: var(--color-white);
-            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: var(--color-black);
+            margin-bottom: 16px;
         }
 
         .hero-subtitle {
             font-size: clamp(1.25rem, 3vw, 1.75rem);
             font-weight: 400;
-            color: rgba(255,255,255,0.9);
-            max-width: 600px;
-            line-height: 1.4;
+            color: var(--color-gray-500);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.3;
         }
 
-        /* Sticky Progress */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            z-index: 1001;
-            transition: width 0.1s linear;
+        /* Hero Image */
+        .hero-image {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 24px;
         }
 
-        /* Section - Intro */
-        .section-intro {
-            padding: 160px 80px;
-            max-width: 1400px;
+        .hero-image-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 20px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image-container span {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            padding: 100px 24px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 120px;
-            align-items: start;
+        .section-wide {
+            max-width: 1000px;
         }
 
-        .intro-meta {
-            position: sticky;
-            top: 120px;
+        .section-headline {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--color-black);
+            line-height: 1.1;
+            margin-bottom: 24px;
         }
 
-        .meta-group {
-            margin-bottom: 48px;
+        .section-text {
+            font-size: 1.125rem;
+            color: var(--color-gray-500);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Meta Info */
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding: 60px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .meta-item {
+            flex: 1;
+            min-width: 150px;
         }
 
         .meta-label {
             font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             color: var(--color-gray-400);
             margin-bottom: 8px;
         }
 
         .meta-value {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 500;
             color: var(--color-black);
+            line-height: 1.4;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .feature {
+            text-align: left;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            color: var(--color-gray-500);
             line-height: 1.5;
         }
 
-        .meta-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .meta-tag {
-            padding: 8px 16px;
-            background: var(--color-gray-100);
-            border-radius: 100px;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--color-gray-700);
-        }
-
-        .intro-content h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-black);
-            line-height: 1.15;
-            margin-bottom: 32px;
-        }
-
-        .intro-content p {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: var(--color-gray-500);
-            margin-bottom: 24px;
-        }
-
-        .btn-visit {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: var(--color-black);
-            color: var(--color-white);
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 100px;
-            margin-top: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-visit:hover {
-            background: var(--color-gray-900);
-            transform: scale(1.02);
-        }
-
-        .btn-visit svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-visit:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Section - Full Width Dark */
-        .section-dark {
-            background: var(--color-black);
-            padding: 160px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-dark::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(102, 126, 234, 0.15) 0%, transparent 60%);
-        }
-
-        .section-dark-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-dark h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-white);
-            margin-bottom: 40px;
-        }
-
-        .section-dark p {
-            font-size: 1.375rem;
-            line-height: 1.7;
-            color: var(--color-gray-300);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .problem-highlight {
-            margin-top: 80px;
-            padding: 48px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-        }
-
-        .problem-highlight p {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--color-white);
-            font-style: italic;
-        }
-
-        /* Section - Solution */
-        .section-solution {
-            padding: 160px 80px;
-            background: var(--color-gray-100);
-        }
-
-        .solution-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 100px;
-        }
-
-        .solution-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-black);
-            margin-bottom: 24px;
-        }
-
-        .solution-header p {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: var(--color-gray-500);
-        }
-
-        .solution-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .solution-card {
-            background: var(--color-white);
-            border-radius: 24px;
-            padding: 48px 40px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-            transition: all 0.4s ease;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .solution-card-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-        }
-
-        .solution-card-icon svg {
-            width: 28px;
-            height: 28px;
-            color: white;
-        }
-
-        .solution-card h3 {
-            font-size: 1.375rem;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 16px;
-        }
-
-        .solution-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--color-gray-500);
-        }
-
-        /* Section - Process */
-        .section-process {
-            padding: 160px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .process-header {
-            text-align: center;
-            margin-bottom: 100px;
-        }
-
-        .process-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-black);
-        }
-
-        .process-timeline {
-            position: relative;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--color-gray-200), transparent);
+        /* Process Section */
+        .process-list {
+            margin-top: 48px;
         }
 
         .process-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 120px;
-            position: relative;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--color-gray-200);
         }
 
-        .process-item:nth-child(even) .process-content {
-            order: 2;
-        }
-
-        .process-item:nth-child(even) .process-visual {
-            order: 1;
+        .process-item:first-child {
+            border-top: 1px solid var(--color-gray-200);
         }
 
         .process-number {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 48px;
-            height: 48px;
-            background: var(--color-white);
-            border: 2px solid var(--color-gray-200);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            color: var(--color-black);
-            z-index: 2;
-        }
-
-        .process-content {
-            padding-top: 12px;
-        }
-
-        .process-content h3 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 20px;
-        }
-
-        .process-content p {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: var(--color-gray-500);
-            margin-bottom: 24px;
-        }
-
-        .process-insight {
-            padding: 24px;
-            background: var(--color-gray-100);
-            border-radius: 16px;
-            font-size: 0.9375rem;
-            color: var(--color-gray-700);
-            border-left: 3px solid var(--color-accent);
-        }
-
-        .process-visual {
-            background: var(--color-gray-100);
-            border-radius: 24px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .process-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Section - Iterations */
-        .section-iterations {
-            padding: 160px 80px;
-            background: var(--color-black);
-        }
-
-        .iterations-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 100px;
-        }
-
-        .iterations-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-white);
-        }
-
-        .iterations-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .iteration-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 48px;
-            transition: all 0.4s ease;
-        }
-
-        .iteration-card:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.2);
-            transform: translateY(-4px);
-        }
-
-        .iteration-number {
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 24px;
-        }
-
-        .iteration-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-white);
-            margin-bottom: 16px;
-        }
-
-        .iteration-card p {
-            font-size: 1rem;
-            line-height: 1.6;
             color: var(--color-gray-400);
+            margin-bottom: 12px;
         }
 
-        /* Section - Results */
-        .section-results {
-            padding: 160px 80px;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .results-content h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-black);
-            margin-bottom: 32px;
-        }
-
-        .results-content p {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: var(--color-gray-500);
-            margin-bottom: 24px;
-        }
-
-        .results-learnings {
-            background: var(--color-gray-100);
-            border-radius: 24px;
-            padding: 48px;
-        }
-
-        .results-learnings h3 {
+        .process-title {
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--color-black);
-            margin-bottom: 24px;
+            margin-bottom: 12px;
         }
 
-        .results-learnings p {
-            font-size: 1.125rem;
-            line-height: 1.7;
+        .process-text {
+            font-size: 1rem;
             color: var(--color-gray-500);
+            line-height: 1.6;
         }
 
-        /* CTA Section */
-        .section-cta {
-            padding: 160px 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Quote */
+        .quote {
+            padding: 80px 24px;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .section-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.2) 0%, transparent 60%);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-white);
-            margin-bottom: 32px;
-        }
-
-        .cta-content p {
-            font-size: 1.375rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 20px 48px;
-            background: var(--color-white);
-            color: var(--color-black);
-            font-size: 1.125rem;
+        .quote-text {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
             font-weight: 600;
-            border-radius: 100px;
-            transition: all 0.3s ease;
+            color: var(--color-black);
+            line-height: 1.3;
+            letter-spacing: -0.02em;
         }
 
-        .btn-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        /* Gray Section */
+        .section-gray {
+            background: var(--color-gray-100);
+            padding: 100px 24px;
+        }
+
+        .section-gray-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 24px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: #0071e3;
+            color: white;
+            font-size: 1.0625rem;
+            font-weight: 500;
+            border-radius: 980px;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #0077ed;
         }
 
         /* Footer */
         .footer {
-            background: var(--color-black);
-            padding: 80px;
+            background: var(--color-gray-100);
+            padding: 40px 24px;
             text-align: center;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-bottom: 32px;
+            gap: 24px;
+            margin-bottom: 20px;
         }
 
         .footer-links a {
             color: var(--color-gray-400);
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .footer-links a:hover {
-            color: var(--color-white);
+            color: var(--color-black);
         }
 
         .footer-links svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
         }
 
         .footer-copyright {
-            font-size: 0.875rem;
-            color: var(--color-gray-500);
+            font-size: 0.8125rem;
+            color: var(--color-gray-400);
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 20px 60px;
             }
 
-            .intro-meta {
-                position: static;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+            .section {
+                padding: 60px 20px;
+            }
+
+            .meta-row {
+                padding: 40px 20px;
                 gap: 32px;
             }
 
-            .solution-cards {
-                grid-template-columns: 1fr;
+            .quote {
+                padding: 60px 20px;
             }
 
-            .process-timeline::before {
-                display: none;
+            .section-gray {
+                padding: 60px 20px;
             }
 
-            .process-item {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .process-number {
-                position: static;
-                transform: none;
-                margin-bottom: 24px;
-            }
-
-            .process-item:nth-child(even) .process-content,
-            .process-item:nth-child(even) .process-visual {
-                order: unset;
-            }
-
-            .iterations-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-intro,
-            .section-dark,
-            .section-solution,
-            .section-process,
-            .section-iterations,
-            .section-results,
-            .section-cta,
-            .footer {
-                padding: 80px 24px;
-            }
-
-            .hero-content {
-                padding: 40px 24px;
-                padding-top: 150px;
-            }
-
-            .intro-meta {
-                grid-template-columns: 1fr;
+            .cta {
+                padding: 60px 20px;
             }
 
             .nav {
@@ -813,220 +392,139 @@
             .nav-logo img {
                 height: 32px;
             }
+
+            .feature-grid {
+                gap: 32px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
-
     <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <nav class="nav">
         <a href="../index.html#projects" class="nav-back">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            Projects
         </a>
         <a href="../index.html" class="nav-logo">
             <img src="../portfolio_logo.png" alt="DW Logo">
         </a>
-        <div style="width: 60px;"></div>
+        <div style="width: 80px;"></div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <span class="hero-label">Web Application</span>
-            <h1 class="hero-title">Visualizer</h1>
-            <p class="hero-subtitle">Transforming audio into an immersive visual experience for music enthusiasts.</p>
-        </div>
+        <p class="hero-eyebrow">Web Application</p>
+        <h1 class="hero-title">Visualizer</h1>
+        <p class="hero-subtitle">Transforming audio into an immersive visual experience for music enthusiasts.</p>
     </section>
 
-    <!-- Intro Section -->
-    <section class="section-intro">
-        <div class="intro-grid">
-            <div class="intro-meta">
-                <div class="meta-group reveal">
-                    <p class="meta-label">Role</p>
-                    <p class="meta-value">Founder / Mobile Developer / Web Developer / UI/UX Designer</p>
-                </div>
-                <div class="meta-group reveal reveal-delay-1">
-                    <p class="meta-label">Timeline</p>
-                    <p class="meta-value">October 2024 - September 2025</p>
-                </div>
-                <div class="meta-group reveal reveal-delay-2">
-                    <p class="meta-label">Team</p>
-                    <p class="meta-value">Demonte Walker</p>
-                </div>
-                <div class="meta-group reveal reveal-delay-3">
-                    <p class="meta-label">Tools</p>
-                    <div class="meta-tags">
-                        <span class="meta-tag">API</span>
-                        <span class="meta-tag">CSS</span>
-                        <span class="meta-tag">Figma</span>
-                        <span class="meta-tag">GitHub</span>
-                        <span class="meta-tag">HTML</span>
-                        <span class="meta-tag">JavaScript</span>
-                        <span class="meta-tag">Swift</span>
-                        <span class="meta-tag">Xcode</span>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-content">
-                <h2 class="reveal">A modern audio visualizer built for the way people experience music today.</h2>
-                <p class="reveal reveal-delay-1">The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
-                <p class="reveal reveal-delay-2">This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
-                <a href="https://www.visualizerwebsite.com" class="btn-visit reveal reveal-delay-3" target="_blank">
-                    Visit Project
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
+    <!-- Hero Image -->
+    <div class="hero-image">
+        <div class="hero-image-container">
+            <span>Project Preview</span>
         </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="meta-row">
+        <div class="meta-item">
+            <p class="meta-label">Role</p>
+            <p class="meta-value">Founder, Developer, Designer</p>
+        </div>
+        <div class="meta-item">
+            <p class="meta-label">Timeline</p>
+            <p class="meta-value">October 2024 - September 2025</p>
+        </div>
+        <div class="meta-item">
+            <p class="meta-label">Tools</p>
+            <p class="meta-value">JavaScript, Swift, Figma, Xcode</p>
+        </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="section section-wide">
+        <h2 class="section-headline">A modern audio visualizer built for the way people experience music today.</h2>
+        <p class="section-text">The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
+        <p class="section-text">This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
     </section>
 
-    <!-- Problem Section -->
-    <section class="section-dark">
-        <div class="section-dark-content">
-            <h2 class="reveal">The Problem</h2>
-            <p class="reveal reveal-delay-1">Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it. Many options were either outdated or too complicated for the average user.</p>
-            <div class="problem-highlight reveal reveal-delay-2">
-                <p>"Users struggle with dense data sets due to poor presentation and overwhelming information architecture. The challenge was to create something both accessible and visually compelling."</p>
-            </div>
-        </div>
+    <!-- Problem -->
+    <section class="quote">
+        <p class="quote-text">"Users struggle with finding the optimal way to enjoy music with visualizers. Many options are either outdated or too complicated for the average user."</p>
     </section>
 
-    <!-- Solution Section -->
-    <section class="section-solution">
-        <div class="solution-header">
-            <h2 class="reveal">The Solution</h2>
-            <p class="reveal reveal-delay-1">A dynamic website utilizing modern UI elements and interactive design features to transform data into visually digestible and engaging formats.</p>
-        </div>
-        <div class="solution-cards">
-            <div class="solution-card reveal">
-                <div class="solution-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                </div>
-                <h3>Immersive Experience</h3>
-                <p>Modern design trends and interactive elements create an immersive visualization experience that keeps users engaged.</p>
+    <!-- Solution -->
+    <section class="section section-wide">
+        <h2 class="section-headline">The solution: a dynamic, intuitive experience.</h2>
+        <p class="section-text">A website utilizing modern UI elements and interactive design features to transform audio into visually engaging formats.</p>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <h3 class="feature-title">Immersive Experience</h3>
+                <p class="feature-text">Modern design trends and interactive elements create an immersive visualization experience that keeps users engaged.</p>
             </div>
-            <div class="solution-card reveal reveal-delay-1">
-                <div class="solution-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-                </div>
-                <h3>Clear & Accessible</h3>
-                <p>Data presented in a clear, accessible format with intuitive navigation and fully responsive design.</p>
+            <div class="feature">
+                <h3 class="feature-title">Clear & Accessible</h3>
+                <p class="feature-text">Data presented in a clear, accessible format with intuitive navigation and fully responsive design.</p>
             </div>
-            <div class="solution-card reveal reveal-delay-2">
-                <div class="solution-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <h3>Interactive Features</h3>
-                <p>Animations and interactive features keep users engaged while exploring complex audio data.</p>
+            <div class="feature">
+                <h3 class="feature-title">Interactive Features</h3>
+                <p class="feature-text">Animations and interactive features keep users engaged while exploring complex audio data.</p>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="section-process">
-        <div class="process-header">
-            <h2 class="reveal">The Process</h2>
-        </div>
-        <div class="process-timeline">
-            <div class="process-item">
-                <div class="process-number">01</div>
-                <div class="process-content reveal">
-                    <h3>User Research</h3>
-                    <p>Research began by looking at past versions of visualizers that users have modern pain points for. Having a modern visualizer that can be used to listen to music, study, or create unique experiences was something that felt missing.</p>
-                    <div class="process-insight">Conducted interviews to gather insights into user preferences and industry standards.</div>
+    <!-- Process -->
+    <div class="section-gray">
+        <div class="section-gray-content">
+            <h2 class="section-headline">The process.</h2>
+            <p class="section-text">From research to final implementation, the project followed a user-centered design approach.</p>
+
+            <div class="process-list">
+                <div class="process-item">
+                    <p class="process-number">01</p>
+                    <h3 class="process-title">User Research</h3>
+                    <p class="process-text">Research began by looking at past versions of visualizers that users have modern pain points for. Having a modern visualizer that can be used to listen to music, study, or create unique experiences was something that felt missing.</p>
                 </div>
-                <div class="process-visual reveal reveal-delay-1">
-                    <div style="font-size: 3rem; color: var(--color-gray-400);">Research</div>
+                <div class="process-item">
+                    <p class="process-number">02</p>
+                    <h3 class="process-title">Sketches & Concepts</h3>
+                    <p class="process-text">Preliminary design concepts were developed to map out the core structure. Controls were important - keyboard was the more intuitive choice as it can be quickly executed without interrupting the experience.</p>
                 </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">02</div>
-                <div class="process-content reveal">
-                    <h3>Sketches</h3>
-                    <p>Preliminary design concepts were developed to map out the core structure. Controls were important - keyboard was the more intuitive choice as it can be quickly executed without interrupting the experience.</p>
-                    <div class="process-insight">Created multiple design concepts to explore various branding and visual styles.</div>
+                <div class="process-item">
+                    <p class="process-number">03</p>
+                    <h3 class="process-title">Prototyping</h3>
+                    <p class="process-text">Interactive prototypes were developed to test the new design elements and functionality. Many users instantly understood and were curious to interact with the application to explore modes.</p>
                 </div>
-                <div class="process-visual reveal reveal-delay-1">
-                    <div style="font-size: 3rem; color: var(--color-gray-400);">Sketches</div>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">03</div>
-                <div class="process-content reveal">
-                    <h3>Wireframes & Prototypes</h3>
-                    <p>Interactive prototypes were developed to test the new design elements and functionality. Many users instantly understood and were curious to interact with the application to explore modes.</p>
-                    <div class="process-insight">Developed and tested interactive prototypes to refine design and user experience.</div>
-                </div>
-                <div class="process-visual reveal reveal-delay-1">
-                    <div style="font-size: 3rem; color: var(--color-gray-400);">Prototypes</div>
-                </div>
-            </div>
-            <div class="process-item">
-                <div class="process-number">04</div>
-                <div class="process-content reveal">
-                    <h3>Usability Study</h3>
-                    <p>Usability testing was conducted to identify any issues with the design and ensure that the visualizer was both intuitive and effective. Testing sessions involved target users exploring the prototypes.</p>
-                    <div class="process-insight">Performed usability tests with target users to refine navigation, interaction, and visual presentation.</div>
-                </div>
-                <div class="process-visual reveal reveal-delay-1">
-                    <div style="font-size: 3rem; color: var(--color-gray-400);">Testing</div>
+                <div class="process-item">
+                    <p class="process-number">04</p>
+                    <h3 class="process-title">Usability Testing</h3>
+                    <p class="process-text">Usability testing was conducted to identify any issues with the design and ensure that the visualizer was both intuitive and effective.</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Results -->
+    <section class="section section-wide">
+        <h2 class="section-headline">The results.</h2>
+        <p class="section-text">The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
+        <p class="section-text">The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
     </section>
 
-    <!-- Iterations Section -->
-    <section class="section-iterations">
-        <div class="iterations-header">
-            <h2 class="reveal">Design Iterations</h2>
+    <!-- Learnings -->
+    <div class="section-gray">
+        <div class="section-gray-content">
+            <h2 class="section-headline">What I learned.</h2>
+            <p class="section-text">This project provided valuable insights into creating user-centered design working with audio visualization. I learned the value of iterative development and real user feedback in creating a product that is both functional and aesthetically engaging.</p>
         </div>
-        <div class="iterations-grid">
-            <div class="iteration-card reveal">
-                <div class="iteration-number">01</div>
-                <h3>Core Framework</h3>
-                <p>Established the primary structure and basic visualizations. The first menu was created with an on-screen interface that users tapped to access files from their computer.</p>
-            </div>
-            <div class="iteration-card reveal reveal-delay-1">
-                <div class="iteration-number">02</div>
-                <h3>Interactive Features</h3>
-                <p>Enhanced the website with animations, dynamic filtering options, and improved navigation. A major step toward making the application as frictionless as possible.</p>
-            </div>
-            <div class="iteration-card reveal reveal-delay-2">
-                <div class="iteration-number">03</div>
-                <h3>Polish & Performance</h3>
-                <p>Optimized performance and refined aesthetic details. User feedback drove improvements in responsiveness, visual transitions, and overall usability.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- Results Section -->
-    <section class="section-results">
-        <div class="results-grid">
-            <div class="results-content">
-                <h2 class="reveal">The Results</h2>
-                <p class="reveal reveal-delay-1">The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
-                <p class="reveal reveal-delay-2">The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
-            </div>
-            <div class="results-learnings reveal reveal-delay-1">
-                <h3>What I Learned</h3>
-                <p>This project provided valuable insights into creating user-centered design working with audio visualization. I learned the value of iterative development and real user feedback in creating a product that is both functional and aesthetically engaging.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-cta">
-        <div class="cta-content">
-            <h2 class="reveal">Experience Visualizer</h2>
-            <p class="reveal reveal-delay-1">See how audio transforms into a visual journey.</p>
-            <a href="https://www.visualizerwebsite.com" class="btn-cta reveal reveal-delay-2" target="_blank">
-                Visit Project
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-        </div>
+    <!-- CTA -->
+    <section class="cta">
+        <h2 class="cta-title">Experience Visualizer</h2>
+        <a href="https://www.visualizerwebsite.com" class="cta-button" target="_blank">Visit Project</a>
     </section>
 
     <!-- Footer -->
@@ -1047,41 +545,5 @@
         </div>
         <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // Progress bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-
-            // Nav background
-            const nav = document.getElementById('nav');
-            if (winScroll > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-
-        const revealOnScroll = () => {
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
-    </script>
 </body>
 </html>
