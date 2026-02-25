@@ -47,6 +47,27 @@
             line-height: 1.5;
         }
 
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 8px 16px;
+            background: rgba(52, 199, 89, 0.1);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #34c759;
+        }
+
+        .project-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #34c759;
+            border-radius: 50%;
+        }
+
         .project-image {
             max-width: 1200px;
             margin: 40px auto;
@@ -94,92 +115,191 @@
             font-weight: 500;
         }
 
-        .project-section {
+        /* Feed Container */
+        .project-feed {
             max-width: 800px;
             margin: 0 auto;
-            padding: 80px var(--container-padding);
+            padding: 60px var(--container-padding);
         }
 
-        .project-section h2 {
-            font-size: 2rem;
+        /* Feed Entry */
+        .feed-entry {
+            position: relative;
+            padding-left: 32px;
+            padding-bottom: 60px;
+            border-left: 2px solid var(--color-gray-200);
+        }
+
+        .feed-entry:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+
+        .feed-entry::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .feed-entry:first-child::before {
+            background: var(--color-accent);
+        }
+
+        .feed-date {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+        }
+
+        .feed-card {
+            background: var(--color-gray-100);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .feed-card h2 {
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-black);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
         }
 
-        .project-section p {
-            font-size: 1.125rem;
+        .feed-card p {
+            font-size: 1.0625rem;
             color: var(--color-gray-500);
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        .project-section p:last-child {
+        .feed-card p:last-child {
             margin-bottom: 0;
         }
 
-        .project-section-gray {
-            background: var(--color-gray-100);
-            border-radius: 20px;
-            max-width: 900px;
-            margin: 40px auto;
+        .feed-card-plain {
+            background: transparent;
+            padding: 0;
         }
 
-        .project-features {
+        .feed-card-plain h2 {
+            font-size: 1.75rem;
+        }
+
+        /* Feed Features Grid */
+        .feed-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
         }
 
-        .project-feature h3 {
-            font-size: 1.25rem;
+        .feed-feature {
+            background: var(--color-white);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .feed-feature h3 {
+            font-size: 1.0625rem;
             font-weight: 600;
             color: var(--color-black);
-            margin-bottom: 12px;
-        }
-
-        .project-feature p {
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-
-        .project-process {
-            margin-top: 40px;
-        }
-
-        .process-step {
-            padding: 32px 0;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-
-        .process-step:first-child {
-            border-top: 1px solid var(--color-gray-200);
-        }
-
-        .process-step-number {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--color-accent);
             margin-bottom: 8px;
         }
 
-        .process-step h3 {
-            font-size: 1.375rem;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 12px;
-        }
-
-        .process-step p {
+        .feed-feature p {
+            font-size: 0.9375rem;
             margin-bottom: 0;
         }
 
+        /* Process Steps in Feed */
+        .feed-steps {
+            margin-top: 24px;
+        }
+
+        .feed-step {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .feed-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .feed-step-number {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            min-width: 28px;
+        }
+
+        .feed-step-content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 6px;
+        }
+
+        .feed-step-content p {
+            font-size: 0.9375rem;
+            margin-bottom: 0;
+        }
+
+        /* Iteration Cards */
+        .feed-iterations {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .iteration-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .iteration-version {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-white);
+            background: var(--color-accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .iteration-content h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 6px;
+        }
+
+        .iteration-content p {
+            font-size: 0.9375rem;
+            margin-bottom: 0;
+        }
+
+        /* CTA */
         .project-cta {
             max-width: 600px;
             margin: 0 auto;
-            padding: 80px var(--container-padding);
+            padding: 40px var(--container-padding) 80px;
             text-align: center;
         }
 
@@ -251,12 +371,21 @@
                 padding: 40px var(--container-padding);
             }
 
-            .project-section {
-                padding: 60px var(--container-padding);
+            .project-feed {
+                padding: 40px var(--container-padding);
+            }
+
+            .feed-entry {
+                padding-left: 24px;
+                padding-bottom: 40px;
+            }
+
+            .feed-card {
+                padding: 24px;
             }
 
             .project-cta {
-                padding: 60px var(--container-padding);
+                padding: 40px var(--container-padding) 60px;
             }
 
             .project-nav {
@@ -265,6 +394,11 @@
 
             .project-nav-logo img {
                 height: 32px;
+            }
+
+            .iteration-card {
+                flex-direction: column;
+                gap: 12px;
             }
         }
     </style>
@@ -288,6 +422,7 @@
             <p class="project-hero-label">Web Application</p>
             <h1 class="project-hero-title">Visualizer</h1>
             <p class="project-hero-subtitle">Transforming audio into an immersive visual experience for music enthusiasts.</p>
+            <div class="project-status">Active Development</div>
         </section>
 
         <!-- Project Image -->
@@ -305,7 +440,7 @@
             </div>
             <div class="project-meta-item">
                 <h4>Timeline</h4>
-                <p>October 2024 - September 2025</p>
+                <p>October 2024 - Present</p>
             </div>
             <div class="project-meta-item">
                 <h4>Team</h4>
@@ -317,101 +452,137 @@
             </div>
         </div>
 
-        <!-- Summary -->
-        <section class="project-section">
-            <h2>Summary</h2>
-            <p>The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
-            <p>This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
-        </section>
+        <!-- Feed -->
+        <div class="project-feed">
 
-        <!-- Problem -->
-        <section class="project-section project-section-gray">
-            <h2>The Problem</h2>
-            <p>Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it. Many options were either outdated or too complicated for the average user.</p>
-            <p>Users struggle with dense data sets due to poor presentation and overwhelming information architecture. The challenge was to create something both accessible and visually compelling.</p>
-        </section>
+            <!-- Latest Update -->
+            <article class="feed-entry">
+                <p class="feed-date">September 2025</p>
+                <div class="feed-card">
+                    <h2>Results & Reception</h2>
+                    <p>The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
+                    <p>The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
+                </div>
+            </article>
 
-        <!-- Solution -->
-        <section class="project-section">
-            <h2>The Solution</h2>
-            <p>A dynamic website utilizing modern UI elements and interactive design features to transform data into visually digestible and engaging formats.</p>
+            <!-- Iterations -->
+            <article class="feed-entry">
+                <p class="feed-date">August 2025</p>
+                <div class="feed-card">
+                    <h2>Design Iterations</h2>
+                    <p>Refining the experience through multiple iterations based on user feedback.</p>
 
-            <div class="project-features">
-                <div class="project-feature">
-                    <h3>Immersive Experience</h3>
-                    <p>Modern design trends and interactive elements create an immersive visualization experience that keeps users engaged.</p>
+                    <div class="feed-iterations">
+                        <div class="iteration-card">
+                            <span class="iteration-version">v3.0</span>
+                            <div class="iteration-content">
+                                <h3>Polish & Performance</h3>
+                                <p>Optimized performance and refined aesthetic details. User feedback drove improvements in responsiveness, visual transitions, and overall usability.</p>
+                            </div>
+                        </div>
+                        <div class="iteration-card">
+                            <span class="iteration-version">v2.0</span>
+                            <div class="iteration-content">
+                                <h3>Interactive Features</h3>
+                                <p>Enhanced the website with animations, dynamic filtering options, and improved navigation. A major step toward making the application as frictionless as possible.</p>
+                            </div>
+                        </div>
+                        <div class="iteration-card">
+                            <span class="iteration-version">v1.0</span>
+                            <div class="iteration-content">
+                                <h3>Core Framework</h3>
+                                <p>Established the primary structure and basic visualizations. The first menu was created with an on-screen interface that users tapped to access files.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-feature">
-                    <h3>Clear & Accessible</h3>
-                    <p>Data presented in a clear, accessible format with intuitive navigation and fully responsive design.</p>
-                </div>
-                <div class="project-feature">
-                    <h3>Interactive Features</h3>
-                    <p>Animations and interactive features keep users engaged while exploring complex audio data.</p>
-                </div>
-            </div>
-        </section>
+            </article>
 
-        <!-- Process -->
-        <section class="project-section project-section-gray">
-            <h2>The Process</h2>
-            <p>From research to final implementation, the project followed a user-centered design approach.</p>
+            <!-- Process -->
+            <article class="feed-entry">
+                <p class="feed-date">March 2025</p>
+                <div class="feed-card">
+                    <h2>The Process</h2>
+                    <p>From research to final implementation, the project followed a user-centered design approach.</p>
 
-            <div class="project-process">
-                <div class="process-step">
-                    <p class="process-step-number">01</p>
-                    <h3>User Research</h3>
-                    <p>Research began by looking at past versions of visualizers that users have modern pain points for. Having a modern visualizer that can be used to listen to music, study, or create unique experiences was something that felt missing.</p>
+                    <div class="feed-steps">
+                        <div class="feed-step">
+                            <span class="feed-step-number">01</span>
+                            <div class="feed-step-content">
+                                <h3>User Research</h3>
+                                <p>Research began by looking at past versions of visualizers that users have modern pain points for.</p>
+                            </div>
+                        </div>
+                        <div class="feed-step">
+                            <span class="feed-step-number">02</span>
+                            <div class="feed-step-content">
+                                <h3>Sketches</h3>
+                                <p>Preliminary design concepts were developed to map out the core structure and keyboard controls.</p>
+                            </div>
+                        </div>
+                        <div class="feed-step">
+                            <span class="feed-step-number">03</span>
+                            <div class="feed-step-content">
+                                <h3>Wireframes & Prototypes</h3>
+                                <p>Interactive prototypes were developed to test the new design elements and functionality.</p>
+                            </div>
+                        </div>
+                        <div class="feed-step">
+                            <span class="feed-step-number">04</span>
+                            <div class="feed-step-content">
+                                <h3>Usability Study</h3>
+                                <p>Testing was conducted to ensure the visualizer was both intuitive and effective.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <p class="process-step-number">02</p>
-                    <h3>Sketches</h3>
-                    <p>Preliminary design concepts were developed to map out the core structure. Controls were important - keyboard was the more intuitive choice as it can be quickly executed without interrupting the experience.</p>
-                </div>
-                <div class="process-step">
-                    <p class="process-step-number">03</p>
-                    <h3>Wireframes & Prototypes</h3>
-                    <p>Interactive prototypes were developed to test the new design elements and functionality. Many users instantly understood and were curious to interact with the application to explore modes.</p>
-                </div>
-                <div class="process-step">
-                    <p class="process-step-number">04</p>
-                    <h3>Usability Study</h3>
-                    <p>Usability testing was conducted to identify any issues with the design and ensure that the visualizer was both intuitive and effective.</p>
-                </div>
-            </div>
-        </section>
+            </article>
 
-        <!-- Iterations -->
-        <section class="project-section">
-            <h2>Design Iterations</h2>
-            <div class="project-features">
-                <div class="project-feature">
-                    <h3>Iteration 1: Core Framework</h3>
-                    <p>Established the primary structure and basic visualizations. The first menu was created with an on-screen interface that users tapped to access files from their computer.</p>
-                </div>
-                <div class="project-feature">
-                    <h3>Iteration 2: Interactive Features</h3>
-                    <p>Enhanced the website with animations, dynamic filtering options, and improved navigation. A major step toward making the application as frictionless as possible.</p>
-                </div>
-                <div class="project-feature">
-                    <h3>Iteration 3: Polish & Performance</h3>
-                    <p>Optimized performance and refined aesthetic details. User feedback drove improvements in responsiveness, visual transitions, and overall usability.</p>
-                </div>
-            </div>
-        </section>
+            <!-- Solution -->
+            <article class="feed-entry">
+                <p class="feed-date">January 2025</p>
+                <div class="feed-card">
+                    <h2>The Solution</h2>
+                    <p>A dynamic website utilizing modern UI elements and interactive design features to transform data into visually engaging formats.</p>
 
-        <!-- Results -->
-        <section class="project-section project-section-gray">
-            <h2>The Results</h2>
-            <p>The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
-            <p>The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
-        </section>
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Immersive Experience</h3>
+                            <p>Modern design trends and interactive elements create an immersive visualization experience.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Clear & Accessible</h3>
+                            <p>Data presented in a clear, accessible format with intuitive navigation.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Interactive Features</h3>
+                            <p>Animations and interactive features keep users engaged while exploring audio data.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-        <!-- Learnings -->
-        <section class="project-section">
-            <h2>What I Learned</h2>
-            <p>This project provided valuable insights into creating user-centered design working with audio visualization. I learned the value of iterative development and real user feedback in creating a product that is both functional and aesthetically engaging.</p>
-        </section>
+            <!-- Problem -->
+            <article class="feed-entry">
+                <p class="feed-date">November 2024</p>
+                <div class="feed-card">
+                    <h2>The Problem</h2>
+                    <p>Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it. Many options were either outdated or too complicated for the average user.</p>
+                    <p>The challenge was to create something both accessible and visually compelling.</p>
+                </div>
+            </article>
+
+            <!-- Project Start -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2024</p>
+                <div class="feed-card-plain">
+                    <h2>Project Started</h2>
+                    <p>The Visualizer Website transforms complex audio data into an engaging, interactive experience using visual effects. The project focused on designing an immersive platform that presents visual data intuitively, blending modern aesthetics with robust functionality.</p>
+                    <p>This project was made specifically for music enthusiasts of all kinds to be able to enjoy their personal favorite music in a refreshing new way.</p>
+                </div>
+            </article>
+
+        </div>
 
         <!-- CTA -->
         <section class="project-cta">
