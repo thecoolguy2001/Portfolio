@@ -236,6 +236,7 @@ const modalClose = document.querySelector('.modal-close');
 document.addEventListener('DOMContentLoaded', () => {
     initPageLoader();
     initProjectCards();
+    initProjectVideoHover();
     initScrollReveal();
     initSmoothScroll();
     initNavScroll();
@@ -252,6 +253,27 @@ function initPageLoader() {
             loader.classList.add('hidden');
         }, 1200);
     }
+}
+
+// Project video hover effect
+function initProjectVideoHover() {
+    const mediaHoverCards = document.querySelectorAll('.project-media-hover');
+
+    mediaHoverCards.forEach(container => {
+        const video = container.querySelector('.project-video');
+        const card = container.closest('.project-card');
+
+        if (video && card) {
+            card.addEventListener('mouseenter', () => {
+                video.currentTime = 0;
+                video.play().catch(() => {});
+            });
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+            });
+        }
+    });
 }
 
 // Project card click handlers

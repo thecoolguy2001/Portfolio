@@ -804,6 +804,37 @@ button {
     transform: scale(1.08);
 }
 
+/* Project Media Hover - Image to Video */
+.project-media-hover {
+    position: relative;
+}
+
+.project-media-hover .project-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
+}
+
+.project-media-hover .project-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-media-hover .project-cover {
+    opacity: 0;
+}
+
+.project-card:hover .project-media-hover .project-video {
+    opacity: 1;
+}
+
 .project-info {
     padding: var(--space-lg);
 }

@@ -74,19 +74,11 @@
             padding: 0 var(--container-padding);
         }
 
-        .project-image-placeholder {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        .project-hero-video {
+            width: 100%;
             border-radius: var(--radius-lg);
             aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-image-placeholder span {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
+            object-fit: cover;
         }
 
         .project-meta {
@@ -425,11 +417,11 @@
             <div class="project-status">Active Development</div>
         </section>
 
-        <!-- Project Image -->
+        <!-- Project Video -->
         <div class="project-image">
-            <div class="project-image-placeholder">
-                <span>Project Preview</span>
-            </div>
+            <video class="project-hero-video" autoplay muted loop playsinline>
+                <source src="../project images/visualizer video.mov" type="video/mp4">
+            </video>
         </div>
 
         <!-- Meta -->
