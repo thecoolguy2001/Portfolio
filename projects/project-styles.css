@@ -83,6 +83,18 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
+.project-hero-image {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+}
+
+.project-hero-video {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+}
+
 .project-hero-video {
     width: 100%;
     border-radius: var(--radius-lg);
