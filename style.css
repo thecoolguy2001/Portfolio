@@ -1220,18 +1220,6 @@ button {
     text-decoration: underline;
 }
 
-.modal-link.case-study {
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    justify-content: center;
-}
-
-.modal-link.case-study:hover {
-    background: var(--color-gray-900);
-    text-decoration: none;
-}
 
 /* ============================================
    Page Loader
