@@ -264,13 +264,24 @@ function initProjectVideoHover() {
         const card = container.closest('.project-card');
 
         if (video && card) {
+            // Preload video
+            video.load();
+
             card.addEventListener('mouseenter', () => {
                 video.currentTime = 0;
-                video.play().catch(() => {});
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Autoplay was prevented, try again with muted
+                        video.muted = true;
+                        video.play().catch(() => {});
+                    });
+                }
             });
 
             card.addEventListener('mouseleave', () => {
                 video.pause();
+                video.currentTime = 0;
             });
         }
     });

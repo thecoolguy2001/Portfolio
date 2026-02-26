@@ -79,6 +79,20 @@
             border-radius: var(--radius-lg);
             aspect-ratio: 16/9;
             object-fit: cover;
+            background: #000;
+        }
+
+        /* Hide default video controls */
+        .project-hero-video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        .project-hero-video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        .project-hero-video::-webkit-media-controls-panel {
+            display: none !important;
         }
 
         .project-meta {
@@ -419,7 +433,8 @@
 
         <!-- Project Video -->
         <div class="project-image">
-            <video class="project-hero-video" autoplay muted loop playsinline>
+            <video class="project-hero-video" autoplay muted loop playsinline disablePictureInPicture poster="../project images/Visualizer (2).png">
+                <source src="../project images/visualizer video.mov" type="video/quicktime">
                 <source src="../project images/visualizer video.mov" type="video/mp4">
             </video>
         </div>
@@ -606,5 +621,42 @@
             <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Force autoplay for hero video
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.querySelector('.project-hero-video');
+            if (video) {
+                video.muted = true;
+                video.playsInline = true;
+
+                // Try to play immediately
+                const tryPlay = () => {
+                    video.play().catch(() => {
+                        // If blocked, try again on user interaction
+                        document.addEventListener('click', () => video.play(), { once: true });
+                        document.addEventListener('scroll', () => video.play(), { once: true });
+                    });
+                };
+
+                // Play when video is ready
+                if (video.readyState >= 2) {
+                    tryPlay();
+                } else {
+                    video.addEventListener('loadeddata', tryPlay);
+                }
+
+                // Also try on visibility
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            tryPlay();
+                        }
+                    });
+                });
+                observer.observe(video);
+            }
+        });
+    </script>
 </body>
 </html>
