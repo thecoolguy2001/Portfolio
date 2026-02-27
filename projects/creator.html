@@ -32,8 +32,20 @@
         </section>
 
         <div class="project-image">
-            <img src="../project images/Creator.png" alt="Creator Website" class="project-hero-image">
+            <video class="project-hero-video" autoplay muted loop playsinline disablePictureInPicture poster="../project images/Creator.png">
+                <source src="../project images/CreatorVideo.mov" type="video/quicktime">
+                <source src="../project images/CreatorVideo.mov" type="video/mp4">
+            </video>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const video = document.querySelector('.project-hero-video');
+                if (video) {
+                    video.muted = true;
+                    video.play().catch(() => {});
+                }
+            });
+        </script>
 
         <div class="project-meta">
             <div class="project-meta-item">
