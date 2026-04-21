@@ -619,37 +619,41 @@ function initTypingAnimation() {
     setTimeout(type, 1800);
 }
 
-// Parallax effect for hero (Apple style - subtle and smooth)
-let ticking = false;
+// Combined parallax (scroll) + subtle 3D tilt (mouse) for hero
+let heroScrollY = 0;
+let heroRotateX = 0;
+let heroRotateY = 0;
+let heroTicking = false;
+
+function applyHeroTransform() {
+    const hero = document.querySelector('.hero-content');
+    if (!hero) return;
+
+    const opacity = Math.max(0, 1 - (heroScrollY / (window.innerHeight * 0.8)));
+    const scale = Math.max(0.9, 1 - (heroScrollY * 0.0003));
+    const translateY = heroScrollY * 0.3;
+
+    hero.style.transform = `perspective(1000px) translateY(${translateY}px) scale(${scale}) rotateX(${heroRotateX}deg) rotateY(${heroRotateY}deg)`;
+    hero.style.opacity = opacity;
+}
+
 window.addEventListener('scroll', () => {
-    if (!ticking) {
+    if (!heroTicking) {
         requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-content');
+            heroScrollY = window.pageYOffset;
             const heroSection = document.querySelector('.hero');
-
-            if (hero && scrolled < window.innerHeight) {
-                // Smooth parallax with easing
-                const parallaxOffset = scrolled * 0.3;
-                const opacity = Math.max(0, 1 - (scrolled / (window.innerHeight * 0.8)));
-                const scale = Math.max(0.9, 1 - (scrolled * 0.0003));
-
-                hero.style.transform = `translateY(${parallaxOffset}px) scale(${scale})`;
-                hero.style.opacity = opacity;
+            if (heroScrollY < window.innerHeight) {
+                applyHeroTransform();
             }
-
-            // Parallax for floating orbs
             if (heroSection) {
-                heroSection.style.setProperty('--scroll', scrolled * 0.1 + 'px');
+                heroSection.style.setProperty('--scroll', heroScrollY * 0.1 + 'px');
             }
-
-            ticking = false;
+            heroTicking = false;
         });
-        ticking = true;
+        heroTicking = true;
     }
 });
 
-// Mouse move parallax for hero (subtle 3D effect)
 document.addEventListener('mousemove', (e) => {
     const hero = document.querySelector('.hero-content');
     if (!hero) return;
@@ -657,22 +661,21 @@ document.addEventListener('mousemove', (e) => {
     const rect = hero.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
 
-    const rotateX = (mouseY / window.innerHeight) * 2;
-    const rotateY = (mouseX / window.innerWidth) * -2;
-
-    hero.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    heroRotateX = (mouseY / window.innerHeight) * 2;
+    heroRotateY = (mouseX / window.innerWidth) * -2;
+    applyHeroTransform();
 });
 
-// Reset transform on mouse leave
 document.querySelector('.hero')?.addEventListener('mouseleave', () => {
     const hero = document.querySelector('.hero-content');
     if (hero) {
-        hero.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        heroRotateX = 0;
+        heroRotateY = 0;
         hero.style.transition = 'transform 0.5s ease';
+        applyHeroTransform();
     }
 });
 
