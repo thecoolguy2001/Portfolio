@@ -281,21 +281,27 @@ function initProjectVideoHover() {
         const video = container.querySelector('.project-video');
         const card = container.closest('.project-card');
 
-        if (!video || !card) return;
+        if (video && card) {
+            // Preload video
+            video.load();
 
-        video.muted = true;
-        video.playsInline = true;
+            card.addEventListener('mouseenter', () => {
+                video.currentTime = 0;
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Autoplay was prevented, try again with muted
+                        video.muted = true;
+                        video.play().catch(() => {});
+                    });
+                }
+            });
 
-        card.addEventListener('mouseenter', () => {
-            video.muted = true;
-            const p = video.play();
-            if (p && typeof p.catch === 'function') p.catch(() => {});
-        });
-
-        card.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = 0;
-        });
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
     });
 }
 
