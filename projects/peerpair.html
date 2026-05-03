@@ -146,6 +146,99 @@
             </article>
 
             <article class="feed-entry">
+                <p class="feed-date">November 2023</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>The interface had to feel lightweight and modern — a dating-adjacent product that didn't look like a dating app. The visual language pulls from short-form video culture, not stock romance imagery.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Content over chrome</h4>
+                            <p>The matched person's content sits at the center of every card. Profile fields are secondary — what they watch is the introduction.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Vertical rhythm</h4>
+                            <p>Layouts and motion echo the vertical-feed muscle memory users already have from TikTok — no learning curve.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Honest privacy framing</h4>
+                            <p>"What we share, what we don't" written plainly into the onboarding screens. Trust is the product's foundation.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Quiet brand</h4>
+                            <p>One soft accent color, generous spacing, no skeuomorphic hearts or sparkles. Feels like a utility, not a casino.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">November 2023</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>The match card is the central surface — every other screen leads to or from it. The wireframe shows how content, profile, and action layer on a single screen without visual chaos.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame phone">
+                            <div class="wireframe-screen" style="min-height:380px;background:#fbfbfd;padding:8px;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block" style="flex:0 0 32px;height:32px;border-radius:50%;background:#e0e0e6;"></div>
+                                    <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+                                        <div class="wf-block text-line short"></div>
+                                        <div class="wf-block text-line" style="height:6px;width:40%;"></div>
+                                    </div>
+                                    <div class="wf-block" style="flex:0 0 28px;height:14px;background:#e0e0e6;border-radius:7px;"></div>
+                                </div>
+                                <div class="wf-block fill center" style="background:#1a1a1f;color:#888;min-height:200px;">TikTok Preview</div>
+                                <div class="wf-row" style="gap:8px;">
+                                    <div class="wf-block" style="background:#e0e0e6;height:18px;border-radius:9px;width:50px;"></div>
+                                    <div class="wf-block" style="background:#e0e0e6;height:18px;border-radius:9px;width:60px;"></div>
+                                    <div class="wf-block" style="background:#e0e0e6;height:18px;border-radius:9px;width:40px;"></div>
+                                </div>
+                                <div class="wf-row" style="gap:14px;justify-content:center;margin-top:8px;">
+                                    <div class="wf-block" style="flex:0 0 44px;height:44px;border-radius:50%;background:#ffd6d6;"></div>
+                                    <div class="wf-block" style="flex:0 0 44px;height:44px;border-radius:50%;background:#d6f0ff;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:8px;right:8px;">1</div>
+                                <div class="wf-callout" style="top:32%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="bottom:62px;left:8px;">3</div>
+                                <div class="wf-callout" style="bottom:8px;right:24px;">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Match card — face up top, content in the middle, action down low.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Privacy indicator</h4>
+                                <p>Single icon shows what's being shared on this card — tap for the full breakdown. Users always know what data crossed.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Real content, not a bio</h4>
+                                <p>A representative TikTok plays inline. Decision is based on what they actually engage with, not a 300-character pitch.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Shared content tags</h4>
+                                <p>Matched categories surface as small chips. Quick visual proof of why this person showed up in the feed.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Two clear actions</h4>
+                                <p>Pass and connect. No third "super-like" tier — the model is honest engagement, not artificial scarcity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
                 <p class="feed-date">October 2023</p>
                 <div class="feed-card">
                     <h2>The Solution</h2>
@@ -162,6 +255,83 @@
                         <div class="feed-feature">
                             <h3>Privacy First</h3>
                             <p>Users control what data is shared and can disconnect their TikTok at any time.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">September 2023</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>The first match has to land within minutes of opening the app for the first time, or the value never gets demonstrated. The flow is built around that constraint.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Connect</h4>
+                            <p>Link TikTok, choose what's shared.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Build</h4>
+                            <p>Algorithm reads engaged content.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Match</h4>
+                            <p>Card stack of users with overlap.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Connect</h4>
+                            <p>Mutual interest opens chat.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Share</h4>
+                            <p>Send TikToks back and forth in-app.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">August 2023</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Two user types informed every screen — both fed up with bio-based matching, both already living in the algorithmic feed.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">TN</div>
+                            <h3>The TikTok-Native</h3>
+                            <p class="persona-tagline">Spends hours on the FYP — that feed is more "them" than any bio</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Match on humor, taste, and niche interests</li>
+                                <li>Skip the curated photo / canned-prompt grind</li>
+                                <li>Find someone who would send the same videos</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Dating app bios feel performative and shallow</li>
+                                <li>Mismatched senses of humor surface on date one</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">FS</div>
+                            <h3>The Friendship Seeker</h3>
+                            <p class="persona-tagline">Looking for friends with overlapping niches, not necessarily romance</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Connect with people who watch what they watch</li>
+                                <li>Skip the dating-coded photo grids</li>
+                                <li>Low-stakes way to message someone first</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most matching apps assume romantic intent</li>
+                                <li>Friend-finding apps are sparse and awkward</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

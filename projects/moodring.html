@@ -136,6 +136,78 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>Mood Ring is a glance-only app — most users will see it for under three seconds at a time. The visual language is built to communicate emotional state in that window, before the wrist drops.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Color is the message</h4>
+                            <p>Hue shifts encode emotion directly — no labels, no charts. Users learn the spectrum after a few sessions; once they have it, the ring speaks instantly.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Organic motion</h4>
+                            <p>The ring breathes — soft, slow oscillation regardless of state. Calm states are slower; agitated states pulse faster. Motion echoes physiology.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Black canvas</h4>
+                            <p>Pure black background lets OLED pixels stay off and lets the ring's color saturate. Saves battery, looks better.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Ambiguity by design</h4>
+                            <p>Color is suggestive, not diagnostic. The spectrum invites interpretation — never tells the user how to feel.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>Most of the screen is the ring. The supporting elements are tucked at the edges so the user's eye lands on the color first, and on context second.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame watch">
+                            <div class="wireframe-screen" style="min-height:200px;background:#000;padding:14px;color:white;align-items:center;justify-content:center;">
+                                <div class="wf-block text-line short" style="background:#3a3a45;width:30%;align-self:center;"></div>
+                                <div style="width:90px;height:90px;border-radius:50%;border:8px solid;border-image:linear-gradient(135deg,#9c6bff,#6dd5ed) 1;align-self:center;border-image-slice:1;"></div>
+                                <div class="wf-block text-line" style="background:#3a3a45;width:50%;align-self:center;"></div>
+                                <div class="wf-callout" style="top:10px;left:50%;transform:translateX(-50%);">1</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="bottom:10px;left:50%;transform:translateX(-50%);">3</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Glance screen — the ring is the content; everything else is supporting cast.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Time stamp</h4>
+                                <p>Tells the user the reading is current. Small, dim — not the focus, just confirmation.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>The ring</h4>
+                                <p>Animated gradient driven by HRV + heart rate. Color, motion speed, and breath rhythm all respond to the underlying signal.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Mood word (optional)</h4>
+                                <p>A single suggested word ("calm," "alert"). Users can hide it entirely if they want pure color interpretation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">September 2025</p>
@@ -155,6 +227,80 @@
                         <div class="feed-feature">
                             <h3>Animated Ring</h3>
                             <p>Renders a smooth, color-shifting ring that responds to emotional state changes.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">August 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>Mood Ring is opened in glance — open, read, close. The flow respects that pattern. Settings exist for users who want to customize, but they live deep so they never get in the way of the glance.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Glance</h4>
+                            <p>Open from complication or app launcher.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Read</h4>
+                            <p>Color tells current state in under a second.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Reflect</h4>
+                            <p>Tap to see HR + HRV underneath.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Trend</h4>
+                            <p>Optional history over the last hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>The watch already knows a lot about the wearer. Mood Ring is for people who want that knowledge given back to them in a softer, more emotional language.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">SA</div>
+                            <h3>The Self-Aware</h3>
+                            <p class="persona-tagline">Practices mindfulness, journals, watches their stress</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>A gentle nudge when their state shifts</li>
+                                <li>Visual feedback during breathing or rest</li>
+                                <li>Trend over the day, not just a snapshot</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most HR apps feel like medical dashboards</li>
+                                <li>Numbers don't translate to feeling</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">CN</div>
+                            <h3>The Curious Newcomer</h3>
+                            <p class="persona-tagline">Just bought the watch, exploring what it can do</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Something playful and personal to show off</li>
+                                <li>An app that isn't another fitness tracker</li>
+                                <li>A way to enjoy the watch beyond utility</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Watch face options feel limited</li>
+                                <li>HealthKit data feels locked behind charts</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

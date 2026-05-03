@@ -136,6 +136,81 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>A watch face is one glance away from being closed. Every visual choice was made for legibility at arm's length and instant comprehension of the next command.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>One word, full screen</h4>
+                            <p>Each command word fills the watch face. No icons fighting for attention — the prompt <em>is</em> the screen.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Color = command</h4>
+                            <p>Bop, Twist, and Shake each get a distinct hue. Color reinforces the audio cue for players who lower the volume.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Animation as countdown</h4>
+                            <p>A radial timer drains around the screen edge — players feel the time pressure without reading a number.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Haptic-first feedback</h4>
+                            <p>Right and wrong have distinct haptic signatures. The wrist tells you the result before your eyes catch up.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>The watch face is a circular canvas of roughly 200 points. The wireframe shows how command, timer, and score share that space without crowding any single element.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame watch">
+                            <div class="wireframe-screen" style="min-height:180px;background:#000;padding:14px;color:white;align-items:center;justify-content:center;">
+                                <div class="wf-block text-line short" style="background:#3a3a45;width:30%;align-self:center;"></div>
+                                <div class="wf-block fill center" style="background:transparent;color:#ff8a4c;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;min-height:80px;">SHAKE</div>
+                                <div class="wf-row tight">
+                                    <div class="wf-block" style="background:#3a3a45;height:6px;"></div>
+                                    <div class="wf-block" style="background:#ff8a4c;height:6px;flex:0 0 30%;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:10px;left:50%;transform:translateX(-50%);">1</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="bottom:10px;left:50%;transform:translateX(-50%);">3</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Reflex-o command screen — score on top, command in the center, time radial on bottom.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Score readout</h4>
+                                <p>Tiny, top-of-screen, low-contrast. Visible mid-game without competing with the command word.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Command in color</h4>
+                                <p>One word, dominant color. Each command pairs with the same hue every time so players associate sound, color, and motion.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Time bar</h4>
+                                <p>Drains across the bottom. Lets the player gauge urgency at a glance without numbers — pure spatial feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">September 2025</p>
@@ -155,6 +230,85 @@
                         <div class="feed-feature">
                             <h3>Real-time Animations</h3>
                             <p>SwiftUI delivers smooth, responsive visual feedback during gameplay.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">August 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>A wrist-game has to start within two taps and end gracefully. The flow respects how short Apple Watch sessions actually are — most plays will last under sixty seconds.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Open</h4>
+                            <p>Launch from watch face complication.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Tap to Start</h4>
+                            <p>Single tap drops into round one.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>React</h4>
+                            <p>Voice + visual command, beat the timer.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Score</h4>
+                            <p>End screen shows streak + best.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Replay</h4>
+                            <p>Single tap to start again.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Reflex-o targets two play patterns common to watch users — micro-sessions waiting for something, and quick social challenges.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">QL</div>
+                            <h3>The Queue Filler</h3>
+                            <p class="persona-tagline">Fills the wait at a coffee bar, an elevator, a transit stop</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Something fun for under a minute</li>
+                                <li>No phone, no friction</li>
+                                <li>Resume right where they left off</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most watch apps are utility-only</li>
+                                <li>Phone games are too much for a 45-second wait</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">SC</div>
+                            <h3>The Streak Chaser</h3>
+                            <p class="persona-tagline">Loves a personal best to beat and a friend to beat too</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Climb their own high score</li>
+                                <li>Compare scores with friends</li>
+                                <li>Quick rounds that snowball into more rounds</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Reflex games rarely fit on a watch</li>
+                                <li>Lack of haptics makes most ports feel hollow</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

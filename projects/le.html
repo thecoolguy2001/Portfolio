@@ -100,6 +100,103 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2026</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>LE has two display surfaces — an expressive face UI and a mirror UI for ambient information. The visual language has to feel like a single character, not two unrelated screens.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Face has personality, not anatomy</h4>
+                            <p>Eyes, mouth, and subtle motion convey state. No realistic features — abstraction lets users project warmth into LE without the uncanny valley.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Mirror is a glance, not a dashboard</h4>
+                            <p>Time, weather, calendar, alerts — sized for arm's-length reading. Information density is deliberately low.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Quiet by default</h4>
+                            <p>Idle state is a calm face on a black background. LE only animates with intent — no constant motion to demand attention.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Privacy as a visible state</h4>
+                            <p>When the camera is on, the face shows it. When the cloud is being used, the face shows that too. Users always see what LE is doing.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2026</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>LE has two distinct UI states — Face Mode (idle / responding) and Mirror Mode (ambient information). Wireframe shows the Mirror Mode layout where LE is acting as a passive household display.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:300px;background:#000;color:white;padding:20px;gap:16px;">
+                                <div class="wf-row" style="align-items:flex-start;">
+                                    <div style="flex:0;font-size:1.4rem;font-weight:700;letter-spacing:0.04em;">10:42</div>
+                                    <div class="wf-block" style="background:transparent;flex:1;"></div>
+                                    <div style="flex:0;font-size:0.7rem;color:#888;text-transform:uppercase;letter-spacing:0.08em;">62°F · CLEAR</div>
+                                </div>
+                                <div class="wf-row" style="gap:14px;flex:1;">
+                                    <div class="wf-block" style="background:#161620;border-radius:10px;padding:12px;flex:1;display:flex;flex-direction:column;gap:6px;">
+                                        <div class="wf-block text-line short" style="background:#3a3a45;width:40%;"></div>
+                                        <div class="wf-block text-line" style="background:#3a3a45;width:80%;"></div>
+                                        <div class="wf-block text-line" style="background:#3a3a45;width:60%;"></div>
+                                    </div>
+                                    <div class="wf-block" style="background:#161620;border-radius:10px;padding:12px;flex:1;display:flex;flex-direction:column;gap:6px;">
+                                        <div class="wf-block text-line short" style="background:#3a3a45;width:40%;"></div>
+                                        <div class="wf-block text-line" style="background:#3a3a45;width:75%;"></div>
+                                    </div>
+                                </div>
+                                <div class="wf-row" style="align-items:center;gap:10px;">
+                                    <div style="flex:0;width:32px;height:32px;border-radius:50%;background:#9c6bff;"></div>
+                                    <div class="wf-block text-line" style="background:#3a3a45;width:60%;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:14px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:14px;right:14px;">2</div>
+                                <div class="wf-callout" style="top:46%;left:24%;transform:translateY(-50%);">3</div>
+                                <div class="wf-callout" style="bottom:14px;left:14px;">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Mirror Mode — time, weather, ambient cards, and a face presence indicator.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Time</h4>
+                                <p>The most-glanced piece of information at any household display. Big, top-left, no decoration.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Weather summary</h4>
+                                <p>Compact text — temperature and condition. Anything more detailed lives behind a voice query, not on the surface.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Ambient info cards</h4>
+                                <p>Calendar, reminders, news headlines, household state. Two cards max — third would crowd a glance-distance read.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Face presence indicator</h4>
+                                <p>A small face avatar shows LE's status — listening, thinking, idle. Even in Mirror Mode, users know LE is attentive.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Hardware -->
             <article class="feed-entry">
                 <p class="feed-date">April 2026</p>
@@ -147,6 +244,85 @@
                     <h2>Problem</h2>
                     <p>Today's home assistants — Alexa, Google Home, Siri — are limited. They live in walled-garden ecosystems, send most queries to the cloud, can't see or reason about their environment, and can't perform agentic multi-step tasks.</p>
                     <p>I wanted a home assistant that combined local privacy, real visual intelligence, and the ability to act as a true agent — extensible enough that I could keep adding capabilities the off-the-shelf assistants don't offer.</p>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2026</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>LE has to support two interaction modes — voice-led conversation and ambient passive presence. The flow shows the conversational path, with the routing decision visible to the user.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Speak</h4>
+                            <p>Wake word activates the mic.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Route</h4>
+                            <p>Local LLM tries to handle it on-device.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>See</h4>
+                            <p>Vision model adds context if requested.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Escalate</h4>
+                            <p>If complex, hand off to cloud AI.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Respond</h4>
+                            <p>Voice + face animation deliver result.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2026</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>LE is for people who want a smart-home assistant on their own terms — privacy-conscious, but not allergic to the cloud when it's needed.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">PH</div>
+                            <h3>The Privacy-First Householder</h3>
+                            <p class="persona-tagline">Wants the convenience of a voice assistant without sending every word to a server</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Voice queries that stay on-device</li>
+                                <li>Visible, controllable cloud usage</li>
+                                <li>Replaces Alexa / Google Home in the kitchen</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Mainstream assistants stream constantly to the cloud</li>
+                                <li>No transparency on what's recorded vs. discarded</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">TT</div>
+                            <h3>The Tinkerer</h3>
+                            <p class="persona-tagline">Wants a hackable assistant they can keep extending</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Add custom agentic capabilities over time</li>
+                                <li>Pair the assistant with the rest of their home stack</li>
+                                <li>Control routing between local and cloud models</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Mainstream assistants are walled gardens</li>
+                                <li>DIY assistants ignore visual input entirely</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </article>
 

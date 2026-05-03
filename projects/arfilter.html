@@ -139,6 +139,95 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>AR filters live in a vertical phone viewport with the user's own face in frame. The visual language had to read in three seconds — TikTok scroll velocity is the design constraint.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Face is the canvas</h4>
+                            <p>Filter elements anchor to facial landmarks. UI sits in the safe corners of the frame, never blocking the player's face.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Score that reads on mute</h4>
+                            <p>Viewers scroll TikTok with sound off. Score updates animate big and bold so the game reads silently.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Color = bonus</h4>
+                            <p>Saturated, distinct hues for power-ups so they pop in any background. Neutral elements stay grayscale to keep visual hierarchy clean.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Built to record</h4>
+                            <p>Every filter is designed for the post-game share. End screens hold long enough to capture, and personal best stays visible during the recording window.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>The wireframe captures a representative game-mode filter — face in center, game mechanic layered on top, all UI in the corners so the camera frame stays open.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame phone">
+                            <div class="wireframe-screen" style="min-height:340px;background:linear-gradient(135deg,#ffafbd,#ffc3a0);padding:8px;">
+                                <div class="wf-row">
+                                    <div class="wf-block" style="background:rgba(255,255,255,0.85);border-radius:14px;padding:6px 12px;flex:0;color:#1a1a1f;font-weight:700;font-size:0.9rem;">12</div>
+                                    <div class="wf-block" style="background:transparent;flex:1;"></div>
+                                    <div class="wf-block" style="background:rgba(0,0,0,0.6);border-radius:14px;height:24px;flex:0 0 60px;"></div>
+                                </div>
+                                <div class="wf-block fill center" style="background:rgba(255,255,255,0.2);border:2px dashed rgba(255,255,255,0.6);border-radius:50%;color:white;font-weight:600;min-height:160px;width:140px;align-self:center;">FACE</div>
+                                <div class="wf-row" style="justify-content:center;gap:8px;">
+                                    <div class="wf-block" style="background:#ffe14d;width:30px;height:30px;border-radius:6px;flex:0;"></div>
+                                    <div class="wf-block" style="background:#4dffd5;width:30px;height:30px;border-radius:6px;flex:0;"></div>
+                                    <div class="wf-block" style="background:#ff7eb9;width:30px;height:30px;border-radius:6px;flex:0;"></div>
+                                </div>
+                                <div class="wf-block" style="background:rgba(0,0,0,0.6);color:white;padding:8px 12px;border-radius:14px;font-size:0.7rem;text-align:center;letter-spacing:0.06em;">CATCH WITH MOUTH</div>
+                                <div class="wf-callout" style="top:10px;left:10px;">1</div>
+                                <div class="wf-callout" style="top:10px;right:10px;">2</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">3</div>
+                                <div class="wf-callout" style="bottom:42px;left:50%;transform:translateX(-50%);">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Filter game layout — face anchored center, score in corner, prompt at bottom.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Score chip</h4>
+                                <p>Top-left so it never collides with TikTok's right-side action rail. Updates animate with a quick scale to draw the eye.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Timer / lives</h4>
+                                <p>Right corner shows remaining time or lives — small, dim, but visible without effort.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Face anchoring</h4>
+                                <p>Game elements track facial landmarks. The user's face stays the visual center even as the filter overlays move around it.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>One-line prompt</h4>
+                                <p>Bottom of the safe area. The instruction reads in under two seconds — no learning curve, no onboarding screen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">July 2025</p>
@@ -158,6 +247,85 @@
                         <div class="feed-feature">
                             <h3>Viral Design</h3>
                             <p>Optimized for sharing with clear scoring and replay value.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>The flow respects how filters get found — through someone else's video. The filter has to teach itself in the first three seconds, or the next swipe ends the session.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Discover</h4>
+                            <p>See it used in another creator's TikTok.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Tap</h4>
+                            <p>Open in own camera with one tap.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Play</h4>
+                            <p>Game starts on first detected face.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Score</h4>
+                            <p>End screen, personal best, replay.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Post</h4>
+                            <p>Share recording, friends try too.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">June 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Two user types drove the design — the active creator looking for content fuel, and the casual scroller who tries a filter once. The filters had to work for both.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">CC</div>
+                            <h3>The Casual Creator</h3>
+                            <p class="persona-tagline">Posts a few TikToks a week, looking for content fuel</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Filter that becomes a video by itself</li>
+                                <li>Reaction-driven content with scoring</li>
+                                <li>Easy to record, easy to caption</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most filters are visual only — no payoff to record</li>
+                                <li>Game filters often cover the face entirely</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">SS</div>
+                            <h3>The Social Scroller</h3>
+                            <p class="persona-tagline">Tries filters they see, sends to friends</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Quick gratification, low investment</li>
+                                <li>Score to compare with the friend who sent it</li>
+                                <li>One-tap to challenge a friend back</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most filters don't work as a back-and-forth</li>
+                                <li>Hard to tell which filters are games at all</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

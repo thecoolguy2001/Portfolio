@@ -136,6 +136,87 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>Fibber walks a careful line — it has to feel <em>theatrical</em> enough to be fun, but not so clinical that users mistake it for a medical tool. Every visual decision sells the entertainment framing.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Heart as the hero</h4>
+                            <p>A pulsing heart graphic anchors the screen. The visual rhythm matches the live BPM — users see their heartbeat before they read a number.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Three-state verdict</h4>
+                            <p>Green, yellow, red for Truth, Uncertain, Lie. Color does the announcing — text is secondary confirmation.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Game-show typography</h4>
+                            <p>Bold display weight on results. Reads more like a quiz reveal than a hospital readout.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Honesty in the copy</h4>
+                            <p>Onboarding flat-out tells users this is for fun. No fake authority — entertainment is the whole point.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">October 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>Three core screens — baseline, monitoring, and result — each tuned for the watch's circular canvas. Wireframe shows the monitoring screen, the most data-dense moment in the flow.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame watch">
+                            <div class="wireframe-screen" style="min-height:200px;background:#0d0d12;padding:14px;color:white;align-items:center;">
+                                <div class="wf-block text-line short" style="background:#3a3a45;width:40%;align-self:center;"></div>
+                                <div class="wf-block fill center" style="background:transparent;color:#ff5f57;font-size:1.6rem;font-weight:800;">♥ 92</div>
+                                <div class="wf-block" style="background:#3a3a45;height:6px;align-self:stretch;border-radius:3px;"></div>
+                                <div class="wf-block text-line" style="background:#3a3a45;width:60%;align-self:center;"></div>
+                                <div class="wf-callout" style="top:10px;left:50%;transform:translateX(-50%);">1</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="bottom:34px;left:50%;transform:translateX(-50%);">3</div>
+                                <div class="wf-callout" style="bottom:10px;left:50%;transform:translateX(-50%);">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Live monitoring screen — current state, heart rate, baseline delta, prompt.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Phase label</h4>
+                                <p>Tells the user where they are in the flow — Baseline, Live, Result. Short text, low visual weight.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Live BPM</h4>
+                                <p>Heart icon pulses at actual rate. Number updates live — players see their pulse react in real time.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Delta indicator</h4>
+                                <p>Visualizes how far above or below the baseline the current rate is. The further from center, the more dramatic the result.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Prompt text</h4>
+                                <p>Question or instruction shows here ("Answer truthfully…"). One line max — the watch is not a screenplay.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">September 2025</p>
@@ -155,6 +236,85 @@
                         <div class="feed-feature">
                             <h3>Result Mapping</h3>
                             <p>Computes BPM changes and maps deltas to Truth, Uncertain, or Lie results.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">August 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>Three phases in under a minute. The flow has to read as theater — each transition lands with a haptic so users feel the moment shift from preparation to interrogation to verdict.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Baseline</h4>
+                            <p>Sit still, capture resting BPM.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Question</h4>
+                            <p>Get asked, answer aloud or in head.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Read</h4>
+                            <p>App streams live HR, computes delta.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Verdict</h4>
+                            <p>Truth / Uncertain / Lie reveal.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Replay</h4>
+                            <p>Tap to ask another question.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Fibber is aimed at people who use the watch socially — at parties, with friends, at the dinner table. Two patterns drive the design.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">PG</div>
+                            <h3>The Party Game Host</h3>
+                            <p class="persona-tagline">Pulls out the watch to start a moment with friends</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Get a group laughing fast</li>
+                                <li>Pass the watch around without setup</li>
+                                <li>A clear, dramatic verdict everyone can see</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most party games need a phone or a board</li>
+                                <li>Watch apps rarely turn into shared moments</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">CP</div>
+                            <h3>The Curious Personal-Health User</h3>
+                            <p class="persona-tagline">Already tracks their HR, wants to play with it</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>See heart-rate variability in a fun frame</li>
+                                <li>Notice their own stress reactions</li>
+                                <li>Use it as conversation, not diagnosis</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Health apps make biometric data feel clinical</li>
+                                <li>No casual interface for HR-based curiosity</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@
             </div>
             <div class="project-meta-item">
                 <h4>Team</h4>
-                <p>Demonte Walker</p>
+                <p>Demonte Walker + 2 teammates (UX research &amp; interviewing)</p>
             </div>
             <div class="project-meta-item">
                 <h4>Tools</h4>
@@ -146,6 +146,99 @@
             </article>
 
             <article class="feed-entry">
+                <p class="feed-date">June 2023</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>Healthcare apps tend to feel cold, anxious, or both. The visual language for QuickER had to feel calm and clear — patients are often using the app at their lowest, not their best.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Calm color, no alarm</h4>
+                            <p>Soft blues and warm neutrals. Red is reserved for urgent triage prompts only — overuse would normalize the alert.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Generous touch targets</h4>
+                            <p>Buttons sized for shaky, anxious thumbs. Form fields auto-advance when valid so users keep momentum.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Plain language, no jargon</h4>
+                            <p>"Where does it hurt?" beats "Identify presenting symptom location." The app talks like a nurse, not a database.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Progress visible at all times</h4>
+                            <p>A persistent step indicator tells the user how far they are. Anxious users need to know when this ends.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">June 2023</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>Two screens carry the experience: the intake form and the queue tracker. Wireframe shows the queue tracker — the screen the patient stares at while heading to the ER.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame phone">
+                            <div class="wireframe-screen" style="min-height:380px;background:#f4f7fb;padding:10px;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block" style="flex:0 0 18px;height:14px;background:#3a78bd;border-radius:4px;"></div>
+                                    <div class="wf-block text-line short" style="background:#1a1a1f;width:30%;"></div>
+                                </div>
+                                <div class="wf-block" style="background:#3a78bd;color:white;padding:14px;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                                    <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.8;">Position</div>
+                                    <div style="font-size:2rem;font-weight:800;line-height:1;">7th</div>
+                                    <div style="font-size:0.7rem;opacity:0.9;">~25 min</div>
+                                </div>
+                                <div class="wf-block" style="background:white;padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:4px;">
+                                    <div class="wf-block text-line short" style="background:#1a1a1f;width:40%;"></div>
+                                    <div class="wf-block text-line" style="background:#1a1a1f;width:80%;"></div>
+                                </div>
+                                <div class="wf-block" style="background:white;padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:4px;">
+                                    <div class="wf-block text-line short" style="background:#1a1a1f;width:40%;"></div>
+                                    <div class="wf-block text-line" style="background:#1a1a1f;width:60%;"></div>
+                                </div>
+                                <div class="wf-block" style="background:#d4ecd9;padding:8px;border-radius:8px;text-align:center;color:#1f5d2e;font-size:0.7rem;font-weight:600;letter-spacing:0.06em;">DEPART NOW</div>
+                                <div class="wf-callout" style="top:10px;right:10px;">1</div>
+                                <div class="wf-callout" style="top:24%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="top:54%;left:10px;">3</div>
+                                <div class="wf-callout" style="bottom:10px;left:50%;transform:translateX(-50%);">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Queue tracker — position card, hospital info, ETA, depart prompt.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Hospital identifier</h4>
+                                <p>Keeps the hospital name visible at all times. Patients on multi-stop trips never lose track of which ER they're checked in for.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Position card</h4>
+                                <p>Big, calm blue card with the queue number and a soft ETA. The most-glanced piece of info — sized to read across a waiting room.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Status cards</h4>
+                                <p>Triage notes, hospital instructions, what to bring. White cards with restrained type — anxious users skim, not read.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Depart prompt</h4>
+                                <p>When the queue is close, a green pill tells the patient to head over. Notification mirrors this so they don't need the app open.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
                 <p class="feed-date">May 2023</p>
                 <div class="feed-card">
                     <h2>The Solution</h2>
@@ -173,6 +266,108 @@
                     <h2>The Problem</h2>
                     <p>Patients with non-life-threatening conditions often face long wait times and a cumbersome intake process in emergency rooms.</p>
                     <p>This results in patient dissatisfaction and inefficiencies for healthcare providers who must manage overcrowded waiting areas.</p>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">May 2023</p>
+                <div class="feed-card">
+                    <h2>Working with the Team</h2>
+                    <p>QuickER was a three-person team — myself and two teammates. They led much of the user interviewing and helped run UX research; I worked alongside them on UX, then took the build solo in Flutter. Honest division of labor.</p>
+                    <div class="research-methods">
+                        <div class="method-card">
+                            <p class="method-label">Collaboration</p>
+                            <h4>Patient Interviews</h4>
+                            <p>The two teammates ran patient interviews to understand the ER intake experience. I joined sessions and helped synthesize themes into design opportunities.</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Collaboration</p>
+                            <h4>Provider Conversations</h4>
+                            <p>Spoke with healthcare staff to understand intake bottlenecks. Findings informed the queue model and what data the app actually needed to capture up front.</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Solo Build</p>
+                            <h4>Flutter Development</h4>
+                            <p>After alignment on direction, I took the Flutter build forward solo — implementing the wireframes the three of us aligned on into a working cross-platform prototype.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">May 2023</p>
+                <div class="feed-card">
+                    <h2>Core Patient Flow</h2>
+                    <p>The flow is built around one fact: a patient who is opening this app is having a bad day. Every step had to feel fast, clear, and respectful of attention.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Open</h4>
+                            <p>Pick the nearest hospital.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Triage</h4>
+                            <p>Short symptom + history form.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Queue</h4>
+                            <p>Position assigned, ETA visible.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Travel</h4>
+                            <p>Head to ER when prompted.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Arrive</h4>
+                            <p>Hand-off to staff via QR.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">May 2023</p>
+                <div class="feed-card">
+                    <h2>Target Patients</h2>
+                    <p>Two patient patterns shaped the design — non-life-threatening conditions where the wait dominates the experience, and parents managing a child's care.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">NU</div>
+                            <h3>The Non-Urgent Patient</h3>
+                            <p class="persona-tagline">Knows it's not life-threatening but needs to be seen</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Skip the in-person waiting room</li>
+                                <li>Know when to head over</li>
+                                <li>Avoid filling out paperwork twice</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Hours of in-person waiting feels punishing</li>
+                                <li>Repetitive intake forms at every step</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">CG</div>
+                            <h3>The Caregiver</h3>
+                            <p class="persona-tagline">Bringing a child or family member to the ER</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Manage logistics while caring for someone</li>
+                                <li>Get clear answers about wait times</li>
+                                <li>One source of truth on the phone</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Calling the ER for status is brittle</li>
+                                <li>Caregiving and logistics compete for attention</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </article>
 

@@ -148,6 +148,95 @@
             <article class="feed-entry">
                 <p class="feed-date">July 2025</p>
                 <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>The aesthetic had to read as <em>calm</em> at every step. People come to an aquarium to slow down — the visual choices were all in service of that.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Soft palette, no neon</h4>
+                            <p>Ocean blues and warm corals at low saturation. Bright accents sit only on the fish themselves, never on the chrome.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Slow motion as default</h4>
+                            <p>Fish drift, the camera doesn't. Nothing in the UI moves faster than the fish — the tank dictates the tempo.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Minimal HUD</h4>
+                            <p>Controls live in a single corner panel that hides on idle. The full surface belongs to the tank.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Type as a whisper</h4>
+                            <p>Light-weight sans, low contrast text. Reading copy is never the goal — looking at fish is.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>Low-fi wireframe of the main tank surface. Five callouts mark the deliberate decisions about how much UI shows up over an ambient experience.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:320px;background:#0e2b3a;">
+                                <div class="wf-block fill center" style="background:#163a4d;color:#6fb5cf;min-height:200px;">Live Tank Canvas</div>
+                                <div class="wf-row" style="position:absolute;bottom:14px;left:14px;right:14px;">
+                                    <div class="wf-block" style="flex:0 0 140px;background:#1d4863;border-radius:10px;height:42px;"></div>
+                                    <div class="wf-block" style="flex:1;background:transparent;"></div>
+                                    <div class="wf-block" style="flex:0 0 36px;background:#1d4863;border-radius:50%;height:36px;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:14px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:50%;left:30%;transform:translateY(-50%);">2</div>
+                                <div class="wf-callout" style="bottom:24px;left:24px;">3</div>
+                                <div class="wf-callout" style="bottom:24px;right:24px;">4</div>
+                                <div class="wf-callout" style="top:14px;right:14px;">5</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Main tank — full-bleed canvas, controls only when needed.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>No top nav</h4>
+                                <p>The tank is the page. Site navigation is hidden behind a single icon (5) and only opens on intent.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Fish are the content</h4>
+                                <p>Every fish is rendered live, synced through Firebase, and shared across all visitors. The canvas is never empty for long.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Add-fish panel</h4>
+                                <p>Quick controls for color, speed, size. One tap to drop a fish into the shared tank — no account, no friction.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Sound toggle</h4>
+                                <p>Ambient audio off by default — autoplay sound is hostile. A clear opt-in pill, no surprise audio.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">5</span>
+                            <div class="annotation-text">
+                                <h4>Settings well</h4>
+                                <p>Single icon for everything else (info, preferences). Fades when idle so the tank stays the focus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
                     <h2>The Solution</h2>
                     <p>A real-time fish tank website where users can add fish, customize them, and watch them swim in a shared environment.</p>
                     <div class="feed-features">
@@ -162,6 +251,83 @@
                         <div class="feed-feature">
                             <h3>Smooth Animation</h3>
                             <p>Lightweight canvas/WebGL rendering for smooth, responsive animations on all devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>Goal: from landing to a swimming fish in under ten seconds, no account required. Every additional step would erode the casual, drop-in feel that makes the experience work.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Land</h4>
+                            <p>Tank loads, fish already swimming.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Add</h4>
+                            <p>Open the add panel, pick color and size.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Drop</h4>
+                            <p>Fish appears for everyone, instantly.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Watch</h4>
+                            <p>Linger, enjoy, leave the tab open.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Return</h4>
+                            <p>Come back later — your fish is still there.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">June 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Two visitor types shaped the experience. Both wanted something low-pressure on a tab — but for different reasons.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">IT</div>
+                            <h3>The Idle Tabber</h3>
+                            <p class="persona-tagline">Keeps a relaxing tab open while doing other work</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Calm visuals to glance at between tasks</li>
+                                <li>Nothing demanding attention or sound</li>
+                                <li>A tab worth leaving pinned for weeks</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most ambient sites autoplay loud audio</li>
+                                <li>Static screensavers feel dead, not alive</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">CR</div>
+                            <h3>The Casual Returner</h3>
+                            <p class="persona-tagline">Comes back to check on "their" fish</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>A small sense of ownership without an account</li>
+                                <li>See that the world has changed since last visit</li>
+                                <li>Share the tank link with a friend</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Most sites lose state when you close the tab</li>
+                                <li>Multiplayer toys usually require sign-up</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

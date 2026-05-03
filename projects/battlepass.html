@@ -136,6 +136,98 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>Battle Pass leans into game-boy / handheld nostalgia — pixel-art glyphs, stat bars, and chunky type. The visual language signals "game" the moment a Flipper boots into it.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Pixel-art avatar</h4>
+                            <p>Each player is represented by a small monochrome sprite. Stats determine subtle differences in posture so duels feel personalized.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Bars over numbers</h4>
+                            <p>Stats render as horizontal bars. Battles play out visually — bars drain in real time so the round feels like a fight, not a calculation.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Encounter notification</h4>
+                            <p>Detection of another Flipper plays a short buzzer sting and flashes the screen — the device demands attention without lifting the user out.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Verdict animation</h4>
+                            <p>Win, loss, draw each get a distinct screen sequence — half-second of theater that makes the result land.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>The battle screen is the central surface — encounter triggers it automatically. Wireframe shows that screen mid-fight: two players, two stat bars, one outcome.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame" style="max-width:280px;margin:0 auto;border:8px solid #f5a800;border-radius:14px;background:#a4d11e;">
+                            <div class="wireframe-screen" style="min-height:170px;background:#a4d11e;padding:8px;color:#1a2a05;font-family:monospace;gap:6px;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block text-line short" style="background:#1a2a05;width:25%;height:6px;"></div>
+                                    <div class="wf-block" style="flex:1;height:1px;background:transparent;"></div>
+                                    <div class="wf-block text-line short" style="background:#1a2a05;width:25%;height:6px;"></div>
+                                </div>
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block" style="flex:1;background:#1a2a05;height:8px;"></div>
+                                    <div class="wf-block" style="flex:0;width:18px;text-align:center;font-size:0.7rem;font-weight:700;">VS</div>
+                                    <div class="wf-block" style="flex:1;background:#1a2a05;height:8px;"></div>
+                                </div>
+                                <div class="wf-row" style="align-items:center;justify-content:space-around;flex:1;">
+                                    <div class="wf-block" style="flex:0;width:24px;height:32px;background:#1a2a05;"></div>
+                                    <div class="wf-block" style="flex:0;width:24px;height:32px;background:#1a2a05;"></div>
+                                </div>
+                                <div class="wf-block" style="background:#1a2a05;color:#a4d11e;padding:4px;font-size:0.65rem;font-weight:700;text-align:center;letter-spacing:0.08em;">FIGHT!</div>
+                                <div class="wf-callout" style="top:8px;left:8px;">1</div>
+                                <div class="wf-callout" style="top:34%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="top:60%;left:24%;transform:translateY(-50%);">3</div>
+                                <div class="wf-callout" style="bottom:8px;left:50%;transform:translateX(-50%);">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Battle screen — two players, stat bars, sprite avatars, single verdict line.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Player nicknames</h4>
+                                <p>You vs them. Your nickname always renders left so you read your own status first — the screen orientation is consistent across encounters.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Stat bars in real time</h4>
+                                <p>Bars drain visibly as the auto-battle resolves. Even though the math is instant, the animation makes it feel like a fight, not a verdict.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Sprite avatars</h4>
+                                <p>Each player gets a pixel-art figure tied to their stat distribution. Tall, short, wide — visual personality at a glance.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Verdict banner</h4>
+                                <p>"FIGHT!" → "WIN!" / "LOSS." / "DRAW." Inverted bar fills the bottom so the outcome lands with screen-wide weight.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">July 2025</p>
@@ -155,6 +247,85 @@
                         <div class="feed-feature">
                             <h3>Quick Battles</h3>
                             <p>Instant stats-based duels resolve automatically on encounter.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>The point of a passive multiplayer system is that most of the flow is invisible. Battle Pass runs in the background — the user only sees it when something interesting happens.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Setup</h4>
+                            <p>Pick nickname, allocate stats.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Walk</h4>
+                            <p>App scans wirelessly in the background.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Encounter</h4>
+                            <p>Another Flipper detected — buzzer alerts.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Battle</h4>
+                            <p>Auto-resolves with animated bars.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Log</h4>
+                            <p>Encounter recorded in history.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">June 2025</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Battle Pass is built for the social side of the Flipper community — people who already attend meetups, conferences, and hardware events where Flippers are commonly carried.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">CG</div>
+                            <h3>The Conference Goer</h3>
+                            <p class="persona-tagline">Brings their Flipper to DEFCON, hardware meetups, hackerspaces</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Discover other Flipper users in the wild</li>
+                                <li>Lightweight social signal at events</li>
+                                <li>Souvenir of a real-world encounter</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>No native way to find other Flipper users nearby</li>
+                                <li>Most peer apps require manual pairing</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">SN</div>
+                            <h3>The StreetPass Nostalgic</h3>
+                            <p class="persona-tagline">Misses Nintendo's StreetPass and wants that feeling back</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Passive multiplayer that respects their time</li>
+                                <li>Surprise rewards from walking around</li>
+                                <li>A growing log of encounters to flip through</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>StreetPass is dead, nothing has replaced it</li>
+                                <li>Modern multiplayer demands constant attention</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -147,6 +147,96 @@
             <article class="feed-entry">
                 <p class="feed-date">March 2023</p>
                 <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>An extension popup is a tiny canvas with high stakes — the user has to understand controls instantly. The visual language was tuned for a 320-pixel surface that lives one click below the address bar.</p>
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Status before settings</h4>
+                            <p>The popup leads with whether protection is on for the current site. Settings sit underneath — most users only check the toggle.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Blur as the brand</h4>
+                            <p>The product's identity is the blur itself. The icon, the highlight color, the popup all echo a soft frosted gradient.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Plain language only</h4>
+                            <p>No "DOM scanning" or "regex match" jargon. Copy speaks to what the user sees: "this word is blurred," "show it anyway."</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Per-site memory</h4>
+                            <p>Toggles remember per origin so power users aren't re-configuring on every domain.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">March 2023</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>The popup has roughly 320×400 pixels of real estate. Every component had to earn its place. Here's the layout that survived testing.</p>
+                    <div class="wireframe">
+                        <div class="wireframe-frame" style="max-width:300px;margin:0 auto;">
+                            <div class="wireframe-screen" style="min-height:340px;background:#fafafc;padding:14px;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block" style="flex:0 0 28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#a8d8ff,#d4c2ff);"></div>
+                                    <div class="wf-block text-line medium"></div>
+                                </div>
+                                <div class="wf-block" style="background:#e9f5ee;border-radius:10px;height:56px;display:flex;align-items:center;padding:0 12px;color:#2a8b50;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Protection: ON</div>
+                                <div class="wf-block text-line short" style="margin-top:6px;"></div>
+                                <div class="wf-row tight">
+                                    <div class="wf-block" style="background:white;border:1px solid #e0e0e6;border-radius:8px;height:34px;flex:1;"></div>
+                                    <div class="wf-block" style="flex:0 0 60px;background:#0071e3;border-radius:8px;height:34px;"></div>
+                                </div>
+                                <div class="wf-block" style="background:white;border:1px solid #e0e0e6;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;min-height:90px;">
+                                    <div class="wf-block text-line short"></div>
+                                    <div class="wf-block text-line"></div>
+                                    <div class="wf-block text-line"></div>
+                                </div>
+                                <div class="wf-callout" style="top:14px;right:14px;">1</div>
+                                <div class="wf-callout" style="top:34%;right:14px;">2</div>
+                                <div class="wf-callout" style="bottom:108px;right:14px;">3</div>
+                                <div class="wf-callout" style="bottom:14px;left:14px;">4</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Extension popup — status pill on top, controls below, list at the bottom.</p>
+                    </div>
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Logo + site title</h4>
+                                <p>Compact identification — the user knows what they opened and which site it's reporting on without reading.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Big status pill</h4>
+                                <p>The most important information on the popup: is the extension currently active on this site? Tap to flip the answer.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Add-a-word field</h4>
+                                <p>Inline input + submit. Users type a word, hit add, see it appear in the list below — zero modals, zero context loss.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Word list</h4>
+                                <p>Scrollable list with quick-remove on each row. Users see exactly what's being blocked — no hidden defaults running silently.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">March 2023</p>
+                <div class="feed-card">
                     <h2>The Solution</h2>
                     <p>A lightweight content script that scans page text, matches against a customizable word list, and applies CSS blur effects to just the offending terms.</p>
                     <div class="feed-features">
@@ -161,6 +251,78 @@
                         <div class="feed-feature">
                             <h3>Lightweight Design</h3>
                             <p>Minimal performance impact ensures browsing remains fast and responsive.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">February 2023</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>The extension has to deliver value on the first page load — there's no onboarding tour to lean on. Default protection is on, with a path to customize for users who want more control.</p>
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Install</h4>
+                            <p>Add to Chrome. Defaults active.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Browse</h4>
+                            <p>Visit any site. Words blur silently.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Tune</h4>
+                            <p>Open popup, add or remove words.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Override</h4>
+                            <p>Click any blur to reveal that instance.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feed-entry">
+                <p class="feed-date">February 2023</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Two user types ground every design choice — a parent protecting younger eyes, and an adult choosing a calmer browser for themselves.</p>
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">PG</div>
+                            <h3>The Protective Parent</h3>
+                            <p class="persona-tagline">Wants a soft layer of safety on the family laptop</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Block specific harmful or distressing words</li>
+                                <li>Keep websites usable, not nuked</li>
+                                <li>Configure once, forget about it</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Whole-site blockers are too blunt</li>
+                                <li>Most parental tools cost a subscription</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">CA</div>
+                            <h3>The Curating Adult</h3>
+                            <p class="persona-tagline">Wants a calmer feed with less inflammatory language</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Filter slurs, spoilers, or trigger words</li>
+                                <li>Decide what to soften — not have it dictated</li>
+                                <li>Toggle off for specific sites instantly</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Generic safe-search tools are inflexible</li>
+                                <li>Manual content avoidance is exhausting</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
