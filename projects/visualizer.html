@@ -506,6 +506,52 @@
                 </div>
             </article>
 
+            <!-- Interaction States -->
+            <article class="feed-entry">
+                <p class="feed-date">May 2025</p>
+                <div class="feed-card">
+                    <h2>Interaction States</h2>
+                    <p>Every control was designed past the happy path. These are the states each surface had to handle, with the rationale for how each one behaves.</p>
+
+                    <div class="interaction-states">
+                        <div class="state-card">
+                            <p class="state-label">Idle</p>
+                            <div class="state-preview">
+                                <div style="width:42px;height:42px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;color:white;font-size:0.875rem;">▶</div>
+                            </div>
+                            <p>Awaiting input. Controls at full opacity, play button has a soft pulse to invite the first click.</p>
+                        </div>
+                        <div class="state-card">
+                            <p class="state-label">Playing</p>
+                            <div class="state-preview">
+                                <div style="display:flex;gap:3px;align-items:flex-end;height:32px;">
+                                    <div style="width:4px;height:60%;background:var(--color-accent);border-radius:2px;"></div>
+                                    <div style="width:4px;height:90%;background:var(--color-accent);border-radius:2px;"></div>
+                                    <div style="width:4px;height:40%;background:var(--color-accent);border-radius:2px;"></div>
+                                    <div style="width:4px;height:75%;background:var(--color-accent);border-radius:2px;"></div>
+                                    <div style="width:4px;height:55%;background:var(--color-accent);border-radius:2px;"></div>
+                                </div>
+                            </div>
+                            <p>Visualization active. UI fades to zero after 3 seconds idle. Cursor movement brings controls back instantly.</p>
+                        </div>
+                        <div class="state-card">
+                            <p class="state-label">Loading</p>
+                            <div class="state-preview">
+                                <div style="width:32px;height:32px;border:3px solid #e5e5ea;border-top-color:var(--color-accent);border-radius:50%;animation:ux-spin 1s linear infinite;"></div>
+                            </div>
+                            <p>Audio decoding. Centered spinner over the canvas — no skeleton, since the canvas itself is the content.</p>
+                        </div>
+                        <div class="state-card">
+                            <p class="state-label">Error</p>
+                            <div class="state-preview">
+                                <div style="padding:8px 14px;border-radius:8px;background:#ffe5e5;color:#c40e0e;font-size:0.8125rem;font-weight:600;">Unsupported file</div>
+                            </div>
+                            <p>Codec or format failure. Inline message with a "try another file" CTA — never blocks the surface with a modal.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Process -->
             <article class="feed-entry">
                 <p class="feed-date">March 2025</p>
@@ -546,6 +592,109 @@
                 </div>
             </article>
 
+            <!-- Visual Direction -->
+            <article class="feed-entry">
+                <p class="feed-date">February 2025</p>
+                <div class="feed-card">
+                    <h2>Visual Design Direction</h2>
+                    <p>The visual language had one job: get out of the way of the music. Every choice — color, type, surface — was made to push the visualization forward and let the chrome recede.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Dark canvas first</h4>
+                            <p>Default to near-black so neon visualizations feel saturated and emissive instead of washed out.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Single accent color</h4>
+                            <p>One adjustable hue per session. Keeps the UI cohesive while letting the user theme around the track.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Motion is the brand</h4>
+                            <p>The product is the motion. Static UI is neutral grayscale so nothing competes with the canvas.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Type as label, not voice</h4>
+                            <p>Sans-serif at small sizes for utility text only. No marketing copy on the canvas — let the visuals speak.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Wireframes -->
+            <article class="feed-entry">
+                <p class="feed-date">January 2025</p>
+                <div class="feed-card">
+                    <h2>Wireframes &amp; Annotations</h2>
+                    <p>Low-fidelity wireframe of the main player surface. Each numbered callout marks a deliberate decision tested against the two listener archetypes.</p>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:340px;background:#1a1a1f;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
+                                    <div class="wf-block" style="flex:0 0 24px;height:10px;background:#3a3a45;border-radius:5px;"></div>
+                                </div>
+                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:160px;">
+                                    Visualization Canvas
+                                </div>
+                                <div class="wf-row tight">
+                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
+                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
+                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
+                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
+                                </div>
+                                <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
+
+                                <div class="wf-callout" style="top:18px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:18px;right:14px;">2</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">3</div>
+                                <div class="wf-callout" style="bottom:62px;right:14px;">4</div>
+                                <div class="wf-callout" style="bottom:14px;left:14px;">5</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Main player layout — dark surface lets the visualization carry the screen.</p>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Track title only</h4>
+                                <p>No persistent navigation chrome. The visual is the focus, not the UI surrounding it.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Settings behind one icon</h4>
+                                <p>A single entry point for visualization style, color, and sensitivity. Hidden until the user asks for it.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Full-bleed canvas</h4>
+                                <p>The visualization fills the viewport. No bordered "screen-within-a-screen" feel that breaks immersion.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">4</span>
+                            <div class="annotation-text">
+                                <h4>Style-switch row</h4>
+                                <p>Quick swap between visualization presets. Auto-hides during playback so it doesn't compete with the canvas.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">5</span>
+                            <div class="annotation-text">
+                                <h4>Playback bar</h4>
+                                <p>Standard play/pause, scrub, volume. Persistent on hover, fades after three seconds of idle cursor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Solution -->
             <article class="feed-entry">
                 <p class="feed-date">January 2025</p>
@@ -570,6 +719,43 @@
                 </div>
             </article>
 
+            <!-- User Flow -->
+            <article class="feed-entry">
+                <p class="feed-date">December 2024</p>
+                <div class="feed-card">
+                    <h2>Core User Flow</h2>
+                    <p>Mapping the full journey before drawing a single screen. Goal: zero-friction — landing to active visualization in under fifteen seconds, with no account or download.</p>
+
+                    <div class="user-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-num">01</span>
+                            <h4>Land</h4>
+                            <p>Open the app. No login wall.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">02</span>
+                            <h4>Load</h4>
+                            <p>Drop a file or pick from device.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">03</span>
+                            <h4>Pick Style</h4>
+                            <p>Choose a visualization preset.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">04</span>
+                            <h4>Tune</h4>
+                            <p>Color, intensity, motion.</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-num">05</span>
+                            <h4>Watch</h4>
+                            <p>Full-screen, controls fade.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Problem -->
             <article class="feed-entry">
                 <p class="feed-date">November 2024</p>
@@ -577,6 +763,50 @@
                     <h2>The Problem</h2>
                     <p>Users often struggle with finding the optimal way for them to enjoy music while having a visualizer tied to it. Many options were either outdated or too complicated for the average user.</p>
                     <p>The challenge was to create something both accessible and visually compelling.</p>
+                </div>
+            </article>
+
+            <!-- Target Users -->
+            <article class="feed-entry">
+                <p class="feed-date">November 2024</p>
+                <div class="feed-card">
+                    <h2>Target Users</h2>
+                    <p>Two listener archetypes shaped the design. Both wanted music to feel more present, but for different reasons — designing for both meant the visualizer had to be ambient enough to fade into the background, but reactive enough to reward focused viewing.</p>
+
+                    <div class="persona-grid">
+                        <div class="persona-card">
+                            <div class="persona-avatar">CL</div>
+                            <h3>The Casual Listener</h3>
+                            <p class="persona-tagline">Wants ambience while studying, working, or unwinding</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>Open it, drop a track, walk away</li>
+                                <li>Visuals that are pleasant, never jarring</li>
+                                <li>Looks good on a second monitor or TV</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Existing visualizers feel dated or overdesigned</li>
+                                <li>Too many menus before any sound plays</li>
+                            </ul>
+                        </div>
+                        <div class="persona-card">
+                            <div class="persona-avatar">FL</div>
+                            <h3>The Focused Listener</h3>
+                            <p class="persona-tagline">Wants the visuals to actually respond to the music</p>
+                            <p class="persona-section-label">Goals</p>
+                            <ul class="persona-traits">
+                                <li>See frequencies, dynamics, and beat hits land</li>
+                                <li>Feel the song, not just hear it</li>
+                                <li>Switch styles to match different genres</li>
+                            </ul>
+                            <p class="persona-section-label">Pain Points</p>
+                            <ul class="persona-traits">
+                                <li>Generic visualizers don't react meaningfully</li>
+                                <li>Heavy desktop apps are too much friction for one song</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </article>
 

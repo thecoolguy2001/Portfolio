@@ -126,7 +126,6 @@ const projectData = {
         role: "Web Developer / UI/UX Designer",
         timeline: "April 1, 2024 → May 3, 2024",
         tools: "CSS, Figma, HTML, JS, Webflow",
-        link: "http://jazlynromer.com",
         page: "projects/creator.html",
         summary: "The development of the creator's portfolio website aimed to blend modern design elements with classic blog aesthetics, providing a familiar yet fresh and unique online presence.",
         problem: "The creator needed a portfolio website that effectively displayed their diverse content, combining modern design elements with a classic blog style.",
@@ -696,19 +695,4 @@ document.querySelector('.hero')?.addEventListener('mouseenter', () => {
     if (hero) {
         hero.style.transition = 'transform 0.1s ease';
     }
-});
-
-// Add magnetic effect to buttons (Apple style)
-document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-    });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-    });
 });
