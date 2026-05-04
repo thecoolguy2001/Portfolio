@@ -525,21 +525,13 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame phone">
-                            <div class="wireframe-screen" style="min-height:280px;background:#1a1a1f;padding:8px;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div class="wf-block" style="flex:0 0 22px;height:10px;background:#3a3a45;border-radius:5px;"></div>
-                                </div>
-                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:150px;">Canvas</div>
-                                <div class="wf-row tight">
-                                    <div class="wf-block" style="background:#3a3a45;height:28px;"></div>
-                                    <div class="wf-block" style="background:#3a3a45;height:28px;"></div>
-                                    <div class="wf-block" style="background:#3a3a45;height:28px;"></div>
-                                </div>
-                                <div class="wf-block" style="background:#3a3a45;height:28px;"></div>
+                            <div class="wireframe-screen" style="min-height:300px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.7rem;letter-spacing:0.1em;">[ CANVAS ]</div>
+                                <span style="position:absolute;left:10px;bottom:10px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:10px;bottom:10px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">song: nirvana</span>
                             </div>
                         </div>
-                        <p class="wireframe-caption">iPhone layout — denser controls, full-bleed canvas, edge-swipe to switch effects.</p>
+                        <p class="wireframe-caption">iPhone layout — same chromeless rule as the web app. Tap, swipe, pinch, and long-press cover everything; the screen stays the canvas.</p>
                     </div>
                 </div>
             </article>
@@ -572,49 +564,40 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:240px;background:#1a1a1f;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div class="wf-block" style="flex:0 0 70px;height:14px;background:var(--color-accent);border-radius:6px;"></div>
-                                </div>
-                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:140px;position:relative;">
-                                    <span style="position:absolute;left:18%;top:34%;width:36%;height:3px;background:linear-gradient(90deg,#ff5fa8,#ffb86b);border-radius:2px;transform:rotate(-12deg);"></span>
-                                    <span style="position:absolute;left:38%;top:58%;width:28%;height:3px;background:linear-gradient(90deg,#6dd5ed,#9b8cff);border-radius:2px;transform:rotate(8deg);"></span>
-                                    Strokes Layer
-                                </div>
-                                <div class="wf-row tight">
-                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
-                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
-                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
-                                </div>
-                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
-                                <div class="wf-callout" style="top:50%;left:30%;transform:translate(-50%,-50%);">2</div>
-                                <div class="wf-callout" style="bottom:14px;left:50%;transform:translateX(-50%);">3</div>
+                            <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
+                                <span style="position:absolute;left:12%;top:28%;width:40%;height:3px;background:linear-gradient(90deg,#ff5fa8,#ffb86b);border-radius:2px;transform:rotate(-14deg);box-shadow:0 0 12px rgba(255,95,168,0.5);"></span>
+                                <span style="position:absolute;left:36%;top:54%;width:34%;height:3px;background:linear-gradient(90deg,#6dd5ed,#9b8cff);border-radius:2px;transform:rotate(10deg);box-shadow:0 0 12px rgba(109,213,237,0.5);"></span>
+                                <span style="position:absolute;left:18%;top:72%;width:24%;height:3px;background:linear-gradient(90deg,#aaff7a,#7affd1);border-radius:2px;transform:rotate(-4deg);box-shadow:0 0 12px rgba(170,255,122,0.4);"></span>
+                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">draw mode: on · brush: aurora · fade: on</span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:30px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:40%;left:32%;">2</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Draw Mode — strokes layer onto the canvas, each remembering its own brush effect.</p>
+                        <p class="wireframe-caption">Draw Mode — strokes layer directly on the chromeless canvas. The only chrome is a single status line in the top-left.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Active brush badge</h4>
-                                <p>Shows which effect is loaded as the current brush. Updates live as the user cycles brushes with arrow keys.</p>
+                                <h4>Single status line</h4>
+                                <p>Mode, active brush, and fade state all on one line in the top-left, in the same low-contrast monospace as the rest of the app. No popovers, no panels — same family of text the user already trusts.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
                                 <h4>Multi-effect strokes</h4>
-                                <p>Each stroke retains its source effect's behavior. An Aurora stroke and a Neon Grid stroke continue reacting to audio independently.</p>
+                                <p>Each stroke retains its source effect's behavior. An Aurora stroke and a Neon Grid stroke continue reacting to audio independently, layered on the same black canvas.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
-                            <span class="annotation-num">3</span>
+                            <span class="annotation-num">—</span>
                             <div class="annotation-text">
-                                <h4>Fade / erase row</h4>
-                                <p>Single-press toggles for Fade Mode and erase. Surfaces only while Draw Mode is active; otherwise hidden to keep the chrome quiet.</p>
+                                <h4>Controls stay on the keyboard</h4>
+                                <p>Arrow keys cycle brushes, <strong>F</strong> toggles fade, <strong>Backspace</strong> erases the last stroke, <strong>1-9</strong> sets stroke intensity. No on-screen brush picker or eraser button — the chromeless rule holds.</p>
                             </div>
                         </div>
                     </div>
@@ -680,21 +663,18 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:240px;background:#1a1a1f;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div class="wf-block" style="flex:0 0 90px;height:18px;background:#3a3a45;border-radius:6px;"></div>
-                                </div>
-                                <div class="wf-row" style="flex:1;align-items:stretch;">
-                                    <div class="wf-block fill center" style="background:#252530;color:#666;min-height:140px;">Audio + Camera Composite</div>
-                                    <div class="wf-block" style="flex:0 0 90px;background:#0d2433;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#6dd5ed;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;">CAM</div>
-                                </div>
-                                <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
-                                <div class="wf-callout" style="top:50%;right:24px;transform:translateY(-50%);">2</div>
+                            <div class="wireframe-screen" style="min-height:240px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ AUDIO + CAMERA COMPOSITE ]</div>
+                                <span style="position:absolute;right:14px;top:12px;display:inline-flex;align-items:center;gap:6px;color:#6dd5ed;font-size:0.65rem;font-family:'SF Mono',monospace;letter-spacing:0.08em;">
+                                    <span style="width:6px;height:6px;background:#6dd5ed;border-radius:50%;"></span>cam: on
+                                </span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:14px;right:90px;">1</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Visual Mode — live camera preview pinned in the corner so the user always knows it's active.</p>
+                        <p class="wireframe-caption">Visual Mode — same chromeless canvas; the only addition is a small <em>cam: on</em> indicator in the top-right corner.</p>
                     </div>
 
                     <div class="annotations">
@@ -702,14 +682,14 @@
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
                                 <h4>Camera-active indicator</h4>
-                                <p>Always-visible pill while the feed is live. No hidden recording — the user is never unsure whether the camera is on.</p>
+                                <p>Same monospace, same low-contrast treatment as the corner labels — but tinted cyan so the user can spot it at a glance. No hidden recording.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Picture-in-picture preview</h4>
-                                <p>Small camera preview in the corner so the user can see what the effect is ingesting — and frame themselves intentionally.</p>
+                                <h4>Camera blends into the effect</h4>
+                                <p>The live feed isn't pinned in a picture-in-picture box — it composites directly into the active effect. Audio still drives motion; video layers as texture, color, or distortion. No second canvas competing with the first.</p>
                             </div>
                         </div>
                     </div>
@@ -875,19 +855,17 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:200px;background:#1a1a1f;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;background:rgba(255,40,40,0.15);color:#ff5b5b;font-size:0.7rem;font-weight:600;letter-spacing:0.05em;">
-                                        <span style="width:7px;height:7px;background:#ff5b5b;border-radius:50%;"></span>
-                                        RECORDING
-                                    </div>
-                                </div>
-                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:120px;">Visualization Canvas</div>
-                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
+                            <div class="wireframe-screen" style="min-height:220px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ FULL-BLEED CANVAS ]</div>
+                                <span style="position:absolute;right:14px;top:12px;display:inline-flex;align-items:center;gap:6px;color:#ff5b5b;font-size:0.65rem;font-family:'SF Mono',monospace;letter-spacing:0.08em;">
+                                    <span style="width:7px;height:7px;background:#ff5b5b;border-radius:50%;"></span>recording…
+                                </span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:14px;right:120px;">1</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Recording state — persistent indicator pill, no overlay obscuring the canvas.</p>
+                        <p class="wireframe-caption">Recording — the only addition to the chromeless canvas is a single small <em>recording…</em> indicator in the top-right corner.</p>
                     </div>
                 </div>
             </article>
@@ -984,20 +962,20 @@
 
                     <div class="design-decisions">
                         <div class="decision-card">
-                            <h4>Dark canvas first</h4>
-                            <p>Default to near-black so neon visualizations feel saturated and emissive instead of washed out.</p>
+                            <h4>Pure black canvas</h4>
+                            <p>Not "near-black" — actual black. Saturated effect colors read as emissive, and OLED screens get genuine black pixels instead of a dark gray field.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Single accent color</h4>
-                            <p>One adjustable hue per session. Keeps the UI cohesive while letting the user theme around the track.</p>
+                            <h4>Effects own their palette</h4>
+                            <p>Each effect picks its own colors — Particles is a rainbow scatter, Aurora is greens and purples, TempleOS is its own thing. The app provides no global accent because the visualization is the color story.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Motion is the brand</h4>
-                            <p>The product is the motion. Static UI is neutral grayscale so nothing competes with the canvas.</p>
+                            <h4>Chromeless by default</h4>
+                            <p>No header, no buttons, no playback bar. The only persistent elements are two tiny corner labels — mode and song. Everything else is summoned with a key and disappears when you're done.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Type as label, not voice</h4>
-                            <p>Sans-serif at small sizes for utility text only. No marketing copy on the canvas — let the visuals speak.</p>
+                            <h4>Monospace for status</h4>
+                            <p>Status text is monospace and low-contrast — different family from anything an effect could draw, so it always reads as "the app talking" rather than "part of the visual."</p>
                         </div>
                     </div>
                 </div>
@@ -1054,45 +1032,39 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:240px;background:#1a1a1f;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div class="wf-block" style="flex:0 0 60px;height:14px;background:var(--color-accent);border-radius:6px;"></div>
-                                </div>
-                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:140px;">Visualization + Game Layer</div>
-                                <div class="wf-row tight">
-                                    <div class="wf-block" style="background:#2a2a30;height:38px;border-radius:8px;"></div>
-                                    <div class="wf-block" style="background:#2a2a30;height:38px;border-radius:8px;"></div>
-                                    <div class="wf-block" style="background:#2a2a30;height:38px;border-radius:8px;"></div>
-                                </div>
-                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
+                            <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ EFFECT + GAME LAYER ]</div>
+                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">score: 1240</span>
+                                <span style="position:absolute;left:14px;top:30px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">lives: ◆ ◆ ◆</span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:18px;left:90px;">1</div>
                                 <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
-                                <div class="wf-callout" style="bottom:14px;left:50%;transform:translateX(-50%);">3</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Game Mode layout — score on top, visualization fills the canvas, game-specific controls along the bottom.</p>
+                        <p class="wireframe-caption">Game Mode — same chromeless canvas, plus a tiny score/lives HUD in the top-left corner.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Score badge</h4>
-                                <p>Persistent and low-contrast. Animates on score events, never blocks the canvas, fades when the user is just watching.</p>
+                                <h4>Top-left HUD</h4>
+                                <p>Score and lives in the same low-contrast monospace as the corner labels. Same family of text, same low priority — the game read sits inside the existing visual language, not on top of it.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
                                 <h4>Game-effect blend</h4>
-                                <p>Game elements share the same visual language as the underlying effect. The game looks like part of the music, not glued on top.</p>
+                                <p>Game elements render directly on the same canvas as the effect. No overlay panel, no border, no game UI — the game is part of the visual, not glued on top of it.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
-                            <span class="annotation-num">3</span>
+                            <span class="annotation-num">—</span>
                             <div class="annotation-text">
-                                <h4>Game-specific controls</h4>
-                                <p>Each of the five games has its own minimal control row, plus the shared <strong>Z</strong> action key. Same position every time, so muscle memory transfers between games.</p>
+                                <h4>Controls stay on the keyboard</h4>
+                                <p>Arrow keys for movement, <strong>Z</strong> for the primary action. No on-screen buttons — same chromeless rule as the rest of the app, so muscle memory transfers between the five games.</p>
                             </div>
                         </div>
                     </div>
@@ -1137,66 +1109,45 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:340px;background:#1a1a1f;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
-                                    <div class="wf-block" style="flex:0 0 24px;height:10px;background:#3a3a45;border-radius:5px;"></div>
-                                </div>
-                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:160px;">
-                                    Visualization Canvas
-                                </div>
-                                <div class="wf-row tight">
-                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-                                    <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-                                </div>
-                                <div class="wf-block" style="background:#3a3a45;height:32px;"></div>
-
-                                <div class="wf-callout" style="top:18px;left:14px;">1</div>
-                                <div class="wf-callout" style="top:18px;right:14px;">2</div>
-                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">3</div>
-                                <div class="wf-callout" style="bottom:62px;right:14px;">4</div>
-                                <div class="wf-callout" style="bottom:14px;left:14px;">5</div>
+                            <div class="wireframe-screen" style="min-height:340px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ FULL-BLEED CANVAS ]</div>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">1</div>
+                                <div class="wf-callout" style="bottom:34px;left:14px;">2</div>
+                                <div class="wf-callout" style="bottom:34px;right:14px;">3</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Main player layout — dark surface lets the visualization carry the screen.</p>
+                        <p class="wireframe-caption">Main player — chromeless. The viewport is the canvas; only two small corner labels are persistent.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Track title only</h4>
-                                <p>No persistent navigation chrome. The visual is the focus, not the UI surrounding it.</p>
+                                <h4>Full-bleed canvas, zero chrome</h4>
+                                <p>No header, no buttons, no playback bar. Every pixel is the visualization. Every action is a key press or gesture — controls live in the user's hands, not on the screen.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Settings behind one icon</h4>
-                                <p>A single entry point for visualization style, color, and sensitivity. Hidden until the user asks for it.</p>
+                                <h4>Mode label (bottom-left)</h4>
+                                <p>Small monospace label that always tells the user which playback mode they're in — playlist, file, mic, or DSP. Low contrast so it never competes with the canvas.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">3</span>
                             <div class="annotation-text">
-                                <h4>Full-bleed canvas</h4>
-                                <p>The visualization fills the viewport. No bordered "screen-within-a-screen" feel that breaks immersion.</p>
+                                <h4>Song label (bottom-right)</h4>
+                                <p>Currently playing track. Updates on track change. Same low-contrast monospace as the mode label so the two corners read as one quiet status line.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
-                            <span class="annotation-num">4</span>
+                            <span class="annotation-num">—</span>
                             <div class="annotation-text">
-                                <h4>Style-switch row</h4>
-                                <p>Quick swap between visualization presets. Auto-hides during playback so it doesn't compete with the canvas.</p>
-                            </div>
-                        </div>
-                        <div class="annotation-item">
-                            <span class="annotation-num">5</span>
-                            <div class="annotation-text">
-                                <h4>Playback bar</h4>
-                                <p>Standard play/pause, scrub, volume. Persistent on hover, fades after three seconds of idle cursor.</p>
+                                <h4>Everything else is on-demand</h4>
+                                <p>Press <strong>I</strong> to surface song/mode info bigger. <strong>H</strong> for the help overlay. <strong>Q</strong> for the password sheet. Any UI you see appears because you asked for it, then disappears.</p>
                             </div>
                         </div>
                     </div>
