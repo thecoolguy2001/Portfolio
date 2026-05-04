@@ -536,6 +536,49 @@
                 </div>
             </article>
 
+            <!-- Performance & Browser Support -->
+            <article class="feed-entry">
+                <p class="feed-date">August 2025</p>
+                <div class="feed-card">
+                    <h2>Performance &amp; Browser Support</h2>
+                    <p>Fifty-plus effects, real-time FFT, MediaRecorder, optional camera ingest, and a third-party shader sandbox — all targeting 60fps on hardware that ranges from a six-year-old MacBook to a brand-new iPhone. The constraints had to be designed in, not patched on.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>60fps target</h3>
+                            <p>Frame budget: 16ms. Render loop, audio analysis, and shader uniforms all share that budget. Any effect that can't hold it on a baseline laptop ships behind the perf toggle.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>WebGL 2.0 required</h3>
+                            <p>Shader-heavy effects assume modern context. Hard requirement, communicated up front rather than letting users hit silent black screens.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Codec fallback chain</h3>
+                            <p>VP9 25mbps → VP8 20mbps → H.264 (Safari). Recording works on every supported browser with the best available codec, automatically.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Perf-tagged presets</h3>
+                            <p>Heavier effects (Quantum Architect, Wormhole, Microverse) carry a perf flag. The toggle hides them on low-end hardware so the catalog still feels finished, just shorter.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Low Power Mode</h3>
+                            <p>iOS app reads Low Power Mode and reduces motion / lowers internal resolution. Mac respects power-source state when it's running on a second monitor.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Reduce Motion respected</h3>
+                            <p>System-level Reduce Motion drops augmentation rate, slows transitions, and disables Augment Mode auto-cycling. Disorientation is a real cost; the system tells the OS the user opted out.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:'SF Mono',monospace;font-size:0.78rem;">
+                        <div style="background:#0f0f14;color:#9b8cff;padding:14px 18px;border-radius:10px;border-left:3px solid #9b8cff;"><strong style="color:#fff;">Chrome 90+</strong><br>VP9 · WebGL 2 · all features</div>
+                        <div style="background:#0f0f14;color:#6dd5ed;padding:14px 18px;border-radius:10px;border-left:3px solid #6dd5ed;"><strong style="color:#fff;">Edge 90+</strong><br>VP9 · WebGL 2 · all features</div>
+                        <div style="background:#0f0f14;color:#aaff7a;padding:14px 18px;border-radius:10px;border-left:3px solid #aaff7a;"><strong style="color:#fff;">Safari 14+</strong><br>H.264 · MP4 container · Apple Music best</div>
+                        <div style="background:#0f0f14;color:#ffb86b;padding:14px 18px;border-radius:10px;border-left:3px solid #ffb86b;"><strong style="color:#fff;">Firefox 88+</strong><br>VP8 fallback · WebGL 2 · all features</div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Draw Mode -->
             <article class="feed-entry">
                 <p class="feed-date">July 2025</p>
@@ -696,6 +739,105 @@
                 </div>
             </article>
 
+            <!-- Accessibility & Inclusive Design -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2025</p>
+                <div class="feed-card">
+                    <h2>Accessibility &amp; Inclusive Design</h2>
+                    <p>An audio-reactive visualizer is, by nature, a hostile space for some users. That doesn't excuse the product from being thoughtful — it raises the bar. Every accessibility decision below was made before launch, not retrofitted.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Photosensitivity warning at first launch</h4>
+                            <p>Strobe-capable effects exist in the library. The warning overlay names that risk explicitly and requires acknowledgement before the canvas activates. No silent autoplay.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Reduce Motion is honored</h4>
+                            <p>System-level Reduce Motion (macOS, iOS, browser-level <code>prefers-reduced-motion</code>) gates Augment Mode auto-cycling, slows transitions, and tones down high-flicker effects.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Keyboard-first interaction model</h4>
+                            <p>Every action has a key. No required mouse gesture, no required touch gesture. Users on assistive switches or keyboard-only setups have parity with mouse users.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>State cues are never color-only</h4>
+                            <p>Recording uses a dot + the word "recording," not a red dot alone. Camera-on uses an icon + the word "cam: on." Color-blind users get the same information density as everyone else.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Permission prompts get framed</h4>
+                            <p>Camera, microphone, and Apple Music permissions all surface inside the app with context before the browser-level prompt fires. Users opt in knowing why.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Honest error messaging</h4>
+                            <p>Apple Music DRM means some tracks can't be analyzed. The app says so plainly instead of looking broken. "Unsupported file" beats a frozen canvas, every time.</p>
+                        </div>
+                    </div>
+
+                    <div class="feed-features" style="margin-top:24px;">
+                        <div class="feed-feature">
+                            <h3>Captions on tutorials</h3>
+                            <p>The H help overlay text is high-contrast and uses system text scaling — readable at OS-level enlargement.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>No timed dismissals</h3>
+                            <p>Help, password entry, and info screens stay open until the user dismisses them. No "30 seconds and you've missed it" patterns.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>System pause respected</h3>
+                            <p>Tab-out, OS lock, and "do not disturb" cleanly pause analysis instead of hammering the GPU off-screen.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Heuristic Findings -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2025</p>
+                <div class="feed-card">
+                    <h2>Heuristic Findings &amp; Iteration Log</h2>
+                    <p>Self-audit against Nielsen's ten usability heuristics, run after the user-research pivot. Each finding got a severity rating (1 = cosmetic, 4 = critical), a fix, and a verification check before being marked resolved.</p>
+
+                    <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>Visibility of system status</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"What mode am I in? What's playing?"</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#c40e0e;">SEV 3</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">Persistent monospace corner labels (mode + song) added in v2. <strong>I</strong> key surfaces the full readout on demand.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>User control &amp; freedom</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"How do I undo a stroke?"</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#c40e0e;">SEV 3</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">Backspace erases the last stroke in Draw Mode. <strong>D</strong> twice clears the whole canvas. No multi-step history dialog.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>Consistency &amp; standards</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"Why does navigation feel like one thing?"</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#d4861e;">SEV 2</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">Mode is always vertical (arrow up/down, swipe up/down); effect is always horizontal (arrow left/right, swipe left/right). Two perpendicular axes, every surface.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>Help &amp; documentation</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"What can I press right now?"</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#d4861e;">SEV 2</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">H opens a context-aware help overlay — Draw Mode adds F and Backspace rows; Game Mode adds Z and arrow rows; nothing irrelevant ever shows.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>Recognition over recall</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"Did I lose my password?"</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#c4a01e;">SEV 1</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">Password persists in localStorage. Pro indicator stays visible during password entry. Q can re-summon the prompt at any time.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
+                            <div><strong>Error prevention</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"My recording came out empty."</span></div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#c40e0e;">SEV 3</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">Spacebar-init requirement called out in the help overlay AND the manual. Recording during an uninitialized audio context now warns inline before starting.</div>
+                            <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Custom Effect Creator -->
             <article class="feed-entry">
                 <p class="feed-date">April 2025</p>
@@ -786,42 +928,122 @@
                 <p class="feed-date">May 2025</p>
                 <div class="feed-card">
                     <h2>Interaction States</h2>
-                    <p>Every control was designed past the happy path. These are the states each surface had to handle, with the rationale for how each one behaves.</p>
+                    <p>The chromeless rule means every state has to live on the same black canvas. There's no toolbar to grow into, no panel to dock. These are the actual states the surface handles — each rendered against the same canvas, each chosen so the user always knows what's happening.</p>
 
-                    <div class="interaction-states">
-                        <div class="state-card">
-                            <p class="state-label">Idle</p>
-                            <div class="state-preview">
-                                <div style="width:42px;height:42px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;color:white;font-size:0.875rem;">▶</div>
-                            </div>
-                            <p>Awaiting input. Controls at full opacity, play button has a soft pulse to invite the first click.</p>
-                        </div>
-                        <div class="state-card">
-                            <p class="state-label">Playing</p>
-                            <div class="state-preview">
-                                <div style="display:flex;gap:3px;align-items:flex-end;height:32px;">
-                                    <div style="width:4px;height:60%;background:var(--color-accent);border-radius:2px;"></div>
-                                    <div style="width:4px;height:90%;background:var(--color-accent);border-radius:2px;"></div>
-                                    <div style="width:4px;height:40%;background:var(--color-accent);border-radius:2px;"></div>
-                                    <div style="width:4px;height:75%;background:var(--color-accent);border-radius:2px;"></div>
-                                    <div style="width:4px;height:55%;background:var(--color-accent);border-radius:2px;"></div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px;">
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Awaiting Start</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.85rem;font-weight:600;">Press Spacebar to Start</div>
                                 </div>
                             </div>
-                            <p>Visualization active. UI fades to zero after 3 seconds idle. Cursor movement brings controls back instantly.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Post-warning, pre-play. One sentence centered. Doubles as the AudioContext init prompt.</p>
                         </div>
-                        <div class="state-card">
-                            <p class="state-label">Loading</p>
-                            <div class="state-preview">
-                                <div style="width:32px;height:32px;border:3px solid #e5e5ea;border-top-color:var(--color-accent);border-radius:50%;animation:ux-spin 1s linear infinite;"></div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Playing</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <span style="position:absolute;left:10px;bottom:8px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                    <span style="position:absolute;right:10px;bottom:8px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">song: nirvana</span>
+                                </div>
                             </div>
-                            <p>Audio decoding. Centered spinner over the canvas — no skeleton, since the canvas itself is the content.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Steady-state. Effect renders full-bleed, only the two corner labels persist.</p>
                         </div>
-                        <div class="state-card">
-                            <p class="state-label">Error</p>
-                            <div class="state-preview">
-                                <div style="padding:8px 14px;border-radius:8px;background:#ffe5e5;color:#c40e0e;font-size:0.8125rem;font-weight:600;">Unsupported file</div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Paused</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;opacity:0.55;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT FROZEN ]</div>
+                                    <span style="position:absolute;left:10px;bottom:8px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                    <span style="position:absolute;right:10px;bottom:8px;color:#9a9aa5;font-size:0.6rem;font-family:'SF Mono',monospace;">song: nirvana</span>
+                                </div>
                             </div>
-                            <p>Codec or format failure. Inline message with a "try another file" CTA — never blocks the surface with a modal.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Spacebar pressed mid-song. Render loop holds the last frame; corner labels stay so the user knows what they're returning to.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Switch Confirmation</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.6);color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.78rem;padding:8px 16px;border-radius:8px;border:1px solid #2a2a35;">› aurora</div>
+                                </div>
+                            </div>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Arrow-key swap. Effect or mode name appears center-screen for ~1.2s, then fades. Confirms the change without keeping a label on screen.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Info Overlay (I)</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.7rem;padding:14px 18px;border-radius:10px;border:1px solid #2a2a35;line-height:1.7;text-align:left;">
+                                        mode: playlist<br>song: nirvana – radio<br>effect: aurora<br>intensity: 5
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">User-summoned readout. Larger version of the corner labels with effect + intensity, shown until dismissed.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Help Overlay (H)</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.75);color:#9a9aa5;font-family:'SF Mono',monospace;font-size:0.62rem;padding:12px 16px;border-radius:10px;border:1px solid #2a2a35;line-height:1.8;text-align:left;">
+                                        space — play / pause<br>← → — effect<br>↑ ↓ — mode<br>1-9 — intensity<br>r — record · h — help
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Context-aware. Draw Mode adds F + Backspace; Game Mode adds Z + arrows; nothing irrelevant ever shows.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Password Sheet (Q)</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);padding:14px 18px;border-radius:10px;border:1px solid #ffb86b;display:flex;flex-direction:column;gap:8px;">
+                                        <div style="color:#ffb86b;font-family:'SF Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;">PRO ACCESS</div>
+                                        <div style="background:#0a0a0d;color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.78rem;padding:6px 10px;border-radius:6px;border:1px solid #2a2a35;letter-spacing:0.3em;">• • • • • • •</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Q on desktop, two-finger swipe-up on mobile. Single field, no other UI — paste, hit enter, dismissed.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Permission Requested</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.72rem;padding:14px 18px;border-radius:10px;border:1px solid #6dd5ed;text-align:center;line-height:1.5;max-width:200px;">
+                                        Camera access lets effects react to what's in front of you.
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Camera, mic, and Apple Music all get an in-app explanation before the browser-level prompt fires. Users opt in knowing why.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>One canvas, every state</h4>
+                            <p>No new pages, no slide-in panels. Every state — start, play, pause, switch, info, help, permission — renders on the same black canvas. The user is never moved to a different surface.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Overlays auto-dismiss or wait</h4>
+                            <p>Switch confirmations fade after ~1.2s. Help / info / password sheets wait for user input — no timed dismissal on anything that requires reading.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Errors stay quiet</h4>
+                            <p>DRM-blocked tracks fall back to dummy analyzer data and update the song corner with the reason. No modal, no red banner — the canvas keeps moving.</p>
                         </div>
                     </div>
                 </div>
@@ -870,6 +1092,124 @@
                 </div>
             </article>
 
+            <!-- Engineering Architecture -->
+            <article class="feed-entry">
+                <p class="feed-date">March 2025</p>
+                <div class="feed-card">
+                    <h2>Engineering Architecture</h2>
+                    <p>The render loop has to do four things every 16ms: read audio, run an FFT, update the active effect's uniforms, and draw. Plus an optional camera ingest, plus an optional MediaRecorder branch, plus optional shader code being hot-loaded by a Pro user. Here's how the pipeline is wired.</p>
+
+                    <div style="margin-top:24px;background:#0f0f14;border-radius:14px;padding:24px;font-family:'SF Mono',monospace;font-size:0.78rem;color:#c8c8d0;line-height:1.9;">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
+                            <span style="background:#1c2435;color:#6dd5ed;padding:8px 14px;border-radius:8px;border:1px solid #6dd5ed;">Audio Source</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#1c2435;color:#6dd5ed;padding:8px 14px;border-radius:8px;border:1px solid #6dd5ed;">AudioContext</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#1c2435;color:#6dd5ed;padding:8px 14px;border-radius:8px;border:1px solid #6dd5ed;">AnalyserNode</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#2a1c35;color:#9b8cff;padding:8px 14px;border-radius:8px;border:1px solid #9b8cff;">FFT (2048)</span>
+                        </div>
+                        <div style="text-align:center;color:#6a6a78;margin:8px 0;">↓</div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
+                            <span style="background:#2a1c35;color:#9b8cff;padding:8px 14px;border-radius:8px;border:1px solid #9b8cff;">bass / mid / treble (0-255)</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#1c352a;color:#aaff7a;padding:8px 14px;border-radius:8px;border:1px solid #aaff7a;">Effect.animateReactive()</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#1c352a;color:#aaff7a;padding:8px 14px;border-radius:8px;border:1px solid #aaff7a;">Shader Uniforms</span>
+                        </div>
+                        <div style="text-align:center;color:#6a6a78;margin:8px 0;">↓</div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
+                            <span style="background:#352a1c;color:#ffb86b;padding:8px 14px;border-radius:8px;border:1px solid #ffb86b;">THREE.Scene</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#352a1c;color:#ffb86b;padding:8px 14px;border-radius:8px;border:1px solid #ffb86b;">WebGLRenderer</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#000;color:#fff;padding:8px 14px;border-radius:8px;border:1px solid #fff;">&lt;canvas&gt;</span>
+                        </div>
+                        <div style="text-align:center;color:#6a6a78;margin:14px 0 8px;">— optional branches —</div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
+                            <span style="background:#351c2a;color:#ff5fa8;padding:8px 14px;border-radius:8px;border:1px solid #ff5fa8;">getUserMedia(camera)</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#351c2a;color:#ff5fa8;padding:8px 14px;border-radius:8px;border:1px solid #ff5fa8;">VideoTexture</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#1c352a;color:#aaff7a;padding:8px 14px;border-radius:8px;border:1px solid #aaff7a;">Shader Uniforms</span>
+                        </div>
+                        <div style="text-align:center;color:#6a6a78;margin:8px 0;">↕</div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
+                            <span style="background:#000;color:#fff;padding:8px 14px;border-radius:8px;border:1px solid #fff;">&lt;canvas&gt;.captureStream</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#352a1c;color:#ffb86b;padding:8px 14px;border-radius:8px;border:1px solid #ffb86b;">MediaRecorder (VP9 / VP8 / H.264)</span>
+                            <span style="color:#6a6a78;">→</span>
+                            <span style="background:#352a1c;color:#ffb86b;padding:8px 14px;border-radius:8px;border:1px solid #ffb86b;">Blob → download</span>
+                        </div>
+                    </div>
+
+                    <div class="feed-features" style="margin-top:24px;">
+                        <div class="feed-feature">
+                            <h3>Single requestAnimationFrame</h3>
+                            <p>One render loop owns the frame. Effect updates, audio reads, camera texture refresh, and game logic all dispatch from the same tick — no rogue timers, no drift.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Custom effects share globals</h3>
+                            <p>Pro user code runs against the same <code>scene</code>, <code>camera</code>, <code>renderer</code>, <code>audioContext</code>, and <code>visualElements</code> the built-in effects use. No sandbox tax, no second pipeline.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>2048-sample FFT</h3>
+                            <p>Tuned for 60fps. Larger windows gave better frequency resolution but added latency the eye picked up; smaller windows lost the bass band's separation.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Native-port engine reuse</h3>
+                            <p>The Swift iOS / macOS ports re-implement the audio path natively but share the effect catalog and color system 1:1 — one product, three surfaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Mobile Gesture Map -->
+            <article class="feed-entry">
+                <p class="feed-date">March 2025</p>
+                <div class="feed-card">
+                    <h2>Mobile Gesture Map</h2>
+                    <p>Mobile parity wasn't an afterthought — it shipped at launch. Every desktop key has a touch equivalent, and the gesture grammar was designed so a returning user never has to look up a control.</p>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame phone">
+                            <div class="wireframe-screen" style="min-height:360px;background:#000;padding:0;position:relative;font-family:'SF Mono',monospace;">
+                                <span style="position:absolute;left:50%;top:14px;transform:translateX(-50%);color:#9b8cff;font-size:0.62rem;letter-spacing:0.06em;">⇡  swipe up — mode</span>
+                                <span style="position:absolute;left:50%;bottom:14px;transform:translateX(-50%);color:#9b8cff;font-size:0.62rem;letter-spacing:0.06em;">⇣  swipe down — mode</span>
+                                <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%) rotate(-90deg);color:#6dd5ed;font-size:0.62rem;letter-spacing:0.06em;white-space:nowrap;">⇠  effect</span>
+                                <span style="position:absolute;right:8px;top:50%;transform:translateY(-50%) rotate(90deg);color:#6dd5ed;font-size:0.62rem;letter-spacing:0.06em;white-space:nowrap;">effect  ⇢</span>
+                                <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:#aaff7a;font-size:0.62rem;line-height:1.8;">
+                                    tap — play / pause<br>
+                                    double-tap — intensity<br>
+                                    triple-tap — next song<br>
+                                    long press — help<br>
+                                    pinch — visual mode<br>
+                                    2-finger tap — info<br>
+                                    2-finger hold — augment<br>
+                                    2-finger swipe up — pro
+                                </div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Gesture zones — perpendicular axes (vertical = mode, horizontal = effect) with tap counts and finger counts modulating action class.</p>
+                    </div>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Perpendicular axes</h4>
+                            <p>Vertical swipe = playback mode. Horizontal swipe = effect. Same model as the keyboard arrows. Switching surfaces (web → iPhone) doesn't reset muscle memory.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Finger count modulates intent</h4>
+                            <p>One finger = primary action. Two fingers = power-user / pro action. Pinch = camera blend. Long press = help. Each gesture class is its own mental bucket.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Tap-count escalation</h4>
+                            <p>Tap → play/pause. Double → cycle intensity. Triple → next song. Four → mute. Each tap up the chain costs more deliberateness, and that maps to action consequence.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Process -->
             <article class="feed-entry">
                 <p class="feed-date">March 2025</p>
@@ -905,6 +1245,109 @@
                                 <h3>Usability Study</h3>
                                 <p>Testing was conducted to ensure the visualizer was both intuitive and effective.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Keyboard Shortcut Map -->
+            <article class="feed-entry">
+                <p class="feed-date">February 2025</p>
+                <div class="feed-card">
+                    <h2>Keyboard Shortcut Map</h2>
+                    <p>Twenty-plus keys carry the entire app. The mapping was designed in zones so the user never has to scan the whole keyboard — the layout itself implies the action class.</p>
+
+                    <style>
+                        .kbd-row{display:flex;gap:6px;justify-content:center;margin-bottom:6px;flex-wrap:nowrap;}
+                        .kbd{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:36px;height:42px;background:#1a1a1f;color:#e4e4ea;border-radius:6px;border:1px solid #2a2a35;font-family:'SF Mono',monospace;font-size:0.78rem;padding:0 6px;font-weight:600;position:relative;}
+                        .kbd small{font-size:0.55rem;font-weight:500;color:#9a9aa5;letter-spacing:0;}
+                        .kbd-z-action{background:#1c352a;border-color:#aaff7a;color:#aaff7a;}
+                        .kbd-z-mode{background:#2a1c35;border-color:#9b8cff;color:#9b8cff;}
+                        .kbd-z-pro{background:#352a1c;border-color:#ffb86b;color:#ffb86b;}
+                        .kbd-z-info{background:#1c2435;border-color:#6dd5ed;color:#6dd5ed;}
+                        .kbd-z-record{background:#351c2a;border-color:#ff5fa8;color:#ff5fa8;}
+                        .kbd-wide{min-width:130px;}
+                        .kbd-mid{min-width:60px;}
+                        .kbd-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:0.78rem;color:var(--color-gray-500);justify-content:center;}
+                        .kbd-legend-item{display:inline-flex;align-items:center;gap:6px;}
+                        .kbd-legend-swatch{width:12px;height:12px;border-radius:3px;border:1px solid;}
+                    </style>
+
+                    <div style="margin-top:24px;background:#0a0a0d;border-radius:14px;padding:24px 18px;overflow-x:auto;">
+                        <div class="kbd-row">
+                            <div class="kbd kbd-z-info">1<small>int</small></div>
+                            <div class="kbd kbd-z-info">2<small>int</small></div>
+                            <div class="kbd kbd-z-info">3<small>int</small></div>
+                            <div class="kbd kbd-z-info">4<small>int</small></div>
+                            <div class="kbd kbd-z-info">5<small>int</small></div>
+                            <div class="kbd kbd-z-info">6<small>int</small></div>
+                            <div class="kbd kbd-z-info">7<small>int</small></div>
+                            <div class="kbd kbd-z-info">8<small>int</small></div>
+                            <div class="kbd kbd-z-info">9<small>int</small></div>
+                        </div>
+                        <div class="kbd-row">
+                            <div class="kbd kbd-z-pro">Q<small>pro</small></div>
+                            <div class="kbd kbd-z-action">W</div>
+                            <div class="kbd kbd-z-action">E</div>
+                            <div class="kbd kbd-z-record">R<small>rec</small></div>
+                            <div class="kbd kbd-z-action">T</div>
+                            <div class="kbd kbd-z-action">Y</div>
+                            <div class="kbd kbd-z-action">U</div>
+                            <div class="kbd kbd-z-info">I<small>info</small></div>
+                            <div class="kbd kbd-z-mode">O<small>shuf</small></div>
+                            <div class="kbd kbd-z-mode">P<small>+file</small></div>
+                        </div>
+                        <div class="kbd-row">
+                            <div class="kbd kbd-z-action">A</div>
+                            <div class="kbd kbd-z-action">S</div>
+                            <div class="kbd kbd-z-pro">D<small>draw</small></div>
+                            <div class="kbd kbd-z-action">F</div>
+                            <div class="kbd kbd-z-pro">G<small>game</small></div>
+                            <div class="kbd kbd-z-info">H<small>help</small></div>
+                            <div class="kbd kbd-z-action">J</div>
+                            <div class="kbd kbd-z-action">K</div>
+                            <div class="kbd kbd-z-action">L</div>
+                        </div>
+                        <div class="kbd-row">
+                            <div class="kbd kbd-z-mode">Z<small>game</small></div>
+                            <div class="kbd kbd-z-mode">X<small>aug</small></div>
+                            <div class="kbd kbd-z-pro">C<small>code</small></div>
+                            <div class="kbd kbd-z-pro">V<small>visual</small></div>
+                            <div class="kbd kbd-z-mode">B<small>prev</small></div>
+                            <div class="kbd kbd-z-mode">N<small>next</small></div>
+                            <div class="kbd kbd-z-action">M<small>mute</small></div>
+                        </div>
+                        <div class="kbd-row" style="margin-top:8px;">
+                            <div class="kbd kbd-wide kbd-z-action">SPACE<small>play / pause</small></div>
+                        </div>
+                        <div class="kbd-row" style="margin-top:8px;">
+                            <div class="kbd kbd-mid kbd-z-mode">←<small>effect</small></div>
+                            <div class="kbd kbd-mid kbd-z-mode">↑<small>mode</small></div>
+                            <div class="kbd kbd-mid kbd-z-mode">↓<small>mode</small></div>
+                            <div class="kbd kbd-mid kbd-z-mode">→<small>effect</small></div>
+                        </div>
+                    </div>
+
+                    <div class="kbd-legend">
+                        <span class="kbd-legend-item"><span class="kbd-legend-swatch" style="background:#1c352a;border-color:#aaff7a;"></span>Playback</span>
+                        <span class="kbd-legend-item"><span class="kbd-legend-swatch" style="background:#2a1c35;border-color:#9b8cff;"></span>Mode / Effect</span>
+                        <span class="kbd-legend-item"><span class="kbd-legend-swatch" style="background:#352a1c;border-color:#ffb86b;"></span>Pro</span>
+                        <span class="kbd-legend-item"><span class="kbd-legend-swatch" style="background:#1c2435;border-color:#6dd5ed;"></span>Info / Help</span>
+                        <span class="kbd-legend-item"><span class="kbd-legend-swatch" style="background:#351c2a;border-color:#ff5fa8;"></span>Record</span>
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>Number row = intensity</h4>
+                            <p>1-9 is one continuous scale. The whole row is a single function — no sub-modes, no shift modifiers. Cyan because it's an info/control surface, not a navigation surface.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Letters cluster by domain</h4>
+                            <p>Pro features (D, G, C, Q) keep the same finger zone as Pro features. Info keys (H, I) sit together. Navigation (Z, X, B, N) sits on the bottom row near the spacebar.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Mnemonic where it helps</h4>
+                            <p>R = Record. G = Game. D = Draw. C = Custom (code). H = Help. I = Info. Q = unlocK (one of the only ones not literally letter-matched, but Q's lonely top-left position made it the obvious "secret" key).</p>
                         </div>
                     </div>
                 </div>
@@ -948,6 +1391,82 @@
                         <div class="feed-feature">
                             <h3>Help is contextual</h3>
                             <p>Press <strong>H</strong> for the help overlay; the visible rows change based on whether Draw Mode or Game Mode is active so the docs only show what's currently usable.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Design System & Tokens -->
+            <article class="feed-entry">
+                <p class="feed-date">February 2025</p>
+                <div class="feed-card">
+                    <h2>Design System &amp; Tokens</h2>
+                    <p>The chrome of this app fits in a single page of tokens. That's the point — the app is the canvas, so the design system has to be ruthlessly small to keep itself out of the way.</p>
+
+                    <div style="margin-top:24px;">
+                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Color tokens</h3>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#000;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--canvas</strong><br><span style="color:var(--color-gray-400);">#000000</span></div>
+                            </div>
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#9a9aa5;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--text-status</strong><br><span style="color:var(--color-gray-400);">#9a9aa5</span></div>
+                            </div>
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#e4e4ea;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--text-overlay</strong><br><span style="color:var(--color-gray-400);">#e4e4ea</span></div>
+                            </div>
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#ff5b5b;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-record</strong><br><span style="color:var(--color-gray-400);">#ff5b5b</span></div>
+                            </div>
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#6dd5ed;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-camera</strong><br><span style="color:var(--color-gray-400);">#6dd5ed</span></div>
+                            </div>
+                            <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
+                                <div style="background:#aaff7a;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-game</strong><br><span style="color:var(--color-gray-400);">#aaff7a</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:32px;">
+                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Type ramp</h3>
+                        <div style="background:#0a0a0d;border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#e4e4ea;"><span style="font-family:system-ui,-apple-system,sans-serif;font-size:1.4rem;font-weight:600;">Press Spacebar to Start</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">22px · system-ui · 600 · overlay</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.85rem;">song: nirvana – radio friendly unit shifter</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">14px · SF Mono · 400 · status</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.7rem;">mode: playlist</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">11px · SF Mono · 400 · corner</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;">CAM: ON</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">10px · SF Mono · 600 · indicator</span></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:32px;">
+                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Spacing &amp; motion tokens</h3>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--corner-pad</strong><br><span style="color:var(--color-gray-400);">12px / 14px</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--ui-fade</strong><br><span style="color:var(--color-gray-400);">3000ms idle</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--augment-tick</strong><br><span style="color:var(--color-gray-400);">300ms</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--draw-fade-start</strong><br><span style="color:var(--color-gray-400);">5000ms</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--draw-fade-full</strong><br><span style="color:var(--color-gray-400);">10000ms</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--frame-budget</strong><br><span style="color:var(--color-gray-400);">16ms / 60fps</span></div>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>System fonts only</h4>
+                            <p>system-ui for overlays, SF Mono / monospace for status. No web font loaded — zero blocking on first paint, native feel on every OS.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Six colors, no more</h4>
+                            <p>Black, two grays, three accent colors (record / camera / game). Every other color in the app comes from the effect itself, not the system.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Tokens live in CSS variables</h4>
+                            <p>One source of truth, tweakable per surface. Mobile uses 11px corner labels; desktop uses 14px — same token, different breakpoint.</p>
                         </div>
                     </div>
                 </div>
@@ -1215,6 +1734,62 @@
                 </div>
             </article>
 
+            <!-- Information Architecture -->
+            <article class="feed-entry">
+                <p class="feed-date">December 2024</p>
+                <div class="feed-card">
+                    <h2>Information Architecture</h2>
+                    <p>The whole app is one canvas — but underneath it sits a clean hierarchy. Mapping it out before coding kept the keyboard shortcuts coherent and made the Pro tier feel like an additive layer instead of a paywall maze.</p>
+
+                    <div style="margin-top:24px;background:#0f0f14;border-radius:14px;padding:24px;font-family:'SF Mono',monospace;font-size:0.78rem;color:#c8c8d0;line-height:1.8;overflow-x:auto;">
+                        <div style="color:#fff;font-weight:700;">Visualizer</div>
+                        <div style="padding-left:18px;">├─ <span style="color:#aaff7a;">Canvas</span> <span style="color:#6a6a78;">// always-on, full-bleed</span></div>
+                        <div style="padding-left:36px;">│   ├─ Effect renderer <span style="color:#6a6a78;">// 50+ effects</span></div>
+                        <div style="padding-left:36px;">│   ├─ Status corners <span style="color:#6a6a78;">// mode + song</span></div>
+                        <div style="padding-left:36px;">│   └─ Indicators <span style="color:#6a6a78;">// recording / cam / game HUD</span></div>
+                        <div style="padding-left:18px;">├─ <span style="color:#9b8cff;">Playback Mode</span> <span style="color:#6a6a78;">// vertical axis</span></div>
+                        <div style="padding-left:36px;">│   ├─ Playlist <span style="color:#6a6a78;">// free</span></div>
+                        <div style="padding-left:36px;">│   ├─ File Select <span style="color:#ffb86b;">// pro</span></div>
+                        <div style="padding-left:36px;">│   ├─ Microphone <span style="color:#6a6a78;">// free</span></div>
+                        <div style="padding-left:36px;">│   └─ Apple Music (DSP) <span style="color:#ffb86b;">// pro</span></div>
+                        <div style="padding-left:18px;">├─ <span style="color:#9b8cff;">Effect Style</span> <span style="color:#6a6a78;">// horizontal axis</span></div>
+                        <div style="padding-left:36px;">│   ├─ Effects 1-10 <span style="color:#6a6a78;">// free</span></div>
+                        <div style="padding-left:36px;">│   ├─ Effects 11-50 <span style="color:#ffb86b;">// pro</span></div>
+                        <div style="padding-left:36px;">│   └─ Milkdrop library <span style="color:#ffb86b;">// pro · 20+ year catalog</span></div>
+                        <div style="padding-left:18px;">├─ <span style="color:#aaff7a;">Reactivity Controls</span></div>
+                        <div style="padding-left:36px;">│   ├─ Intensity 1-9</div>
+                        <div style="padding-left:36px;">│   ├─ Augment (X)</div>
+                        <div style="padding-left:36px;">│   ├─ Shuffle (O)</div>
+                        <div style="padding-left:36px;">│   └─ Visual Mode (V)</div>
+                        <div style="padding-left:18px;">├─ <span style="color:#ffb86b;">Pro-only Modes</span></div>
+                        <div style="padding-left:36px;">│   ├─ Game Mode (G) <span style="color:#6a6a78;">// 5 games</span></div>
+                        <div style="padding-left:36px;">│   ├─ Draw Mode (D) <span style="color:#6a6a78;">// stroke painting</span></div>
+                        <div style="padding-left:36px;">│   └─ Custom Effect Creator (C) <span style="color:#6a6a78;">// JS + GLSL</span></div>
+                        <div style="padding-left:18px;">└─ <span style="color:#6dd5ed;">Global Actions</span></div>
+                        <div style="padding-left:36px;">    ├─ Play / Pause (Space)</div>
+                        <div style="padding-left:36px;">    ├─ Record (R)</div>
+                        <div style="padding-left:36px;">    ├─ Help (H) <span style="color:#6a6a78;">// context-aware</span></div>
+                        <div style="padding-left:36px;">    ├─ Info (I)</div>
+                        <div style="padding-left:36px;">    └─ Pro password (Q) <span style="color:#ffb86b;">// gates 1c / 1d / 1e / 5</span></div>
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>Two perpendicular axes</h4>
+                            <p>Mode lives vertically (arrow up/down, swipe up/down). Effect lives horizontally (arrow left/right, swipe left/right). Together they map the entire main canvas with two gestures.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Pro is additive, not nested</h4>
+                            <p>Pro features sit beside free ones in the IA — same level, just gated. The user never has to "go into Pro" to use a feature. They press the key; if locked, the password sheet asks for unlock.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Modes vs. Actions</h4>
+                            <p>Toggleable modes (Game / Draw / Visual) are state. Discrete actions (Record / Info / Help) are events. The IA keeps them in different branches so they read differently in the help overlay too.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Playback Modes -->
             <article class="feed-entry">
                 <p class="feed-date">December 2024</p>
@@ -1257,6 +1832,71 @@
                         <div class="decision-card">
                             <h4>Honest DRM messaging</h4>
                             <p>Apple Music's DRM means some tracks can't be analyzed — the visualizer falls back to dummy data and tells the user, instead of silently looking broken.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- First Launch / Onboarding -->
+            <article class="feed-entry">
+                <p class="feed-date">November 2024</p>
+                <div class="feed-card">
+                    <h2>First Launch &amp; Onboarding</h2>
+                    <p>The first thirty seconds had to do four things at once: warn about photosensitivity, prove the canvas was alive, get permission to play audio, and not feel like a setup screen. The solution was three sequential states with no menus and no buttons that don't matter.</p>
+
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px;">
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Step 1 — Warning</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:200px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:0 18px;">
+                                        <div style="color:#ff5b5b;font-family:'SF Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;">⚠ PHOTOSENSITIVITY</div>
+                                        <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.85rem;line-height:1.5;max-width:240px;">This visualizer can produce flashing imagery. By continuing you acknowledge the risk.</div>
+                                        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid #e4e4ea;color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.7rem;border-radius:6px;">I understand</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top:10px;font-size:0.85rem;color:var(--color-gray-500);">Acknowledged before any motion ever runs. No autoplay, no exception.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Step 2 — Spacebar Prompt</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:200px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                                        <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:1rem;font-weight:600;letter-spacing:0.02em;animation:ux-spin 0s;">Press Spacebar to Start</div>
+                                    </div>
+                                    <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                </div>
+                            </div>
+                            <p style="margin-top:10px;font-size:0.85rem;color:var(--color-gray-500);">Single-key entry. The spacebar press doubles as the audio context init that recording needs later.</p>
+                        </div>
+
+                        <div>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Step 3 — Active Canvas</p>
+                            <div class="wireframe-frame browser" style="margin:0;">
+                                <div class="wireframe-screen" style="min-height:200px;background:#000;padding:0;position:relative;">
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.7rem;letter-spacing:0.1em;">[ CANVAS ]</div>
+                                    <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                    <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana</span>
+                                </div>
+                            </div>
+                            <p style="margin-top:10px;font-size:0.85rem;color:var(--color-gray-500);">Final state — chromeless. The user is now in the product. Total time: about three seconds.</p>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>Photosensitivity is a first-class concern</h4>
+                            <p>The warning is the first thing on screen, not buried in settings. Acknowledging it is the only required gate — no email, no signup, no consent dialog stack.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Spacebar does double duty</h4>
+                            <p>"Press Spacebar to Start" gets the user into the product AND initializes the AudioContext (browsers gate audio behind a user gesture). The same key later starts and stops playback — one action, three jobs.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Mobile parity</h4>
+                            <p>On mobile the prompt becomes "Tap to Start" and the same gesture initializes audio. The flow doesn't fork — same three steps, different gesture grammar.</p>
                         </div>
                     </div>
                 </div>
@@ -1353,7 +1993,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
                 </a>
             </div>
-            <p class="footer-copyright">&copy;2025 Demonte Walker. All Rights Reserved.</p>
+            <p class="footer-copyright">&copy;2026 Demonte Walker. All Rights Reserved.</p>
         </div>
     </footer>
 
