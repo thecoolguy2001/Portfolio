@@ -456,7 +456,7 @@
             </div>
             <div class="project-meta-item">
                 <h4>Tools</h4>
-                <p>JavaScript, Swift, Figma, Xcode</p>
+                <p>JavaScript, THREE.js, WebGL / GLSL, Swift, Figma, Xcode</p>
             </div>
         </div>
 
@@ -541,6 +541,85 @@
                         </div>
                         <p class="wireframe-caption">iPhone layout — denser controls, full-bleed canvas, edge-swipe to switch effects.</p>
                     </div>
+                </div>
+            </article>
+
+            <!-- Draw Mode -->
+            <article class="feed-entry">
+                <p class="feed-date">July 2025</p>
+                <div class="feed-card">
+                    <h2>Draw Mode (Pro)</h2>
+                    <p>The biggest creative-tooling addition since Game Mode. Instead of a single effect filling the screen, the cursor itself becomes a brush — every effect in the library can be painted as a stroke onto the canvas, layered with other effects, and erased one stroke at a time. Toggle with <strong>D</strong>, switch brush effect with arrow keys, and intensity 1-9 still applies to every drawn stroke at once.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Effect-as-brush</h4>
+                            <p>Click and drag spawns instances of the active effect along the cursor path. Each stroke remembers which brush drew it — switching effects mid-drawing layers cleanly without overwriting.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Fade Mode for performance</h4>
+                            <p>Press <strong>F</strong> to make strokes auto-fade — start at 5 seconds, complete by 10 seconds, then free their memory. Built specifically for live VJs who want the canvas to keep evolving without manual cleanup.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Single-stroke undo</h4>
+                            <p>Backspace erases the last stroke. No multi-step history, no panel — one key, one undo. Lets the user iterate fast without a UI surface getting in the way of the canvas.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Context-aware help</h4>
+                            <p>The H help overlay only shows F and Backspace while Draw Mode is on. Outside Draw Mode those rows are hidden — the help menu only documents what's actionable right now.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:240px;background:#1a1a1f;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
+                                    <div class="wf-block" style="flex:0 0 70px;height:14px;background:var(--color-accent);border-radius:6px;"></div>
+                                </div>
+                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:140px;position:relative;">
+                                    <span style="position:absolute;left:18%;top:34%;width:36%;height:3px;background:linear-gradient(90deg,#ff5fa8,#ffb86b);border-radius:2px;transform:rotate(-12deg);"></span>
+                                    <span style="position:absolute;left:38%;top:58%;width:28%;height:3px;background:linear-gradient(90deg,#6dd5ed,#9b8cff);border-radius:2px;transform:rotate(8deg);"></span>
+                                    Strokes Layer
+                                </div>
+                                <div class="wf-row tight">
+                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
+                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
+                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
+                                <div class="wf-callout" style="top:50%;left:30%;transform:translate(-50%,-50%);">2</div>
+                                <div class="wf-callout" style="bottom:14px;left:50%;transform:translateX(-50%);">3</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Draw Mode — strokes layer onto the canvas, each remembering its own brush effect.</p>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Active brush badge</h4>
+                                <p>Shows which effect is loaded as the current brush. Updates live as the user cycles brushes with arrow keys.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Multi-effect strokes</h4>
+                                <p>Each stroke retains its source effect's behavior. An Aurora stroke and a Neon Grid stroke continue reacting to audio independently.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Fade / erase row</h4>
+                                <p>Single-press toggles for Fade Mode and erase. Surfaces only while Draw Mode is active; otherwise hidden to keep the chrome quiet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top:20px;"><strong>Recommended combinations</strong> shipped with the launch — Aurora + Neon Grid (organic meets geometric), Particles + Waves (layered depth), Ocean + Glitch (nature meets digital), Blob + Pop Art (playful contrast). Lighter effects like Particles work better at high stroke counts; heavier ones like Quantum Architect get a "lower the intensity when layering" callout in the docs.</p>
                 </div>
             </article>
 
@@ -637,6 +716,91 @@
                 </div>
             </article>
 
+            <!-- Custom Effect Creator -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2025</p>
+                <div class="feed-card">
+                    <h2>Custom Effect Creator (Pro)</h2>
+                    <p>The biggest "give the user a hammer" feature in the app. Pro users can write their own visual effect from scratch using JavaScript and WebGL shaders, hit save, and have it run inside Visualizer alongside the built-in library. Press <strong>C</strong> to open the Custom Effect Menu — Load Effect or Create New Effect — and the four-function template is the only contract.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Four functions, no boilerplate</h4>
+                            <p>A custom effect is just <code>create</code>, <code>animateInitial</code>, <code>animateReactive</code>, and <code>adjustIntensity</code>. Only <code>create</code> is required — the rest are opt-in for animation and audio reactivity.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Audio data as arguments</h4>
+                            <p>Reactive function receives <code>arguments[0]</code> bass, <code>arguments[1]</code> mid, <code>arguments[2]</code> treble — all 0-255. Same FFT data the built-in effects use, surfaced through the simplest possible signature.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>ShaderMaterial-friendly</h4>
+                            <p>THREE.js, the scene, camera, renderer, and the audio context are all exposed as globals. Advanced users get full ShaderMaterial access; beginners can use MeshBasicMaterial and never touch GLSL.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Sharing via clipboard</h4>
+                            <p>Save an effect and the shareable code copies to the clipboard automatically and pins to the bottom-left for 60 seconds. Recipients paste it into Load Effect to run it locally — no account, no server.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:300px;background:#0f0f14;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block text-line short" style="background:#2a2a35;"></div>
+                                    <div class="wf-block" style="flex:0 0 110px;height:18px;background:var(--color-accent);border-radius:6px;"></div>
+                                </div>
+                                <div class="wf-row" style="flex:1;align-items:stretch;">
+                                    <div class="wf-block" style="flex:1;background:#15151c;color:#5a8a6a;font-family:'SF Mono',monospace;font-size:0.7rem;text-align:left;padding:14px;line-height:1.6;min-height:160px;">
+                                        <div style="color:#7c7c8a;">// Create</div>
+                                        <div>const geo = new THREE.SphereGeometry(5);</div>
+                                        <div>const mat = new THREE.ShaderMaterial({...});</div>
+                                        <div>const mesh = new THREE.Mesh(geo, mat);</div>
+                                        <div>scene.add(mesh);</div>
+                                        <div>visualElements.push(mesh);</div>
+                                    </div>
+                                    <div class="wf-block" style="flex:0 0 110px;background:#252530;color:#666;display:flex;align-items:center;justify-content:center;border-radius:8px;">Preview</div>
+                                </div>
+                                <div class="wf-row tight">
+                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
+                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
+                                    <div class="wf-block" style="background:var(--color-accent);height:32px;border-radius:6px;flex:0 0 80px;"></div>
+                                </div>
+                                <div class="wf-callout" style="top:48px;left:18px;">1</div>
+                                <div class="wf-callout" style="top:48px;right:80px;">2</div>
+                                <div class="wf-callout" style="bottom:14px;right:14px;">3</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Custom Effect Creator — code on the left, live preview on the right, share button bottom-right.</p>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Four-tab editor</h4>
+                                <p>Each function is its own tab — Create, Animate Initial, Animate Reactive, Adjust Intensity. The user only fills in what their effect actually needs.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Live preview</h4>
+                                <p>Effect renders into the same canvas the rest of Visualizer uses, with real audio analyzer data. No separate sandbox — what the user sees is the actual runtime.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Save &amp; share</h4>
+                                <p>Save copies the shareable code to the clipboard and surfaces it for 60 seconds. <strong>C</strong> while a custom effect is active re-shows and re-copies the code.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top:20px;"><strong>Failure modes were designed in, not patched on.</strong> Effects that don't appear, don't react to audio, or crash the visualizer each have their own troubleshooting entry in the docs — verify mesh added to scene + visualElements, confirm <code>arguments[0..2]</code> are wired, wrap risky math in try/catch. Test runs at intensity 1, 5, and 9 are part of the recommended workflow.</p>
+                </div>
+            </article>
+
             <!-- Interaction States -->
             <article class="feed-entry">
                 <p class="feed-date">May 2025</p>
@@ -683,6 +847,51 @@
                 </div>
             </article>
 
+            <!-- Recording & Export -->
+            <article class="feed-entry">
+                <p class="feed-date">May 2025</p>
+                <div class="feed-card">
+                    <h2>Recording &amp; Export</h2>
+                    <p>From day one, listeners and DJs asked for the same thing: a way to keep what they made. Recording shipped as a single <strong>R</strong> press — no settings sheet, no codec picker, no upload step. Press once to start, press again to stop, file downloads to disk. The tradeoff: pick sane defaults and tune them quietly under the hood.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>One key, no dialog</h4>
+                            <p><strong>R</strong> starts and stops. While recording, an <em>● recording…</em> pill sits in the canvas so the user is never unsure whether they're capturing.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Browser-aware codecs</h4>
+                            <p>VP9 at 25mbps where available, VP8 at 20mbps as fallback, H.264 on Safari. Container is WebM on Chrome / Edge / Firefox and MP4 on Safari. The user never picks — the browser decides what works.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>60fps at 320kbps audio</h4>
+                            <p>Targeting 60fps so the recording matches what the user actually saw. Audio rides at 320kbps so vocals and high-end percussion survive the encode.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Spacebar-first init</h4>
+                            <p>Recording requires the audio context to exist. The first <strong>spacebar</strong> initializes it; without that, recording silently captures empty audio. Documented up front, not buried in troubleshooting.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:200px;background:#1a1a1f;">
+                                <div class="wf-row" style="align-items:center;">
+                                    <div class="wf-block text-line short" style="background:#3a3a45;"></div>
+                                    <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;background:rgba(255,40,40,0.15);color:#ff5b5b;font-size:0.7rem;font-weight:600;letter-spacing:0.05em;">
+                                        <span style="width:7px;height:7px;background:#ff5b5b;border-radius:50%;"></span>
+                                        RECORDING
+                                    </div>
+                                </div>
+                                <div class="wf-block fill center" style="background:#252530;color:#666;min-height:120px;">Visualization Canvas</div>
+                                <div class="wf-callout" style="top:18px;right:14px;">1</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Recording state — persistent indicator pill, no overlay obscuring the canvas.</p>
+                    </div>
+                </div>
+            </article>
+
             <!-- Process -->
             <article class="feed-entry">
                 <p class="feed-date">March 2025</p>
@@ -723,6 +932,49 @@
                 </div>
             </article>
 
+            <!-- Pro Tier & Reactivity Controls -->
+            <article class="feed-entry">
+                <p class="feed-date">February 2025</p>
+                <div class="feed-card">
+                    <h2>Pro Tier &amp; Reactivity Controls</h2>
+                    <p>The expansion plan needed a way to fund itself and a way to keep the free experience uncluttered. The answer was a Pro tier — paid users got a password that unlocked effects 11-50, Game Mode, the Custom Effect Creator, Draw Mode, file uploads, and Apple Music — while everyone else still got a complete, never-watered-down free product with the original ten effects.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Password, not account</h4>
+                            <p>Pro unlocks via a password — desktop presses <strong>Q</strong>, mobile uses <strong>two-finger swipe up</strong>. No login, no email collection, no sync server. The product stays offline.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Free is full, not crippled</h4>
+                            <p>Effects 1-10 are the most polished, hand-built ones, not a teaser set. Pro is additive — more effects, more modes — never a feature removed from free.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Intensity 1-9 across everything</h4>
+                            <p>One global intensity scale (number keys, or double-tap on mobile) drives every effect — built-in, custom, or drawn. 1 is subtle, 9 is maximum visual impact. One mental model, every surface.</p>
+                        </div>
+                    </div>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Augment Mode</h3>
+                            <p>Press <strong>X</strong> (or two-finger hold on mobile) to rapid-cycle visual variations every 300ms — synchronized to the music for moments that need to escalate hard.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Effect Shuffle</h3>
+                            <p>Press <strong>O</strong> to auto-switch effects as songs change. Built for set lists where the user wants surprise without taking their hands off the audio.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Visual Mode Levels</h3>
+                            <p>Many effects have multiple camera-blend modes — keep pressing <strong>V</strong> to cycle Mode 0 (no camera), Mode 1 (overlay), Mode 2 (alt blend), Mode 3 (advanced).</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Help is contextual</h3>
+                            <p>Press <strong>H</strong> for the help overlay; the visible rows change based on whether Draw Mode or Game Mode is active so the docs only show what's currently usable.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Visual Direction -->
             <article class="feed-entry">
                 <p class="feed-date">February 2025</p>
@@ -756,7 +1008,7 @@
                 <p class="feed-date">January 2025</p>
                 <div class="feed-card">
                     <h2>Game Mode</h2>
-                    <p>The first big swing after the user-research pivot. Each of the first twenty effects could be turned into its own game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Twenty distinct games, all sharing the same canvas.</p>
+                    <p>The first big swing after the user-research pivot. The first five effects were each given their own rhythm-based mini-game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Five distinct games sharing the same canvas, toggled with a single press of <strong>G</strong>.</p>
 
                     <div class="design-decisions">
                         <div class="decision-card">
@@ -765,11 +1017,38 @@
                         </div>
                         <div class="decision-card">
                             <h4>One game per effect</h4>
-                            <p>Twenty distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
+                            <p>Five distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Same canvas, new layer</h4>
                             <p>Game UI overlays the visualizer instead of replacing it. Players keep the immersion — the toggle was a single button.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Three lives, one HUD</h4>
+                            <p>Score and lives sit in the top-left HUD across every game so players never have to relearn the read between titles.</p>
+                        </div>
+                    </div>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Particle Collector</h3>
+                            <p>Effect 1 — Particles. Move with arrow keys, press <strong>Z</strong> to catch falling particles to the beat.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Wave Rider</h3>
+                            <p>Effect 2 — Waves. Stay balanced on shifting wave peaks using left/right arrows.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Wave Surfer 3D</h3>
+                            <p>Effect 3 — 3D Waves. Navigate a 3D tunnel and dodge obstacles with the arrow keys.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Color Matcher</h3>
+                            <p>Effect 4 — Spaceship. Match your ship's color to incoming pulses with <strong>Z</strong>.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Space Navigator</h3>
+                            <p>Effect 5 — Ocean. Steer through procedural space hazards in a fluid environment.</p>
                         </div>
                     </div>
 
@@ -813,7 +1092,7 @@
                             <span class="annotation-num">3</span>
                             <div class="annotation-text">
                                 <h4>Game-specific controls</h4>
-                                <p>Each of the twenty games has its own minimal control row. Same position every time, so muscle memory transfers between games.</p>
+                                <p>Each of the five games has its own minimal control row, plus the shared <strong>Z</strong> action key. Same position every time, so muscle memory transfers between games.</p>
                             </div>
                         </div>
                     </div>
@@ -845,7 +1124,7 @@
                         </div>
                     </div>
 
-                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, and reactivity that rewarded paying attention. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, Visual Mode, the iOS / macOS ports, and ultimately the Milkdrop integration.</p>
+                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, reactivity that rewarded paying attention, and tools to make the visualizer their own. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, the Custom Effect Creator, Draw Mode, Visual Mode camera blends, the four playback modes, the iOS / macOS ports, and ultimately the Milkdrop integration that took the library past fifty effects.</p>
                 </div>
             </article>
 
@@ -980,6 +1259,53 @@
                             <span class="flow-step-num">05</span>
                             <h4>Watch</h4>
                             <p>Full-screen, controls fade.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Playback Modes -->
+            <article class="feed-entry">
+                <p class="feed-date">December 2024</p>
+                <div class="feed-card">
+                    <h2>Four Playback Modes</h2>
+                    <p>The audio source had to scale from "I just want a track to play" to "I'm running this through a hardware synth at a show." That meant four distinct input modes, all switchable from the same axis — arrow up/down on desktop, vertical swipe on mobile — so the user never has to leave the canvas to change source.</p>
+
+                    <div class="research-methods">
+                        <div class="method-card">
+                            <p class="method-label">Mode 1</p>
+                            <h4>Playlist</h4>
+                            <p>Default. Curated built-in tracks ready to play with zero setup. <strong>N</strong> / <strong>B</strong> step through tracks (or triple-tap on mobile).</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Mode 2 — Pro</p>
+                            <h4>File Select</h4>
+                            <p>Drag-and-drop or file picker for MP3, WAV, M4A, FLAC. Press <strong>P</strong> to add files into a custom playlist; <strong>N</strong> / <strong>B</strong> walk it.</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Mode 3</p>
+                            <h4>Microphone</h4>
+                            <p>Live audio in. Designed for performances, jam sessions, and synth players. Browser permission flow is framed inside the app, not silent.</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Mode 4 — Pro</p>
+                            <h4>Apple Music (DSP)</h4>
+                            <p>Authorize once, then any track in the user's library plays through the visualizer. DRM caveats are surfaced honestly — some tracks fall back to dummy analyzer data.</p>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions" style="margin-top:24px;">
+                        <div class="decision-card">
+                            <h4>One axis, four modes</h4>
+                            <p>Mode lives on the vertical axis; effect style lives on the horizontal axis. Two perpendicular gestures cover every navigation action without a menu.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Permission as a moment</h4>
+                            <p>Microphone and Apple Music both ask for authorization through framed in-app screens, not bare browser prompts. The user understands what's being granted before they grant it.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Honest DRM messaging</h4>
+                            <p>Apple Music's DRM means some tracks can't be analyzed — the visualizer falls back to dummy data and tells the user, instead of silently looking broken.</p>
                         </div>
                     </div>
                 </div>
