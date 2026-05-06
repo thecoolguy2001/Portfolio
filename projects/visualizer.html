@@ -463,6 +463,235 @@
         <!-- Feed -->
         <div class="project-feed">
 
+            <!-- Reported Bug Fix Pass -->
+            <article class="feed-entry">
+                <p class="feed-date">May 2026</p>
+                <div class="feed-card">
+                    <h2>Reported Bug Fix Pass</h2>
+                    <p>A focused two-week sweep through every open user report. The Milkdrop drop and the Apple Music / Spotify integration had pulled in a wider audience, and the bug log had grown faster than the feature log. May was a stop-the-line moment to clear it.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Camera permission stuck</h3>
+                            <p>Visual Mode would sit on "requesting" forever if the user denied camera access in the browser then re-enabled it in OS settings. Fix: re-query <code>navigator.permissions</code> on visibilitychange and reset the cyan permission frame.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Safari recording cap</h3>
+                            <p>Recordings cut off at ~60s on Safari due to in-memory Blob chunk accumulation. Fix: stream chunks to disk via the File System Access API where available, and surface the cap as a 50s warning toast on Safari fallback.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>FFT mid-band off-by-one</h3>
+                            <p>Effects in the mid-bandpass cluster (22–29) were reading the wrong FFT bin range, producing flat reactivity at low volume. One-line fix; visible difference on quiet vocal tracks.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Augment cycling on Pause (iOS)</h3>
+                            <p>The 300ms Augment timer kept firing while the canvas was paused on iOS. Now the timer is bound to the play state, not the render loop, so Pause actually pauses everything.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Silent custom-effect upload fail</h3>
+                            <p>Custom effects over 1MB silently failed to save. Now the C menu shows the file size next to the save button and rejects with a specific reason instead of doing nothing.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Overlay z-order</h3>
+                            <p>Pressing H while the Pro password sheet (Q) was open layered the help overlay underneath. Fixed the modal stack so the most recently opened overlay always wins, and Esc dismisses top-down.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Spotify token refresh</h3>
+                            <p>Long sessions (>1hr) lost Spotify playback when the access token expired mid-track. Now the refresh handshake runs in the background and the player rebinds without dropping the canvas.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Draw Mode undo race</h3>
+                            <p>Mashing Backspace fast erased strokes out of order because the stroke buffer wasn't sequenced. Replaced with a stable LIFO stack — undo always pops the last visible stroke.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Apple Music + Spotify -->
+            <article class="feed-entry">
+                <p class="feed-date">April 2026</p>
+                <div class="feed-card">
+                    <h2>Apple Music &amp; Spotify Integration</h2>
+                    <p>Apple Music had shipped in December 2024 as a DSP passthrough — Visualizer read system audio and reacted to whatever was playing, but it didn't know what the song was. April 2026 was the upgrade to first-class library integration: MusicKit JS for Apple Music, the Web Playback SDK for Spotify, with both surfacing track metadata, playback control, and transition hooks the visualizer could time effects to.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>MusicKit JS</h3>
+                            <p>Sign in with an Apple ID, browse the user's library and playlists, and play full tracks inside Visualizer. Subscribers only — non-subscribers fall back to DSP passthrough so nothing is taken away.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Spotify Web Playback SDK</h3>
+                            <p>Premium account required (SDK constraint). Pulls the user's playlists, recently played, and recommendations. The corner song label finally shows real metadata instead of a filename.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Lyrics sync</h3>
+                            <p>Apple Music time-synced lyrics are available as an opt-in overlay (press <strong>L</strong>). Off by default — the chromeless rule still wins — but pulling it up briefly during a quiet section is genuinely lovely.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Transition-aware effects</h3>
+                            <p>Track-change events from both SDKs fire effect crossfades and Augment Mode resets so the visual lands cleanly on the downbeat of the next song.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Auth lives in a sheet</h3>
+                            <p>Sign-in opens in the same orange/cyan-bordered overlay pattern used elsewhere — the canvas dims, a single sheet asks for one thing, and dismisses on success.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Privacy-first scopes</h3>
+                            <p>Read-only for both providers. No write scopes, no library mutation. The auth sheet shows exactly which scopes are requested and why.</p>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>One playback model, three providers</h4>
+                            <p>Apple Music, Spotify, and local Playlist mode all flow through the same internal player abstraction. Switching providers doesn't change the corner labels, the keyboard, or the gestures.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>The DSP path stays</h4>
+                            <p>Listeners on free tiers, regional restrictions, or with neither service still get full reactivity from system audio. Integration adds metadata; it doesn't replace the floor.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Custom Effect Creator v2 -->
+            <article class="feed-entry">
+                <p class="feed-date">March 2026</p>
+                <div class="feed-card">
+                    <h2>Custom Effect Creator v2 — Templates, Hot Reload, Sharing</h2>
+                    <p>The April 2025 launch had shipped the four-function template and a save button. A year of watching users in the editor surfaced the real friction: people didn't know where to start, lost their work to compile errors, and had no way to share a finished effect with a friend. v2 was the answer to all three.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Starter template gallery</h3>
+                            <p>Ten built-in starters covering the patterns people kept rebuilding: bass-driven scale, treble particle scatter, mid-band hue shift, beat-detect strobe, frequency-bin lattice, etc. Pick one, tweak two values, save.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Hot reload</h3>
+                            <p>Save (⌘S) re-compiles the shader and rebinds the effect without dropping the audio context. The track keeps playing, the FFT keeps running, and the canvas just changes. No more reload-and-find-your-place.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Shareable links</h3>
+                            <p>One button encodes the effect (JS + GLSL + metadata) into a URL fragment. Send it to anyone running Pro and they import it with one click — no GitHub gist, no copy-paste, no account.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Inline docs panel</h3>
+                            <p>A collapsible side panel lists every audio data range (bass / mid / treble 0–255), every uniform passed to the shader, and every helper function — so you don't have to leave the editor to remember the API.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Compilation console</h3>
+                            <p>Shader errors used to fail silently and show a black canvas. Now a compact console at the bottom of the editor surfaces the line number, the GLSL error, and a one-line plain-language hint.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Versioned saves</h3>
+                            <p>Each save snapshots the prior version. Ten-deep history per effect — recover the working build after a bad edit without leaving the canvas.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Effect Pack v2 -->
+            <article class="feed-entry">
+                <p class="feed-date">February 2026</p>
+                <div class="feed-card">
+                    <h2>Effect Pack v2 — Twelve New Native Effects</h2>
+                    <p>Milkdrop had widened the catalog massively in December, but the native, hand-built effects hadn't seen new entries in months. February shipped a themed pack of twelve — designed as a coherent set rather than twelve loose additions — focused on low-light listening, longer sessions, and softer palettes that were missing from the existing library.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Lattice</h3>
+                            <p>A slow-rotating 3D grid that bends in response to bass. Built for ambient and post-rock — it rewards holding still rather than switching effects every twenty seconds.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Inkdrop</h3>
+                            <p>Particles that bloom and bleed like ink in water. Mid-band drives the bloom radius, treble drives the dispersion. Looks especially good with vocals.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Vapor Trails</h3>
+                            <p>Long-exposure ribbons that follow the beat across the canvas. The trail length is bound to the current BPM estimate so faster tracks read as tighter, slower tracks as drifting.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Spectra Storm</h3>
+                            <p>A weather-like rendering of the full FFT spectrum. Bass becomes lightning, mid becomes rain, treble becomes wind. Heaviest of the pack — perf-tagged for the toggle.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Aurora Drift</h3>
+                            <p>Slow vertical curtains in muted greens and violets. Designed for late-night sessions where every other effect feels too loud.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Warm Static</h3>
+                            <p>CRT-grain texture that breathes on the kick. Reads as analog without leaning into vaporwave palettes.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Tide</h3>
+                            <p>Horizontal wave field that swells on bass and breaks on snare hits. Quiet, repetitive, hypnotic.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Six more</h3>
+                            <p>Ember, Shoal, Ribbonfall, Glasswork, Driftwood, Pulsegrid — each one tuned to a specific genre niche the catalog had under-served.</p>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>A pack, not a dump</h4>
+                            <p>Twelve effects shipped together with a shared palette and a shared reactivity philosophy — softer, slower, less strobe. Easier to communicate as "the low-light pack" than as twelve unrelated items in a list.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Game Mode where it makes sense</h4>
+                            <p>Only Lattice and Inkdrop got Game Mode hooks. The others are explicitly for sitting back. Not every effect needs to be every mode.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Engine Refactor -->
+            <article class="feed-entry">
+                <p class="feed-date">January 2026</p>
+                <div class="feed-card">
+                    <h2>Engine Refactor — One Render Path</h2>
+                    <p>Two years of additions had layered render paths on top of each other: the original native effects, the Milkdrop integration, custom user effects, the Visual Mode camera blend, Game Mode overlays. Each had been bolted on around the previous one. January was the cleanup pass — collapsing all five into a single pipeline with one entry point and one effect interface.</p>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>One render loop</h3>
+                            <p>A single <code>requestAnimationFrame</code> entry point owns the frame budget. Audio analysis, effect update, camera ingest, and post-processing all run in a fixed order with measured slices.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Common effect interface</h3>
+                            <p>Native, Milkdrop, and custom effects all implement the same three-method contract: <code>init(gl)</code>, <code>update(audio, time)</code>, <code>draw()</code>. The renderer doesn't care which kind it's drawing.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>~3,000 lines deleted</h3>
+                            <p>Six adapter layers, four duplicate FFT consumers, and three near-identical color-conversion utilities collapsed into one of each. The repo got materially smaller.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>~12% perf gain</h3>
+                            <p>Quantum Architect and Wormhole — the two heaviest effects — measured 12–14% faster on the baseline laptop after the refactor. No perf work, just removing redundant passes.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Test surface tripled</h3>
+                            <p>One interface meant one test harness. Coverage went from "the audio analyser has unit tests" to "every effect can be smoke-tested headless against a synthetic FFT trace."</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Foundation for what's next</h3>
+                            <p>Apple Music, Spotify, Custom Effect Creator v2, and the February pack all shipped on top of the new pipeline. None of those would have been pleasant to build against the old render path.</p>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Refactor before, not during</h4>
+                            <p>The cleanest moment to flatten render paths was right before a year of integration work, not in the middle of it. Doing it first turned every later feature into an additive change instead of another bolt-on.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>No user-visible regressions</h4>
+                            <p>The whole point of an internal refactor is that nobody outside the codebase notices. Side-by-side recordings on twenty representative tracks confirmed pixel-level parity before the old paths were removed.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Milkdrop Integration -->
             <article class="feed-entry">
                 <p class="feed-date">December 2025</p>
