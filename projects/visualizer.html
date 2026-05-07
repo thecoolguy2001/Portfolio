@@ -558,14 +558,10 @@
             <article class="feed-entry">
                 <p class="feed-date">March 2026</p>
                 <div class="feed-card">
-                    <h2>Custom Effect Creator v2 — Templates, Hot Reload, Sharing</h2>
-                    <p>The April 2025 launch had shipped the four-function template and a save button. A year of watching users in the editor surfaced the real friction: people didn't know where to start, lost their work to compile errors, and had no way to share a finished effect with a friend. v2 was the answer to all three.</p>
+                    <h2>Custom Effect Creator v2 — Hot Reload &amp; Sharing</h2>
+                    <p>The July 2025 launch had shipped the four-function template and a save button. Less than a year of watching users in the editor surfaced two clear friction points: the iteration loop kept breaking the audio context, and there was no way to share a finished effect with a friend. v2 was the answer to both.</p>
 
                     <div class="feed-features">
-                        <div class="feed-feature">
-                            <h3>Starter template gallery</h3>
-                            <p>Ten built-in starters covering the patterns people kept rebuilding: bass-driven scale, treble particle scatter, mid-band hue shift, beat-detect strobe, frequency-bin lattice, etc. Pick one, tweak two values, save.</p>
-                        </div>
                         <div class="feed-feature">
                             <h3>Hot reload</h3>
                             <p>Save (⌘S) re-compiles the shader and rebinds the effect without dropping the audio context. The track keeps playing, the FFT keeps running, and the canvas just changes. No more reload-and-find-your-place.</p>
@@ -573,73 +569,6 @@
                         <div class="feed-feature">
                             <h3>Shareable links</h3>
                             <p>One button encodes the effect (JS + GLSL + metadata) into a URL fragment. Send it to anyone running Pro and they import it with one click — no GitHub gist, no copy-paste, no account.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Inline docs panel</h3>
-                            <p>A collapsible side panel lists every audio data range (bass / mid / treble 0–255), every uniform passed to the shader, and every helper function — so you don't have to leave the editor to remember the API.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Compilation console</h3>
-                            <p>Shader errors used to fail silently and show a black canvas. Now a compact console at the bottom of the editor surfaces the line number, the GLSL error, and a one-line plain-language hint.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Versioned saves</h3>
-                            <p>Each save snapshots the prior version. Ten-deep history per effect — recover the working build after a bad edit without leaving the canvas.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Effect Pack v2 -->
-            <article class="feed-entry">
-                <p class="feed-date">February 2026</p>
-                <div class="feed-card">
-                    <h2>Effect Pack v2 — Twelve New Native Effects</h2>
-                    <p>Milkdrop had widened the catalog massively in December, but the native, hand-built effects hadn't seen new entries in months. February shipped a themed pack of twelve — designed as a coherent set rather than twelve loose additions — focused on low-light listening, longer sessions, and softer palettes that were missing from the existing library.</p>
-
-                    <div class="feed-features">
-                        <div class="feed-feature">
-                            <h3>Lattice</h3>
-                            <p>A slow-rotating 3D grid that bends in response to bass. Built for ambient and post-rock — it rewards holding still rather than switching effects every twenty seconds.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Inkdrop</h3>
-                            <p>Particles that bloom and bleed like ink in water. Mid-band drives the bloom radius, treble drives the dispersion. Looks especially good with vocals.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Vapor Trails</h3>
-                            <p>Long-exposure ribbons that follow the beat across the canvas. The trail length is bound to the current BPM estimate so faster tracks read as tighter, slower tracks as drifting.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Spectra Storm</h3>
-                            <p>A weather-like rendering of the full FFT spectrum. Bass becomes lightning, mid becomes rain, treble becomes wind. Heaviest of the pack — perf-tagged for the toggle.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Aurora Drift</h3>
-                            <p>Slow vertical curtains in muted greens and violets. Designed for late-night sessions where every other effect feels too loud.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Warm Static</h3>
-                            <p>CRT-grain texture that breathes on the kick. Reads as analog without leaning into vaporwave palettes.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Tide</h3>
-                            <p>Horizontal wave field that swells on bass and breaks on snare hits. Quiet, repetitive, hypnotic.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Six more</h3>
-                            <p>Ember, Shoal, Ribbonfall, Glasswork, Driftwood, Pulsegrid — each one tuned to a specific genre niche the catalog had under-served.</p>
-                        </div>
-                    </div>
-
-                    <div class="design-decisions">
-                        <div class="decision-card">
-                            <h4>A pack, not a dump</h4>
-                            <p>Twelve effects shipped together with a shared palette and a shared reactivity philosophy — softer, slower, less strobe. Easier to communicate as "the low-light pack" than as twelve unrelated items in a list.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Game Mode where it makes sense</h4>
-                            <p>Only Lattice and Inkdrop got Game Mode hooks. The others are explicitly for sitting back. Not every effect needs to be every mode.</p>
                         </div>
                     </div>
                 </div>
@@ -675,7 +604,7 @@
                         </div>
                         <div class="feed-feature">
                             <h3>Foundation for what's next</h3>
-                            <p>Apple Music, Spotify, Custom Effect Creator v2, and the February pack all shipped on top of the new pipeline. None of those would have been pleasant to build against the old render path.</p>
+                            <p>Apple Music, Spotify, and Custom Effect Creator v2 all shipped on top of the new pipeline. None of those would have been pleasant to build against the old render path.</p>
                         </div>
                     </div>
 
@@ -720,13 +649,103 @@
                 </div>
             </article>
 
-            <!-- Latest Update -->
+            <!-- Game Mode -->
+            <article class="feed-entry">
+                <p class="feed-date">November 2025</p>
+                <div class="feed-card">
+                    <h2>Game Mode</h2>
+                    <p>A late-year creative swing that turned passive listening into active play. The first five effects were each given their own rhythm-based mini-game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Five distinct games sharing the same canvas, toggled with a single press of <strong>G</strong>.</p>
+
+                    <div class="design-decisions">
+                        <div class="decision-card">
+                            <h4>Audio is the controller</h4>
+                            <p>Beat hits, frequency peaks, and dynamics drive game logic. The user picks the music; the music picks the difficulty curve.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>One game per effect</h4>
+                            <p>Five distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Same canvas, new layer</h4>
+                            <p>Game UI overlays the visualizer instead of replacing it. Players keep the immersion — the toggle was a single button.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Three lives, one HUD</h4>
+                            <p>Score and lives sit in the top-left HUD across every game so players never have to relearn the read between titles.</p>
+                        </div>
+                    </div>
+
+                    <div class="feed-features">
+                        <div class="feed-feature">
+                            <h3>Particle Collector</h3>
+                            <p>Effect 1 — Particles. Move with arrow keys, press <strong>Z</strong> to catch falling particles to the beat.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Wave Rider</h3>
+                            <p>Effect 2 — Waves. Stay balanced on shifting wave peaks using left/right arrows.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Wave Surfer 3D</h3>
+                            <p>Effect 3 — 3D Waves. Navigate a 3D tunnel and dodge obstacles with the arrow keys.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Color Matcher</h3>
+                            <p>Effect 4 — Spaceship. Match your ship's color to incoming pulses with <strong>Z</strong>.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Space Navigator</h3>
+                            <p>Effect 5 — Ocean. Steer through procedural space hazards in a fluid environment.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe">
+                        <div class="wireframe-frame browser">
+                            <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ EFFECT + GAME LAYER ]</div>
+                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">score: 1240</span>
+                                <span style="position:absolute;left:14px;top:30px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">lives: ◆ ◆ ◆</span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
+                                <div class="wf-callout" style="top:18px;left:90px;">1</div>
+                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                            </div>
+                        </div>
+                        <p class="wireframe-caption">Game Mode — same chromeless canvas, plus a tiny score/lives HUD in the top-left corner.</p>
+                    </div>
+
+                    <div class="annotations">
+                        <div class="annotation-item">
+                            <span class="annotation-num">1</span>
+                            <div class="annotation-text">
+                                <h4>Top-left HUD</h4>
+                                <p>Score and lives in the same low-contrast monospace as the corner labels. Same family of text, same low priority — the game read sits inside the existing visual language, not on top of it.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">2</span>
+                            <div class="annotation-text">
+                                <h4>Game-effect blend</h4>
+                                <p>Game elements render directly on the same canvas as the effect. No overlay panel, no border, no game UI — the game is part of the visual, not glued on top of it.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">—</span>
+                            <div class="annotation-text">
+                                <h4>Controls stay on the keyboard</h4>
+                                <p>Arrow keys for movement, <strong>Z</strong> for the primary action. No on-screen buttons — same chromeless rule as the rest of the app, so muscle memory transfers between the five games.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Beta Reception -->
             <article class="feed-entry">
                 <p class="feed-date">September 2025</p>
                 <div class="feed-card">
-                    <h2>Results & Reception</h2>
-                    <p>The Visualizer Website has received outstanding feedback from its users. Its intuitive interface, engaging interactive elements, and clear data presentation were highly praised.</p>
-                    <p>The platform not only does audio visualization well but also enhances listeners' experience with music, proving its effectiveness in making for a meaningful product for music enthusiasts.</p>
+                    <h2>Beta Reception</h2>
+                    <p>Reception from the public beta release of Visualizer. Beta users praised the intuitive interface, the chromeless visual language, and the way the catalog of effects let listeners find their own pairing of song and visual.</p>
+                    <p>The platform read clearly as more than a visualizer — beta listeners described it as a way to deepen their relationship with music. That feedback shaped the next round of additions, including Game Mode shipping in November 2025.</p>
                 </div>
             </article>
 
@@ -1069,7 +1088,7 @@
 
             <!-- Custom Effect Creator -->
             <article class="feed-entry">
-                <p class="feed-date">April 2025</p>
+                <p class="feed-date">July 2025</p>
                 <div class="feed-card">
                     <h2>Custom Effect Creator (Pro)</h2>
                     <p>The biggest "give the user a hammer" feature in the app. Pro users can write their own visual effect from scratch using JavaScript and WebGL shaders, hit save, and have it run inside Visualizer alongside the built-in library. Press <strong>C</strong> to open the Custom Effect Menu — Load Effect or Create New Effect — and the four-function template is the only contract.</p>
@@ -1724,96 +1743,6 @@
                         <div class="decision-card">
                             <h4>Monospace for status</h4>
                             <p>Status text is monospace and low-contrast — different family from anything an effect could draw, so it always reads as "the app talking" rather than "part of the visual."</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Game Mode -->
-            <article class="feed-entry">
-                <p class="feed-date">January 2025</p>
-                <div class="feed-card">
-                    <h2>Game Mode</h2>
-                    <p>The first big swing after the user-research pivot. The first five effects were each given their own rhythm-based mini-game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Five distinct games sharing the same canvas, toggled with a single press of <strong>G</strong>.</p>
-
-                    <div class="design-decisions">
-                        <div class="decision-card">
-                            <h4>Audio is the controller</h4>
-                            <p>Beat hits, frequency peaks, and dynamics drive game logic. The user picks the music; the music picks the difficulty curve.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>One game per effect</h4>
-                            <p>Five distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Same canvas, new layer</h4>
-                            <p>Game UI overlays the visualizer instead of replacing it. Players keep the immersion — the toggle was a single button.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Three lives, one HUD</h4>
-                            <p>Score and lives sit in the top-left HUD across every game so players never have to relearn the read between titles.</p>
-                        </div>
-                    </div>
-
-                    <div class="feed-features">
-                        <div class="feed-feature">
-                            <h3>Particle Collector</h3>
-                            <p>Effect 1 — Particles. Move with arrow keys, press <strong>Z</strong> to catch falling particles to the beat.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Wave Rider</h3>
-                            <p>Effect 2 — Waves. Stay balanced on shifting wave peaks using left/right arrows.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Wave Surfer 3D</h3>
-                            <p>Effect 3 — 3D Waves. Navigate a 3D tunnel and dodge obstacles with the arrow keys.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Color Matcher</h3>
-                            <p>Effect 4 — Spaceship. Match your ship's color to incoming pulses with <strong>Z</strong>.</p>
-                        </div>
-                        <div class="feed-feature">
-                            <h3>Space Navigator</h3>
-                            <p>Effect 5 — Ocean. Steer through procedural space hazards in a fluid environment.</p>
-                        </div>
-                    </div>
-
-                    <div class="wireframe">
-                        <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
-                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ EFFECT + GAME LAYER ]</div>
-                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">score: 1240</span>
-                                <span style="position:absolute;left:14px;top:30px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">lives: ◆ ◆ ◆</span>
-                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
-                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
-                                <div class="wf-callout" style="top:18px;left:90px;">1</div>
-                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
-                            </div>
-                        </div>
-                        <p class="wireframe-caption">Game Mode — same chromeless canvas, plus a tiny score/lives HUD in the top-left corner.</p>
-                    </div>
-
-                    <div class="annotations">
-                        <div class="annotation-item">
-                            <span class="annotation-num">1</span>
-                            <div class="annotation-text">
-                                <h4>Top-left HUD</h4>
-                                <p>Score and lives in the same low-contrast monospace as the corner labels. Same family of text, same low priority — the game read sits inside the existing visual language, not on top of it.</p>
-                            </div>
-                        </div>
-                        <div class="annotation-item">
-                            <span class="annotation-num">2</span>
-                            <div class="annotation-text">
-                                <h4>Game-effect blend</h4>
-                                <p>Game elements render directly on the same canvas as the effect. No overlay panel, no border, no game UI — the game is part of the visual, not glued on top of it.</p>
-                            </div>
-                        </div>
-                        <div class="annotation-item">
-                            <span class="annotation-num">—</span>
-                            <div class="annotation-text">
-                                <h4>Controls stay on the keyboard</h4>
-                                <p>Arrow keys for movement, <strong>Z</strong> for the primary action. No on-screen buttons — same chromeless rule as the rest of the app, so muscle memory transfers between the five games.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
