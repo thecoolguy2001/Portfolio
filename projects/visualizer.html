@@ -473,7 +473,7 @@
                     <div class="feed-features">
                         <div class="feed-feature">
                             <h3>Camera permission stuck</h3>
-                            <p>Visual Mode would sit on "requesting" forever if the user denied camera access in the browser then re-enabled it in OS settings. Fix: re-query <code>navigator.permissions</code> on visibilitychange and reset the cyan permission frame.</p>
+                            <p>Augment Mode would sit on "requesting" forever if the user denied camera access in the browser then re-enabled it in OS settings. Fix: re-query <code>navigator.permissions</code> on visibilitychange and reset the cyan permission frame.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Safari recording cap</h3>
@@ -512,7 +512,7 @@
                 <p class="feed-date">April 2026</p>
                 <div class="feed-card">
                     <h2>Apple Music &amp; Spotify Integration</h2>
-                    <p>Apple Music had shipped in December 2024 as a DSP passthrough — Visualizer read system audio and reacted to whatever was playing, but it didn't know what the song was. April 2026 was the upgrade to first-class library integration: MusicKit JS for Apple Music, the Web Playback SDK for Spotify, with both surfacing track metadata, playback control, and transition hooks the visualizer could time effects to.</p>
+                    <p>April 2026 was the upgrade to first-class library integration: MusicKit JS for Apple Music, the Web Playback SDK for Spotify, with both surfacing track metadata, playback control, and transition hooks the visualizer could time effects to.</p>
 
                     <div class="feed-features">
                         <div class="feed-feature">
@@ -579,7 +579,7 @@
                 <p class="feed-date">January 2026</p>
                 <div class="feed-card">
                     <h2>Engine Refactor — One Render Path</h2>
-                    <p>Two years of additions had layered render paths on top of each other: the original native effects, the Milkdrop integration, custom user effects, the Visual Mode camera blend, Game Mode overlays. Each had been bolted on around the previous one. January was the cleanup pass — collapsing all five into a single pipeline with one entry point and one effect interface.</p>
+                    <p>Two years of additions had layered render paths on top of each other: the original native effects, the Milkdrop integration, custom user effects, the Augment Mode camera blend, Game Mode overlays. Each had been bolted on around the previous one. January was the cleanup pass — collapsing all five into a single pipeline with one entry point and one effect interface.</p>
 
                     <div class="feed-features">
                         <div class="feed-feature">
@@ -701,38 +701,52 @@
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
                             <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
-                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ EFFECT + GAME LAYER ]</div>
-                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">score: 1240</span>
-                                <span style="position:absolute;left:14px;top:30px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">lives: ◆ ◆ ◆</span>
+                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">effect: #1 Effect 1</span>
+                                <span style="position:absolute;right:14px;top:12px;color:#ff5b8a;font-size:0.7rem;font-family:'SF Mono',monospace;">♥ ♥ ♥</span>
+                                <span style="position:absolute;right:14px;top:30px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">score: 0</span>
+                                <span style="position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.65rem;font-family:'SF Mono',monospace;">press h for help</span>
+                                <span style="position:absolute;left:50%;bottom:30px;transform:translateX(-50%);color:#e4e4ea;font-size:0.72rem;font-family:system-ui,sans-serif;">Press 2 when particle is highlighted!</span>
                                 <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
-                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
-                                <div class="wf-callout" style="top:18px;left:90px;">1</div>
-                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: daft punk – pheonix</span>
+                                <span style="position:absolute;left:28%;top:34%;width:14px;height:14px;border-radius:50%;background:#ff7a45;box-shadow:0 0 18px rgba(255,122,69,0.7);"></span>
+                                <span style="position:absolute;left:72%;top:42%;width:16px;height:16px;border-radius:50%;background:#aaff7a;box-shadow:0 0 22px rgba(170,255,122,0.7);"></span>
+                                <span style="position:absolute;left:38%;top:60%;width:12px;height:12px;border-radius:50%;background:#ff5fa8;box-shadow:0 0 18px rgba(255,95,168,0.7);"></span>
+                                <span style="position:absolute;left:78%;top:64%;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 20px rgba(255,255,255,0.9);outline:2px solid #aaff7a;outline-offset:4px;"></span>
+                                <div class="wf-callout" style="top:14px;right:80px;">1</div>
+                                <div class="wf-callout" style="top:60%;left:74%;">2</div>
+                                <div class="wf-callout" style="bottom:50px;left:50%;transform:translateX(-50%);">3</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Game Mode — same chromeless canvas, plus a tiny score/lives HUD in the top-left corner.</p>
+                        <p class="wireframe-caption">Game Mode — hearts and score in the top-right, effect label in the top-left, the action prompt centered low. Targets glow as colored particles; the highlighted one wears a white ring.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Top-left HUD</h4>
-                                <p>Score and lives in the same low-contrast monospace as the corner labels. Same family of text, same low priority — the game read sits inside the existing visual language, not on top of it.</p>
+                                <h4>Top-right HUD</h4>
+                                <p>Three hearts plus a score line, both in the same low-contrast monospace as the corner labels. The effect label stays in the top-left so the canvas read doesn't shift when game mode toggles on.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Game-effect blend</h4>
-                                <p>Game elements render directly on the same canvas as the effect. No overlay panel, no border, no game UI — the game is part of the visual, not glued on top of it.</p>
+                                <h4>Highlighted target</h4>
+                                <p>The active target wears a white core and a colored outline ring — a single pulse of brightness against the rest of the particle field. The player's eye lands on it before reading the prompt.</p>
+                            </div>
+                        </div>
+                        <div class="annotation-item">
+                            <span class="annotation-num">3</span>
+                            <div class="annotation-text">
+                                <h4>Action prompt</h4>
+                                <p>One line of plain UI sans-serif near the bottom-center — "Press 2 when particle is highlighted!" The only non-monospace text on the screen, used sparingly because it's the only thing the user is supposed to act on.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">—</span>
                             <div class="annotation-text">
                                 <h4>Controls stay on the keyboard</h4>
-                                <p>Arrow keys for movement, <strong>Z</strong> for the primary action. No on-screen buttons — same chromeless rule as the rest of the app, so muscle memory transfers between the five games.</p>
+                                <p>Number keys mapped to targets, no on-screen buttons. Same chromeless rule as the rest of the app, so muscle memory transfers from the regular player.</p>
                             </div>
                         </div>
                     </div>
@@ -856,17 +870,13 @@
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
                             <div class="wireframe-screen" style="min-height:260px;background:#000;padding:0;position:relative;">
-                                <span style="position:absolute;left:12%;top:28%;width:40%;height:3px;background:linear-gradient(90deg,#ff5fa8,#ffb86b);border-radius:2px;transform:rotate(-14deg);box-shadow:0 0 12px rgba(255,95,168,0.5);"></span>
-                                <span style="position:absolute;left:36%;top:54%;width:34%;height:3px;background:linear-gradient(90deg,#6dd5ed,#9b8cff);border-radius:2px;transform:rotate(10deg);box-shadow:0 0 12px rgba(109,213,237,0.5);"></span>
-                                <span style="position:absolute;left:18%;top:72%;width:24%;height:3px;background:linear-gradient(90deg,#aaff7a,#7affd1);border-radius:2px;transform:rotate(-4deg);box-shadow:0 0 12px rgba(170,255,122,0.4);"></span>
-                                <span style="position:absolute;left:14px;top:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">draw mode: on · brush: aurora · fade: on</span>
-                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
-                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
-                                <div class="wf-callout" style="top:30px;left:14px;">1</div>
-                                <div class="wf-callout" style="top:40%;left:32%;">2</div>
+                                <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.7rem;font-family:system-ui,sans-serif;">press spacebar to start</span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">draw mode: on</span>
+                                <div class="wf-callout" style="bottom:30px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:42%;left:50%;transform:translateX(-50%);">2</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Draw Mode — strokes layer directly on the chromeless canvas. The only chrome is a single status line in the top-left.</p>
+                        <p class="wireframe-caption">Draw Mode — the canvas wipes black on toggle. A single status line confirms the mode in the bottom-left; the same start prompt centers the screen until spacebar fires the first frame.</p>
                     </div>
 
                     <div class="annotations">
@@ -874,21 +884,21 @@
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
                                 <h4>Single status line</h4>
-                                <p>Mode, active brush, and fade state all on one line in the top-left, in the same low-contrast monospace as the rest of the app. No popovers, no panels — same family of text the user already trusts.</p>
+                                <p>One word of state — <code>draw mode: on</code> — in the bottom-left, in the same low-contrast monospace as the rest of the app. No popovers, no panels, no brush picker on screen.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Multi-effect strokes</h4>
-                                <p>Each stroke retains its source effect's behavior. An Aurora stroke and a Neon Grid stroke continue reacting to audio independently, layered on the same black canvas.</p>
+                                <h4>Start prompt holds the silence</h4>
+                                <p>Until the user presses spacebar, the canvas is black and the prompt sits centered. Same word, same weight as the player's start screen, so the entry into a creative tool feels like the same surface the rest of the app uses.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">—</span>
                             <div class="annotation-text">
                                 <h4>Controls stay on the keyboard</h4>
-                                <p>Arrow keys cycle brushes, <strong>F</strong> toggles fade, <strong>Backspace</strong> erases the last stroke, <strong>1-9</strong> sets stroke intensity. No on-screen brush picker or eraser button — the chromeless rule holds.</p>
+                                <p>Arrow keys cycle brushes, <strong>1-9</strong> sets stroke intensity. No on-screen brush picker or eraser button — the chromeless rule holds.</p>
                             </div>
                         </div>
                     </div>
@@ -934,53 +944,63 @@
             <article class="feed-entry">
                 <p class="feed-date">June 2025</p>
                 <div class="feed-card">
-                    <h2>Visual Mode (Camera Effects)</h2>
-                    <p>Every effect in the library was given the option to ingest a live camera feed. Visualizations that previously reacted only to audio could now also react to whatever the camera saw — turning the room into part of the show.</p>
+                    <h2>Visual Mode (Particle Style Cycling)</h2>
+                    <p>A single keystroke that re-skins the particle field without changing the active effect or its audio reactivity. Toggle with <strong>V</strong> and the rendering style of every particle on the canvas swaps — same motion, same beat response, different visual grammar.</p>
 
                     <div class="design-decisions">
                         <div class="decision-card">
-                            <h4>Opt-in per effect</h4>
-                            <p>Camera is never on by default. A single toggle on each effect's panel gates it, and the indicator stays visible while it's live.</p>
+                            <h4>Style as a parallel axis</h4>
+                            <p>Effect and mode were already the two cycling dimensions. Visual Mode adds a third — particle render style — so a user can keep the song, keep the effect, and still find a fresh look without breaking the moment.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Audio + video composition</h4>
-                            <p>The camera doesn't replace audio reactivity — it composes with it. Audio still drives motion; video layers as texture, color, or distortion.</p>
+                            <h4>Audio reactivity is preserved</h4>
+                            <p>Style switching only changes how each particle is drawn — not how it moves. Bass-driven scale, treble-driven color shift, and stroke timing all carry across styles unchanged.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Permission as a moment</h4>
-                            <p>First-run camera permission gets its own framing screen explaining why and how — never a silent browser prompt mid-session.</p>
+                            <h4>One label, no menu</h4>
+                            <p>The active style appears as a single monospace label in the bottom-left — <code>particle visual: style 1</code>. No picker, no overlay; <strong>V</strong> advances to the next style, the label updates, and the canvas stays the canvas.</p>
                         </div>
                     </div>
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:240px;background:#000;padding:0;position:relative;">
-                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ AUDIO + CAMERA COMPOSITE ]</div>
-                                <span style="position:absolute;right:14px;top:12px;display:inline-flex;align-items:center;gap:6px;color:#6dd5ed;font-size:0.65rem;font-family:'SF Mono',monospace;letter-spacing:0.08em;">
-                                    <span style="width:6px;height:6px;background:#6dd5ed;border-radius:50%;"></span>cam: on
-                                </span>
-                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
-                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
-                                <div class="wf-callout" style="top:14px;right:90px;">1</div>
-                                <div class="wf-callout" style="top:50%;left:50%;transform:translate(-50%,-50%);">2</div>
+                            <div class="wireframe-screen" style="min-height:240px;background:#000;padding:0;position:relative;overflow:hidden;">
+                                <span style="position:absolute;left:18%;top:24%;width:4px;height:4px;border-radius:50%;background:#ff5fa8;"></span>
+                                <span style="position:absolute;left:32%;top:18%;width:3px;height:3px;border-radius:50%;background:#6dd5ed;"></span>
+                                <span style="position:absolute;left:54%;top:30%;width:5px;height:5px;border-radius:50%;background:#aaff7a;"></span>
+                                <span style="position:absolute;left:72%;top:22%;width:3px;height:3px;border-radius:50%;background:#ffb86b;"></span>
+                                <span style="position:absolute;left:84%;top:38%;width:4px;height:4px;border-radius:50%;background:#9b8cff;"></span>
+                                <span style="position:absolute;left:14%;top:46%;width:3px;height:3px;border-radius:50%;background:#7affd1;"></span>
+                                <span style="position:absolute;left:28%;top:54%;width:5px;height:5px;border-radius:50%;background:#ff7a45;"></span>
+                                <span style="position:absolute;left:46%;top:60%;width:3px;height:3px;border-radius:50%;background:#ff5fa8;"></span>
+                                <span style="position:absolute;left:62%;top:50%;width:4px;height:4px;border-radius:50%;background:#fff;"></span>
+                                <span style="position:absolute;left:78%;top:62%;width:4px;height:4px;border-radius:50%;background:#aaff7a;"></span>
+                                <span style="position:absolute;left:20%;top:72%;width:3px;height:3px;border-radius:50%;background:#6dd5ed;"></span>
+                                <span style="position:absolute;left:40%;top:80%;width:5px;height:5px;border-radius:50%;background:#ffb86b;"></span>
+                                <span style="position:absolute;left:64%;top:78%;width:3px;height:3px;border-radius:50%;background:#9b8cff;"></span>
+                                <span style="position:absolute;left:88%;top:74%;width:4px;height:4px;border-radius:50%;background:#ff5fa8;"></span>
+                                <span style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.65rem;font-family:system-ui,sans-serif;">press spacebar to start</span>
+                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">particle visual: style 1</span>
+                                <div class="wf-callout" style="bottom:30px;left:14px;">1</div>
+                                <div class="wf-callout" style="top:30%;left:54%;">2</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Visual Mode — same chromeless canvas; the only addition is a small <em>cam: on</em> indicator in the top-right corner.</p>
+                        <p class="wireframe-caption">Visual Mode — particle style label in the bottom-left. The visualization itself is the rendering style; no extra chrome anywhere else.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Camera-active indicator</h4>
-                                <p>Same monospace, same low-contrast treatment as the corner labels — but tinted cyan so the user can spot it at a glance. No hidden recording.</p>
+                                <h4>Style label</h4>
+                                <p>Same monospace, same low-contrast treatment as the mode label. The number after <code>style</code> is the only piece of information the user needs to track what changed.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Camera blends into the effect</h4>
-                                <p>The live feed isn't pinned in a picture-in-picture box — it composites directly into the active effect. Audio still drives motion; video layers as texture, color, or distortion. No second canvas competing with the first.</p>
+                                <h4>Particles change look, not behavior</h4>
+                                <p>The colored particles render differently in each style — dot, glyph, ring, halo — but their position and audio reactivity are computed once per frame, before the style is applied. Switching mid-song never breaks the beat.</p>
                             </div>
                         </div>
                     </div>
@@ -1114,55 +1134,65 @@
 
                     <div class="wireframe">
                         <div class="wireframe-frame browser">
-                            <div class="wireframe-screen" style="min-height:300px;background:#0f0f14;">
-                                <div class="wf-row" style="align-items:center;">
-                                    <div class="wf-block text-line short" style="background:#2a2a35;"></div>
-                                    <div class="wf-block" style="flex:0 0 110px;height:18px;background:var(--color-accent);border-radius:6px;"></div>
-                                </div>
-                                <div class="wf-row" style="flex:1;align-items:stretch;">
-                                    <div class="wf-block" style="flex:1;background:#15151c;color:#5a8a6a;font-family:'SF Mono',monospace;font-size:0.7rem;text-align:left;padding:14px;line-height:1.6;min-height:160px;">
-                                        <div style="color:#7c7c8a;">// Create</div>
-                                        <div>const geo = new THREE.SphereGeometry(5);</div>
-                                        <div>const mat = new THREE.ShaderMaterial({...});</div>
-                                        <div>const mesh = new THREE.Mesh(geo, mat);</div>
-                                        <div>scene.add(mesh);</div>
-                                        <div>visualElements.push(mesh);</div>
+                            <div class="wireframe-screen" style="min-height:340px;background:#000;padding:0;position:relative;overflow:hidden;">
+                                <span style="position:absolute;left:12%;top:18%;width:3px;height:3px;border-radius:50%;background:#ff5fa8;opacity:0.5;"></span>
+                                <span style="position:absolute;left:28%;top:32%;width:4px;height:4px;border-radius:50%;background:#6dd5ed;opacity:0.5;"></span>
+                                <span style="position:absolute;left:78%;top:22%;width:3px;height:3px;border-radius:50%;background:#aaff7a;opacity:0.5;"></span>
+                                <span style="position:absolute;left:84%;top:54%;width:4px;height:4px;border-radius:50%;background:#ffb86b;opacity:0.5;"></span>
+                                <span style="position:absolute;left:18%;top:74%;width:3px;height:3px;border-radius:50%;background:#9b8cff;opacity:0.5;"></span>
+                                <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#15151c;border:1px solid #2a2a35;border-radius:14px;padding:18px 20px;width:64%;max-width:340px;text-align:center;">
+                                    <div style="color:#fff;font-weight:600;font-size:0.85rem;margin-bottom:12px;">Create Custom Effect</div>
+                                    <div style="text-align:left;display:flex;flex-direction:column;gap:8px;">
+                                        <div>
+                                            <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.6rem;font-weight:600;margin-bottom:3px;">Create Function Code:</div>
+                                            <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:6px 8px;color:#5a5a68;font-family:'SF Mono',monospace;font-size:0.52rem;line-height:1.5;">function createMyEffect() { … }</div>
+                                        </div>
+                                        <div>
+                                            <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.6rem;font-weight:600;margin-bottom:3px;">Animate Initial Code:</div>
+                                            <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:6px 8px;color:#5a5a68;font-family:'SF Mono',monospace;font-size:0.52rem;line-height:1.5;">function animateInitialEffect(mesh, time) { … }</div>
+                                        </div>
+                                        <div>
+                                            <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.6rem;font-weight:600;margin-bottom:3px;">Animate Reactive Code:</div>
+                                            <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:6px 8px;color:#5a5a68;font-family:'SF Mono',monospace;font-size:0.52rem;line-height:1.5;">function animateReactiveEffect(mesh, audioData) { … }</div>
+                                        </div>
+                                        <div>
+                                            <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.6rem;font-weight:600;margin-bottom:3px;">Adjust Intensity Code:</div>
+                                            <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:6px 8px;color:#5a5a68;font-family:'SF Mono',monospace;font-size:0.52rem;line-height:1.5;">function adjustEffectIntensity(mesh, level) { … }</div>
+                                        </div>
                                     </div>
-                                    <div class="wf-block" style="flex:0 0 110px;background:#252530;color:#666;display:flex;align-items:center;justify-content:center;border-radius:8px;">Preview</div>
+                                    <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;">
+                                        <div style="background:#1c1c24;border:1px solid #2a2a35;border-radius:8px;padding:5px 14px;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.62rem;font-weight:600;">Submit Effect</div>
+                                        <div style="background:#1c1c24;border:1px solid #2a2a35;border-radius:8px;padding:5px 14px;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.62rem;font-weight:600;">Cancel</div>
+                                    </div>
                                 </div>
-                                <div class="wf-row tight">
-                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
-                                    <div class="wf-block" style="background:#2a2a30;height:32px;border-radius:6px;"></div>
-                                    <div class="wf-block" style="background:var(--color-accent);height:32px;border-radius:6px;flex:0 0 80px;"></div>
-                                </div>
-                                <div class="wf-callout" style="top:48px;left:18px;">1</div>
-                                <div class="wf-callout" style="top:48px;right:80px;">2</div>
-                                <div class="wf-callout" style="bottom:14px;right:14px;">3</div>
+                                <div class="wf-callout" style="top:26%;left:22%;">1</div>
+                                <div class="wf-callout" style="bottom:14%;left:22%;">2</div>
+                                <div class="wf-callout" style="bottom:8%;right:22%;">3</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Custom Effect Creator — code on the left, live preview on the right, share button bottom-right.</p>
+                        <p class="wireframe-caption">Custom Effect Creator — a centered modal over the live canvas with four code fields and a two-button footer. The visualization keeps running underneath while the user writes.</p>
                     </div>
 
                     <div class="annotations">
                         <div class="annotation-item">
                             <span class="annotation-num">1</span>
                             <div class="annotation-text">
-                                <h4>Four-tab editor</h4>
-                                <p>Each function is its own tab — Create, Animate Initial, Animate Reactive, Adjust Intensity. The user only fills in what their effect actually needs.</p>
+                                <h4>Four function fields</h4>
+                                <p>Each function gets its own labeled text area — Create Function Code, Animate Initial Code, Animate Reactive Code, Adjust Intensity Code. The user fills in what their effect needs and leaves the rest with the default stub.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
-                                <h4>Live preview</h4>
-                                <p>Effect renders into the same canvas the rest of Visualizer uses, with real audio analyzer data. No separate sandbox — what the user sees is the actual runtime.</p>
+                                <h4>Submit Effect</h4>
+                                <p>Submits the four functions to the runtime, registers the effect into the live catalog, and closes the modal back to the canvas. No separate sandbox — what the user sees on submission is the actual runtime.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
                             <span class="annotation-num">3</span>
                             <div class="annotation-text">
-                                <h4>Save &amp; share</h4>
-                                <p>Save copies the shareable code to the clipboard and surfaces it for 60 seconds. <strong>C</strong> while a custom effect is active re-shows and re-copies the code.</p>
+                                <h4>Cancel</h4>
+                                <p>Closes the modal without modifying the catalog. The canvas underneath has been playing the whole time, so dismissal feels like stepping back rather than losing your place.</p>
                             </div>
                         </div>
                     </div>
@@ -1184,10 +1214,10 @@
                             <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Awaiting Start</p>
                             <div class="wireframe-frame browser" style="margin:0;">
                                 <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.85rem;font-weight:600;">Press Spacebar to Start</div>
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#4a4a55;font-family:system-ui,sans-serif;font-size:0.7rem;">press spacebar to start</div>
                                 </div>
                             </div>
-                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Post-warning, pre-play. One sentence centered. Doubles as the AudioContext init prompt.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Post-warning, pre-play. One quiet line centered in low-contrast gray. Doubles as the AudioContext init prompt.</p>
                         </div>
 
                         <div>
@@ -1215,54 +1245,49 @@
                         </div>
 
                         <div>
-                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Switch Confirmation</p>
-                            <div class="wireframe-frame browser" style="margin:0;">
-                                <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
-                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.6);color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.78rem;padding:8px 16px;border-radius:8px;border:1px solid #2a2a35;">› aurora</div>
-                                </div>
-                            </div>
-                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Arrow-key swap. Effect or mode name appears center-screen for ~1.2s, then fades. Confirms the change without keeping a label on screen.</p>
-                        </div>
-
-                        <div>
                             <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Info Overlay (I)</p>
                             <div class="wireframe-frame browser" style="margin:0;">
                                 <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
-                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.7rem;padding:14px 18px;border-radius:10px;border:1px solid #2a2a35;line-height:1.7;text-align:left;">
-                                        mode: playlist<br>song: nirvana – radio<br>effect: aurora<br>intensity: 5
-                                    </div>
+                                    <span style="position:absolute;left:10px;top:8px;color:#9a9aa5;font-size:0.55rem;font-family:'SF Mono',monospace;">effect: #1 Effect 1</span>
+                                    <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.55rem;font-family:'SF Mono',monospace;">press h for help</span>
+                                    <span style="position:absolute;left:10px;bottom:8px;color:#9a9aa5;font-size:0.55rem;font-family:'SF Mono',monospace;">mode: playlist</span>
+                                    <span style="position:absolute;right:10px;bottom:8px;color:#9a9aa5;font-size:0.55rem;font-family:'SF Mono',monospace;">song: daft punk</span>
                                 </div>
                             </div>
-                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">User-summoned readout. Larger version of the corner labels with effect + intensity, shown until dismissed.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">User-summoned readout. Adds the effect label in the top-left to the persistent mode and song corners — no modal, just the canvas with its labels surfaced.</p>
                         </div>
 
                         <div>
                             <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Help Overlay (H)</p>
                             <div class="wireframe-frame browser" style="margin:0;">
                                 <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
-                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.75);color:#9a9aa5;font-family:'SF Mono',monospace;font-size:0.62rem;padding:12px 16px;border-radius:10px;border:1px solid #2a2a35;line-height:1.8;text-align:left;">
-                                        space — play / pause<br>← → — effect<br>↑ ↓ — mode<br>1-9 — intensity<br>r — record · h — help
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.55rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#1c1c24;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.5rem;padding:10px 14px;border-radius:10px;border:1px solid #2a2a35;line-height:1.6;text-align:left;min-width:140px;">
+                                        <div style="font-weight:700;margin-bottom:4px;">Controls</div>
+                                        <div><strong>Spacebar:</strong> Play/Pause</div>
+                                        <div><strong>↑/↓:</strong> Switch Mode</div>
+                                        <div><strong>←/→:</strong> Effect Style</div>
+                                        <div><strong>1–9:</strong> Intensity</div>
+                                        <div><strong>H:</strong> Show/Hide Help</div>
                                     </div>
                                 </div>
                             </div>
-                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Context-aware. Draw Mode adds F + Backspace; Game Mode adds Z + arrows; nothing irrelevant ever shows.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Rounded dark sheet titled "Controls" listing every binding — bold key on the left, plain-English action on the right. Waits for <strong>H</strong> to dismiss.</p>
                         </div>
 
                         <div>
-                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Password Sheet (Q)</p>
+                            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Password Sheet</p>
                             <div class="wireframe-frame browser" style="margin:0;">
                                 <div class="wireframe-screen" style="min-height:160px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.65rem;letter-spacing:0.1em;">[ EFFECT ]</div>
-                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);padding:14px 18px;border-radius:10px;border:1px solid #ffb86b;display:flex;flex-direction:column;gap:8px;">
-                                        <div style="color:#ffb86b;font-family:'SF Mono',monospace;font-size:0.65rem;letter-spacing:0.05em;">PRO ACCESS</div>
-                                        <div style="background:#0a0a0d;color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.78rem;padding:6px 10px;border-radius:6px;border:1px solid #2a2a35;letter-spacing:0.3em;">• • • • • • •</div>
+                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.55rem;letter-spacing:0.1em;">[ EFFECT ]</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#1c1c24;padding:12px 16px;border-radius:10px;border:1px solid #2a2a35;display:flex;flex-direction:column;gap:6px;min-width:150px;">
+                                        <div style="color:#fff;font-family:system-ui,sans-serif;font-size:0.6rem;font-weight:700;text-align:center;">Enter Password</div>
+                                        <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:5px 8px;color:#5a5a68;font-family:system-ui,sans-serif;font-size:0.55rem;">Password</div>
+                                        <div style="background:#0a0a0d;border:1px solid #2a2a35;border-radius:6px;padding:5px 8px;color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.55rem;font-weight:600;text-align:center;">Submit</div>
                                     </div>
                                 </div>
                             </div>
-                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Q on desktop, two-finger swipe-up on mobile. Single field, no other UI — paste, hit enter, dismissed.</p>
+                            <p style="margin-top:8px;font-size:0.85rem;color:var(--color-gray-500);">Title, single password field, Submit button. No other UI — type, submit, dismissed back to the canvas.</p>
                         </div>
 
                         <div>
@@ -1286,8 +1311,8 @@
                             <p>No new pages, no slide-in panels. Every state — start, play, pause, switch, info, help, permission — renders on the same black canvas. The user is never moved to a different surface.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Overlays auto-dismiss or wait</h4>
-                            <p>Switch confirmations fade after ~1.2s. Help / info / password sheets wait for user input — no timed dismissal on anything that requires reading.</p>
+                            <h4>Overlays wait for the user</h4>
+                            <p>Help, info, and password sheets stay open until the user dismisses them. No timed fade-out on anything that requires reading — the canvas is patient, the player decides when the overlay leaves.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Errors stay quiet</h4>
@@ -1327,15 +1352,14 @@
                         <div class="wireframe-frame browser">
                             <div class="wireframe-screen" style="min-height:220px;background:#000;padding:0;position:relative;">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ FULL-BLEED CANVAS ]</div>
-                                <span style="position:absolute;right:14px;top:12px;display:inline-flex;align-items:center;gap:6px;color:#ff5b5b;font-size:0.65rem;font-family:'SF Mono',monospace;letter-spacing:0.08em;">
+                                <span style="position:absolute;left:14px;bottom:12px;display:inline-flex;align-items:center;gap:6px;color:#ff5b5b;font-size:0.7rem;font-family:'SF Mono',monospace;">
                                     <span style="width:7px;height:7px;background:#ff5b5b;border-radius:50%;"></span>recording…
                                 </span>
-                                <span style="position:absolute;left:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">mode: playlist</span>
-                                <span style="position:absolute;right:14px;bottom:12px;color:#9a9aa5;font-size:0.7rem;font-family:'SF Mono',monospace;">song: nirvana – radio friendly unit shifter</span>
-                                <div class="wf-callout" style="top:14px;right:120px;">1</div>
+                                <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.65rem;font-family:'SF Mono',monospace;">press h for help</span>
+                                <div class="wf-callout" style="bottom:30px;left:14px;">1</div>
                             </div>
                         </div>
-                        <p class="wireframe-caption">Recording — the only addition to the chromeless canvas is a single small <em>recording…</em> indicator in the top-right corner.</p>
+                        <p class="wireframe-caption">Recording — the only addition to the chromeless canvas is a single small <em>● recording…</em> indicator in the bottom-left corner.</p>
                     </div>
                 </div>
             </article>
@@ -1448,7 +1472,7 @@
                         </div>
                         <div class="decision-card">
                             <h4>Finger count modulates intent</h4>
-                            <p>One finger = primary action. Two fingers = power-user / pro action. Pinch = camera blend. Long press = help. Each gesture class is its own mental bucket.</p>
+                            <p>One finger = primary action. Two fingers = power-user / pro action. Pinch = visual style cycling. Long press = help. Each gesture class is its own mental bucket.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Tap-count escalation</h4>
@@ -1633,8 +1657,8 @@
                             <p>Press <strong>O</strong> to auto-switch effects as songs change. Built for set lists where the user wants surprise without taking their hands off the audio.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Visual Mode Levels</h3>
-                            <p>Many effects have multiple camera-blend modes — keep pressing <strong>V</strong> to cycle Mode 0 (no camera), Mode 1 (overlay), Mode 2 (alt blend), Mode 3 (advanced).</p>
+                            <h3>Visual Mode Styles</h3>
+                            <p>Keep pressing <strong>V</strong> to cycle particle render styles — Style 1, Style 2, Style 3, and so on. Same effect, same audio reactivity, different visual grammar each cycle.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Help is contextual</h3>
@@ -1773,7 +1797,7 @@
                         </div>
                     </div>
 
-                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, reactivity that rewarded paying attention, and tools to make the visualizer their own. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, the Custom Effect Creator, Draw Mode, Visual Mode camera blends, the four playback modes, the iOS / macOS ports, and ultimately the Milkdrop integration that took the library past fifty effects.</p>
+                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, reactivity that rewarded paying attention, and tools to make the visualizer their own. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, the Custom Effect Creator, Draw Mode, Visual Mode style cycling, Augment Mode camera blends, the four playback modes, the iOS / macOS ports, and ultimately the Milkdrop integration that took the library past fifty effects.</p>
                 </div>
             </article>
 
