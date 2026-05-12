@@ -473,7 +473,7 @@
                     <div class="feed-features">
                         <div class="feed-feature">
                             <h3>Camera permission stuck</h3>
-                            <p>Augment Mode would sit on "requesting" forever if the user denied camera access in the browser then re-enabled it in OS settings. Fix: re-query <code>navigator.permissions</code> on visibilitychange and reset the cyan permission frame.</p>
+                            <p>The camera-background Visual Mode style would sit on "requesting" forever if the user denied camera access in the browser then re-enabled it in OS settings. Fix: re-query <code>navigator.permissions</code> on visibilitychange and reset the cyan permission frame.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Safari recording cap</h3>
@@ -517,23 +517,19 @@
                     <div class="feed-features">
                         <div class="feed-feature">
                             <h3>MusicKit JS</h3>
-                            <p>Sign in with an Apple ID, browse the user's library and playlists, and play full tracks inside Visualizer. Subscribers only — non-subscribers fall back to DSP passthrough so nothing is taken away.</p>
+                            <p>Sign in with an Apple ID, browse the user's library and playlists, and play full tracks inside Visualizer. Subscribers only — non-subscribers stay on the existing playlist, file select, or microphone modes.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Spotify Web Playback SDK</h3>
                             <p>Premium account required (SDK constraint). Pulls the user's playlists, recently played, and recommendations. The corner song label finally shows real metadata instead of a filename.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Lyrics sync</h3>
-                            <p>Apple Music time-synced lyrics are available as an opt-in overlay (press <strong>L</strong>). Off by default — the chromeless rule still wins — but pulling it up briefly during a quiet section is genuinely lovely.</p>
-                        </div>
-                        <div class="feed-feature">
                             <h3>Transition-aware effects</h3>
-                            <p>Track-change events from both SDKs fire effect crossfades and Augment Mode resets so the visual lands cleanly on the downbeat of the next song.</p>
+                            <p>Track-change events from both SDKs fire effect crossfades so the visual lands cleanly on the downbeat of the next song.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Auth lives in a sheet</h3>
-                            <p>Sign-in opens in the same orange/cyan-bordered overlay pattern used elsewhere — the canvas dims, a single sheet asks for one thing, and dismisses on success.</p>
+                            <p>Sign-in opens in the same dark, rounded overlay pattern used elsewhere — the canvas dims, a single sheet asks for one thing, and dismisses on success.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Privacy-first scopes</h3>
@@ -547,8 +543,8 @@
                             <p>Apple Music, Spotify, and local Playlist mode all flow through the same internal player abstraction. Switching providers doesn't change the corner labels, the keyboard, or the gestures.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>The DSP path stays</h4>
-                            <p>Listeners on free tiers, regional restrictions, or with neither service still get full reactivity from system audio. Integration adds metadata; it doesn't replace the floor.</p>
+                            <h4>The free path stays whole</h4>
+                            <p>Listeners on free tiers, regional restrictions, or with neither service still have full reactivity through the playlist, file select, and microphone modes. Integration adds providers; it doesn't replace the floor.</p>
                         </div>
                     </div>
                 </div>
@@ -579,7 +575,7 @@
                 <p class="feed-date">January 2026</p>
                 <div class="feed-card">
                     <h2>Engine Refactor — One Render Path</h2>
-                    <p>Two years of additions had layered render paths on top of each other: the original native effects, the Milkdrop integration, custom user effects, the Augment Mode camera blend, Game Mode overlays. Each had been bolted on around the previous one. January was the cleanup pass — collapsing all five into a single pipeline with one entry point and one effect interface.</p>
+                    <p>Two years of additions had layered render paths on top of each other: the original native effects, the Milkdrop integration, custom user effects, the Visual Mode camera background layer, Game Mode overlays. Each had been bolted on around the previous one. January was the cleanup pass — collapsing all five into a single pipeline with one entry point and one effect interface.</p>
 
                     <div class="feed-features">
                         <div class="feed-feature">
@@ -654,7 +650,7 @@
                 <p class="feed-date">November 2025</p>
                 <div class="feed-card">
                     <h2>Game Mode</h2>
-                    <p>A late-year creative swing that turned passive listening into active play. The first five effects were each given their own rhythm-based mini-game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Five distinct games sharing the same canvas, toggled with a single press of <strong>G</strong>.</p>
+                    <p>A late-year creative swing that turned passive listening into active play. Ten effects were each given their own rhythm-based mini-game, with mechanics tied to the audio and to the effect's visual behavior — the song itself became the controller. Ten distinct games sharing the same canvas, toggled with a single press of <strong>G</strong>.</p>
 
                     <div class="design-decisions">
                         <div class="decision-card">
@@ -663,7 +659,7 @@
                         </div>
                         <div class="decision-card">
                             <h4>One game per effect</h4>
-                            <p>Five distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
+                            <p>Ten distinct games, each tied to its visual style. The mechanics had to feel like a natural extension of what the effect was already doing.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Same canvas, new layer</h4>
@@ -671,14 +667,14 @@
                         </div>
                         <div class="decision-card">
                             <h4>Three lives, one HUD</h4>
-                            <p>Score and lives sit in the top-left HUD across every game so players never have to relearn the read between titles.</p>
+                            <p>Three hearts in the top-right with the score line below, the effect label stays in the top-left — same HUD across every game so players never have to relearn the read between titles.</p>
                         </div>
                     </div>
 
                     <div class="feed-features">
                         <div class="feed-feature">
                             <h3>Particle Collector</h3>
-                            <p>Effect 1 — Particles. Move with arrow keys, press <strong>Z</strong> to catch falling particles to the beat.</p>
+                            <p>Effect 1 — Particles. Watch the highlighted target, press the matching number key when it lights up.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Wave Rider</h3>
@@ -695,6 +691,26 @@
                         <div class="feed-feature">
                             <h3>Space Navigator</h3>
                             <p>Effect 5 — Ocean. Steer through procedural space hazards in a fluid environment.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Asteroid Blaster</h3>
+                            <p>Effect 6 — paired with one of the geometry-heavy effects. Aim and fire on incoming hazards in time with the beat.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Blob Merger</h3>
+                            <p>Effect 7 — Blob. Combine blobs of the same color before they overflow the canvas.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Aurora Catcher</h3>
+                            <p>Effect 8 — Aurora. Catch falling aurora streaks on the audio peaks.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Ripple Rhythm</h3>
+                            <p>Effect 9 — Ripple. Time your hits to the expanding ripples without breaking the pattern.</p>
+                        </div>
+                        <div class="feed-feature">
+                            <h3>Portal Jumper</h3>
+                            <p>Effect 10 — Portal. Jump between portals as the beat drops, missing breaks the chain.</p>
                         </div>
                     </div>
 
@@ -803,7 +819,7 @@
                 <p class="feed-date">August 2025</p>
                 <div class="feed-card">
                     <h2>Performance &amp; Browser Support</h2>
-                    <p>Fifty-plus effects, real-time FFT, MediaRecorder, optional camera ingest, and a third-party shader sandbox — all targeting 60fps on hardware that ranges from a six-year-old MacBook to a brand-new iPhone. The constraints had to be designed in, not patched on.</p>
+                    <p>Fifty+ native effects plus the full Milkdrop preset library, real-time FFT, MediaRecorder, optional camera ingest, and a third-party shader sandbox — all targeting 60fps on hardware that ranges from a six-year-old MacBook to a brand-new iPhone. The constraints had to be designed in, not patched on.</p>
 
                     <div class="feed-features">
                         <div class="feed-feature">
@@ -819,16 +835,16 @@
                             <p>VP9 25mbps → VP8 20mbps → H.264 (Safari). Recording works on every supported browser with the best available codec, automatically.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Perf-tagged presets</h3>
-                            <p>Heavier effects (Quantum Architect, Wormhole, Microverse) carry a perf flag. The toggle hides them on low-end hardware so the catalog still feels finished, just shorter.</p>
+                            <h3>Photosensitivity gate at first launch</h3>
+                            <p>The strobe-capable effects exist. The launch overlay names that risk explicitly and waits for an "I Understand — Continue" press before the canvas activates — no silent autoplay.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Low Power Mode</h3>
-                            <p>iOS app reads Low Power Mode and reduces motion / lowers internal resolution. Mac respects power-source state when it's running on a second monitor.</p>
+                            <h3>Shared engine across surfaces</h3>
+                            <p>The Swift iOS / macOS ports re-implement the audio path natively but share the effect catalog and color system with the web build. Surface-specific optimizations live in the port, not in the effect.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Reduce Motion respected</h3>
-                            <p>System-level Reduce Motion drops augmentation rate, slows transitions, and disables Augment Mode auto-cycling. Disorientation is a real cost; the system tells the OS the user opted out.</p>
+                            <h3>Honest fallback for DRM tracks</h3>
+                            <p>Apple Music's DRM blocks AnalyserNode access on protected tracks. Rather than silently looking broken, the visualizer falls back to dummy analyzer data and surfaces the reason in the song corner.</p>
                         </div>
                     </div>
 
@@ -862,8 +878,8 @@
                             <p>Backspace erases the last stroke. No multi-step history, no panel — one key, one undo. Lets the user iterate fast without a UI surface getting in the way of the canvas.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Context-aware help</h4>
-                            <p>The H help overlay only shows F and Backspace while Draw Mode is on. Outside Draw Mode those rows are hidden — the help menu only documents what's actionable right now.</p>
+                            <h4>One help sheet, every key</h4>
+                            <p>The H Controls overlay lists every binding the app responds to — including the Draw Mode keys (F, Backspace) — so a returning user can find any control without leaving the canvas.</p>
                         </div>
                     </div>
 
@@ -1020,8 +1036,8 @@
                             <p>Strobe-capable effects exist in the library. The warning overlay names that risk explicitly and requires acknowledgement before the canvas activates. No silent autoplay.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Reduce Motion is honored</h4>
-                            <p>System-level Reduce Motion (macOS, iOS, browser-level <code>prefers-reduced-motion</code>) gates Augment Mode auto-cycling, slows transitions, and tones down high-flicker effects.</p>
+                            <h4>Intensity is user-controlled</h4>
+                            <p>Augment Mode and effect intensity both live behind opt-in keys — <strong>X</strong> and <strong>1-9</strong>. Nothing auto-escalates without a user pressing for it, so the floor of motion stays where the user left it.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Keyboard-first interaction model</h4>
@@ -1029,7 +1045,7 @@
                         </div>
                         <div class="decision-card">
                             <h4>State cues are never color-only</h4>
-                            <p>Recording uses a dot + the word "recording," not a red dot alone. Camera-on uses an icon + the word "cam: on." Color-blind users get the same information density as everyone else.</p>
+                            <p>Recording uses a dot + the word "recording…", not a red dot alone. Draw Mode and Visual Mode each label their state in words — <code>draw mode: on</code>, <code>particle visual: style 1</code> — so color-blind users get the same information density as everyone else.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Permission prompts get framed</h4>
@@ -1087,7 +1103,7 @@
                         <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
                             <div><strong>Help &amp; documentation</strong><br><span style="color:var(--color-gray-500);font-size:0.875rem;">"What can I press right now?"</span></div>
                             <div style="font-size:0.75rem;font-weight:700;color:#d4861e;">SEV 2</div>
-                            <div style="font-size:0.875rem;color:var(--color-gray-500);">H opens a context-aware help overlay — Draw Mode adds F and Backspace rows; Game Mode adds Z and arrow rows; nothing irrelevant ever shows.</div>
+                            <div style="font-size:0.875rem;color:var(--color-gray-500);">H opens the Controls overlay — a single dark rounded sheet listing every binding the app responds to, from Spacebar through the pro keys.</div>
                             <div style="font-size:0.75rem;font-weight:700;color:#1f9d3a;">RESOLVED</div>
                         </div>
                         <div style="display:grid;grid-template-columns:1.6fr 0.6fr 2.5fr 0.6fr;gap:12px;padding:14px 18px;background:var(--color-white);border-radius:12px;align-items:start;">
@@ -1120,7 +1136,7 @@
                         </div>
                         <div class="decision-card">
                             <h4>Audio data as arguments</h4>
-                            <p>Reactive function receives <code>arguments[0]</code> bass, <code>arguments[1]</code> mid, <code>arguments[2]</code> treble — all 0-255. Same FFT data the built-in effects use, surfaced through the simplest possible signature.</p>
+                            <p>Reactive function receives three positional arguments — bass, mid, treble at indices 0, 1, 2 — accessed via <code>arguments[0..2]</code>. All values 0-255. Same FFT data the built-in effects use, surfaced through the simplest possible signature.</p>
                         </div>
                         <div class="decision-card">
                             <h4>ShaderMaterial-friendly</h4>
@@ -1197,7 +1213,7 @@
                         </div>
                     </div>
 
-                    <p style="margin-top:20px;"><strong>Failure modes were designed in, not patched on.</strong> Effects that don't appear, don't react to audio, or crash the visualizer each have their own troubleshooting entry in the docs — verify mesh added to scene + visualElements, confirm <code>arguments[0..2]</code> are wired, wrap risky math in try/catch. Test runs at intensity 1, 5, and 9 are part of the recommended workflow.</p>
+                    <p style="margin-top:20px;"><strong>Failure modes were designed in, not patched on.</strong> Effects that don't appear, don't react to audio, or crash the visualizer each have their own troubleshooting entry in the docs — verify mesh added to scene + visualElements, confirm <code>arguments[0..2]</code> are read inside the reactive function, wrap risky math in try/catch. Test runs at intensity 1, 5, and 9 are part of the recommended workflow.</p>
                 </div>
             </article>
 
@@ -1379,7 +1395,7 @@
                             <span style="color:#6a6a78;">→</span>
                             <span style="background:#1c2435;color:#6dd5ed;padding:8px 14px;border-radius:8px;border:1px solid #6dd5ed;">AnalyserNode</span>
                             <span style="color:#6a6a78;">→</span>
-                            <span style="background:#2a1c35;color:#9b8cff;padding:8px 14px;border-radius:8px;border:1px solid #9b8cff;">FFT (2048)</span>
+                            <span style="background:#2a1c35;color:#9b8cff;padding:8px 14px;border-radius:8px;border:1px solid #9b8cff;">FFT (1024)</span>
                         </div>
                         <div style="text-align:center;color:#6a6a78;margin:8px 0;">↓</div>
                         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;">
@@ -1425,8 +1441,8 @@
                             <p>Pro user code runs against the same <code>scene</code>, <code>camera</code>, <code>renderer</code>, <code>audioContext</code>, and <code>visualElements</code> the built-in effects use. No sandbox tax, no second pipeline.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>2048-sample FFT</h3>
-                            <p>Tuned for 60fps. Larger windows gave better frequency resolution but added latency the eye picked up; smaller windows lost the bass band's separation.</p>
+                            <h3>1024-sample FFT</h3>
+                            <p>Tuned for 60fps. Larger windows gave better frequency resolution but added latency the eye picked up; 1024 hit the sweet spot — fast enough to feel synchronized, dense enough to separate the bass band from the mid.</p>
                         </div>
                         <div class="feed-feature">
                             <h3>Native-port engine reuse</h3>
@@ -1661,8 +1677,8 @@
                             <p>Keep pressing <strong>V</strong> to cycle particle render styles — Style 1, Style 2, Style 3, and so on. Same effect, same audio reactivity, different visual grammar each cycle.</p>
                         </div>
                         <div class="feed-feature">
-                            <h3>Help is contextual</h3>
-                            <p>Press <strong>H</strong> for the help overlay; the visible rows change based on whether Draw Mode or Game Mode is active so the docs only show what's currently usable.</p>
+                            <h3>Every binding in one sheet</h3>
+                            <p>Press <strong>H</strong> for the Controls overlay — a single dark rounded sheet that lists every key the app responds to, from Spacebar through the pro keys (C / D / G / X) and back to H itself. One reference, always reachable, no second tab.</p>
                         </div>
                     </div>
                 </div>
@@ -1797,7 +1813,7 @@
                         </div>
                     </div>
 
-                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, reactivity that rewarded paying attention, and tools to make the visualizer their own. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, the Custom Effect Creator, Draw Mode, Visual Mode style cycling, Augment Mode camera blends, the four playback modes, the iOS / macOS ports, and ultimately the Milkdrop integration that took the library past fifty effects.</p>
+                    <p style="margin-top:24px;"><strong>What I heard:</strong> across all three groups the response was the same — they enjoyed it, but five effects ran out fast. They wanted more variety, more genres covered, reactivity that rewarded paying attention, and tools to make the visualizer their own. That feedback overrode the original "ship and stop" plan and reshaped the next year of feature work — Game Mode, the Custom Effect Creator, Draw Mode, Visual Mode style cycling, Augment Mode intensity boosts, the five playback modes, the iOS / macOS ports, and ultimately the Milkdrop integration that took the library past fifty effects.</p>
                 </div>
             </article>
 
@@ -1834,7 +1850,7 @@
                             <span class="annotation-num">2</span>
                             <div class="annotation-text">
                                 <h4>Mode label (bottom-left)</h4>
-                                <p>Small monospace label that always tells the user which playback mode they're in — playlist, file, mic, or DSP. Low contrast so it never competes with the canvas.</p>
+                                <p>Small monospace label that always tells the user which playback mode they're in — playlist, file select, microphone, Apple Music, or Spotify. Low contrast so it never competes with the canvas.</p>
                             </div>
                         </div>
                         <div class="annotation-item">
@@ -1926,17 +1942,18 @@
                     <div style="margin-top:24px;background:#0f0f14;border-radius:14px;padding:24px;font-family:'SF Mono',monospace;font-size:0.78rem;color:#c8c8d0;line-height:1.8;overflow-x:auto;">
                         <div style="color:#fff;font-weight:700;">Visualizer</div>
                         <div style="padding-left:18px;">├─ <span style="color:#aaff7a;">Canvas</span> <span style="color:#6a6a78;">// always-on, full-bleed</span></div>
-                        <div style="padding-left:36px;">│   ├─ Effect renderer <span style="color:#6a6a78;">// 50+ effects</span></div>
+                        <div style="padding-left:36px;">│   ├─ Effect renderer <span style="color:#6a6a78;">// 50+ effects + Milkdrop library</span></div>
                         <div style="padding-left:36px;">│   ├─ Status corners <span style="color:#6a6a78;">// mode + song</span></div>
                         <div style="padding-left:36px;">│   └─ Indicators <span style="color:#6a6a78;">// recording / cam / game HUD</span></div>
                         <div style="padding-left:18px;">├─ <span style="color:#9b8cff;">Playback Mode</span> <span style="color:#6a6a78;">// vertical axis</span></div>
                         <div style="padding-left:36px;">│   ├─ Playlist <span style="color:#6a6a78;">// free</span></div>
                         <div style="padding-left:36px;">│   ├─ File Select <span style="color:#ffb86b;">// pro</span></div>
                         <div style="padding-left:36px;">│   ├─ Microphone <span style="color:#6a6a78;">// free</span></div>
-                        <div style="padding-left:36px;">│   └─ Apple Music (DSP) <span style="color:#ffb86b;">// pro</span></div>
+                        <div style="padding-left:36px;">│   ├─ Apple Music <span style="color:#ffb86b;">// pro · MusicKit JS</span></div>
+                        <div style="padding-left:36px;">│   └─ Spotify <span style="color:#ffb86b;">// pro · Web Playback SDK</span></div>
                         <div style="padding-left:18px;">├─ <span style="color:#9b8cff;">Effect Style</span> <span style="color:#6a6a78;">// horizontal axis</span></div>
                         <div style="padding-left:36px;">│   ├─ Effects 1-10 <span style="color:#6a6a78;">// free</span></div>
-                        <div style="padding-left:36px;">│   ├─ Effects 11-50 <span style="color:#ffb86b;">// pro</span></div>
+                        <div style="padding-left:36px;">│   ├─ Effects 11-50+ <span style="color:#ffb86b;">// pro · native shaders</span></div>
                         <div style="padding-left:36px;">│   └─ Milkdrop library <span style="color:#ffb86b;">// pro · 20+ year catalog</span></div>
                         <div style="padding-left:18px;">├─ <span style="color:#aaff7a;">Reactivity Controls</span></div>
                         <div style="padding-left:36px;">│   ├─ Intensity 1-9</div>
@@ -1944,13 +1961,13 @@
                         <div style="padding-left:36px;">│   ├─ Shuffle (O)</div>
                         <div style="padding-left:36px;">│   └─ Visual Mode (V)</div>
                         <div style="padding-left:18px;">├─ <span style="color:#ffb86b;">Pro-only Modes</span></div>
-                        <div style="padding-left:36px;">│   ├─ Game Mode (G) <span style="color:#6a6a78;">// 5 games</span></div>
+                        <div style="padding-left:36px;">│   ├─ Game Mode (G) <span style="color:#6a6a78;">// 10 games</span></div>
                         <div style="padding-left:36px;">│   ├─ Draw Mode (D) <span style="color:#6a6a78;">// stroke painting</span></div>
                         <div style="padding-left:36px;">│   └─ Custom Effect Creator (C) <span style="color:#6a6a78;">// JS + GLSL</span></div>
                         <div style="padding-left:18px;">└─ <span style="color:#6dd5ed;">Global Actions</span></div>
                         <div style="padding-left:36px;">    ├─ Play / Pause (Space)</div>
                         <div style="padding-left:36px;">    ├─ Record (R)</div>
-                        <div style="padding-left:36px;">    ├─ Help (H) <span style="color:#6a6a78;">// context-aware</span></div>
+                        <div style="padding-left:36px;">    ├─ Help (H) <span style="color:#6a6a78;">// every binding</span></div>
                         <div style="padding-left:36px;">    ├─ Info (I)</div>
                         <div style="padding-left:36px;">    └─ Pro password (Q) <span style="color:#ffb86b;">// gates 1c / 1d / 1e / 5</span></div>
                     </div>
@@ -1976,8 +1993,8 @@
             <article class="feed-entry">
                 <p class="feed-date">December 2024</p>
                 <div class="feed-card">
-                    <h2>Four Playback Modes</h2>
-                    <p>The audio source had to scale from "I just want a track to play" to "I'm running this through a hardware synth at a show." That meant four distinct input modes, all switchable from the same axis — arrow up/down on desktop, vertical swipe on mobile — so the user never has to leave the canvas to change source.</p>
+                    <h2>Five Playback Modes</h2>
+                    <p>The audio source had to scale from "I just want a track to play" to "I'm running this through a hardware synth at a show." That meant five distinct input modes, all switchable from the same axis — arrow up/down on desktop, vertical swipe on mobile — so the user never has to leave the canvas to change source.</p>
 
                     <div class="research-methods">
                         <div class="method-card">
@@ -1997,14 +2014,19 @@
                         </div>
                         <div class="method-card">
                             <p class="method-label">Mode 4 — Pro</p>
-                            <h4>Apple Music (DSP)</h4>
-                            <p>Authorize once, then any track in the user's library plays through the visualizer. DRM caveats are surfaced honestly — some tracks fall back to dummy analyzer data.</p>
+                            <h4>Apple Music</h4>
+                            <p>Authorize via MusicKit JS, then any track in the user's library plays through the visualizer. DRM caveats are surfaced honestly — some tracks fall back to dummy analyzer data.</p>
+                        </div>
+                        <div class="method-card">
+                            <p class="method-label">Mode 5 — Pro</p>
+                            <h4>Spotify</h4>
+                            <p>Authorize via the Web Playback SDK, then play full tracks with metadata, playback control, and transition hooks the visualizer can time effects to. Premium-tier accounts only — the SDK requirement.</p>
                         </div>
                     </div>
 
                     <div class="design-decisions" style="margin-top:24px;">
                         <div class="decision-card">
-                            <h4>One axis, four modes</h4>
+                            <h4>One axis, five modes</h4>
                             <p>Mode lives on the vertical axis; effect style lives on the horizontal axis. Two perpendicular gestures cover every navigation action without a menu.</p>
                         </div>
                         <div class="decision-card">
