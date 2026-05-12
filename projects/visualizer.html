@@ -862,7 +862,7 @@
                 <p class="feed-date">July 2025</p>
                 <div class="feed-card">
                     <h2>Draw Mode (Pro)</h2>
-                    <p>The biggest creative-tooling addition since Game Mode. Instead of a single effect filling the screen, the cursor itself becomes a brush — every effect in the library can be painted as a stroke onto the canvas, layered with other effects, and erased one stroke at a time. Toggle with <strong>D</strong>, switch brush effect with arrow keys, and intensity 1-9 still applies to every drawn stroke at once.</p>
+                    <p>The first creative-tooling addition after the launch effects. Instead of a single effect filling the screen, the cursor itself becomes a brush — every effect in the library can be painted as a stroke onto the canvas, layered with other effects, and erased one stroke at a time. Toggle with <strong>D</strong>, switch brush effect with arrow keys, and intensity 1-9 still applies to every drawn stroke at once.</p>
 
                     <div class="design-decisions">
                         <div class="decision-card">
@@ -1045,7 +1045,7 @@
                         </div>
                         <div class="decision-card">
                             <h4>State cues are never color-only</h4>
-                            <p>Recording uses a dot + the word "recording…", not a red dot alone. Draw Mode and Visual Mode each label their state in words — <code>draw mode: on</code>, <code>particle visual: style 1</code> — so color-blind users get the same information density as everyone else.</p>
+                            <p>Recording renders as <code>● recording...</code> in the same neutral gray as every other status label — the dot's there for shape, the word carries the meaning. Draw Mode and Visual Mode also label their state in words (<code>draw mode: on</code>, <code>particle visual: style 1</code>), so color-blind users get the same information density as everyone else.</p>
                         </div>
                         <div class="decision-card">
                             <h4>Permission prompts get framed</h4>
@@ -1368,8 +1368,8 @@
                         <div class="wireframe-frame browser">
                             <div class="wireframe-screen" style="min-height:220px;background:#000;padding:0;position:relative;">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#3a3a45;font-size:0.75rem;letter-spacing:0.1em;">[ FULL-BLEED CANVAS ]</div>
-                                <span style="position:absolute;left:14px;bottom:12px;display:inline-flex;align-items:center;gap:6px;color:#ff5b5b;font-size:0.7rem;font-family:'SF Mono',monospace;">
-                                    <span style="width:7px;height:7px;background:#ff5b5b;border-radius:50%;"></span>recording…
+                                <span style="position:absolute;left:14px;bottom:12px;display:inline-flex;align-items:center;gap:6px;color:#9a9aa5;font-size:0.7rem;font-family:Arial,sans-serif;">
+                                    <span style="width:6px;height:6px;background:#9a9aa5;border-radius:50%;"></span>recording...
                                 </span>
                                 <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#4a4a55;font-size:0.65rem;font-family:'SF Mono',monospace;">press h for help</span>
                                 <div class="wf-callout" style="bottom:30px;left:14px;">1</div>
@@ -1689,34 +1689,34 @@
                 <p class="feed-date">February 2025</p>
                 <div class="feed-card">
                     <h2>Design System &amp; Tokens</h2>
-                    <p>The chrome of this app fits in a single page of tokens. That's the point — the app is the canvas, so the design system has to be ruthlessly small to keep itself out of the way.</p>
+                    <p>The chrome of this app fits on a single page of tokens. The visualization is the color story — the system itself uses just black, a single status gray, white for overlays, and one error red. No accents. No theme.</p>
 
                     <div style="margin-top:24px;">
                         <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Color tokens</h3>
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
                                 <div style="background:#000;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--canvas</strong><br><span style="color:var(--color-gray-400);">#000000</span></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>canvas</strong><br><span style="color:var(--color-gray-400);">#000000 · body bg</span></div>
                             </div>
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
-                                <div style="background:#9a9aa5;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--text-status</strong><br><span style="color:var(--color-gray-400);">#9a9aa5</span></div>
+                                <div style="background:#808080;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>status text</strong><br><span style="color:var(--color-gray-400);">grey · #808080</span></div>
                             </div>
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
-                                <div style="background:#e4e4ea;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--text-overlay</strong><br><span style="color:var(--color-gray-400);">#e4e4ea</span></div>
+                                <div style="background:#fff;height:60px;border-bottom:1px solid var(--color-gray-200);"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>overlay text</strong><br><span style="color:var(--color-gray-400);">#ffffff</span></div>
                             </div>
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
-                                <div style="background:#ff5b5b;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-record</strong><br><span style="color:var(--color-gray-400);">#ff5b5b</span></div>
+                                <div style="background:rgba(0,0,0,0.6);height:60px;backdrop-filter:blur(8px);"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>overlay surface</strong><br><span style="color:var(--color-gray-400);">rgba(0,0,0,0.6) + blur 30</span></div>
                             </div>
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
-                                <div style="background:#6dd5ed;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-camera</strong><br><span style="color:var(--color-gray-400);">#6dd5ed</span></div>
+                                <div style="background:rgba(255,255,255,0.1);height:60px;border-bottom:1px solid var(--color-gray-200);"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>button fill</strong><br><span style="color:var(--color-gray-400);">rgba(255,255,255,0.1)</span></div>
                             </div>
                             <div style="background:var(--color-white);border-radius:10px;overflow:hidden;border:1px solid var(--color-gray-200);">
-                                <div style="background:#aaff7a;height:60px;"></div>
-                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>--accent-game</strong><br><span style="color:var(--color-gray-400);">#aaff7a</span></div>
+                                <div style="background:#ff4444;height:60px;"></div>
+                                <div style="padding:10px 12px;font-family:'SF Mono',monospace;font-size:0.72rem;"><strong>error text</strong><br><span style="color:var(--color-gray-400);">#ff4444 · auth + load fail</span></div>
                             </div>
                         </div>
                     </div>
@@ -1724,37 +1724,54 @@
                     <div style="margin-top:32px;">
                         <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Type ramp</h3>
                         <div style="background:#0a0a0d;border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px;">
-                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#e4e4ea;"><span style="font-family:system-ui,-apple-system,sans-serif;font-size:1.4rem;font-weight:600;">Press Spacebar to Start</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">22px · system-ui · 600 · overlay</span></div>
-                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.85rem;">song: nirvana – radio friendly unit shifter</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">14px · SF Mono · 400 · status</span></div>
-                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.7rem;">mode: playlist</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">11px · SF Mono · 400 · corner</span></div>
-                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#9a9aa5;"><span style="font-family:'SF Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;">CAM: ON</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;">10px · SF Mono · 600 · indicator</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#fff;gap:16px;"><span style="font-family:-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1.1rem;font-weight:600;">Controls</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;text-align:right;">17px · system stack · 600 · overlay title</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:#fff;gap:16px;"><span style="font-family:-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.875rem;">Spacebar: Play/Pause</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;text-align:right;">14px · system stack · 400 · overlay body</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:grey;gap:16px;"><span style="font-family:Arial,sans-serif;font-size:0.875rem;">song: daft punk – pheonix</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;text-align:right;">14px · Arial · 400 · status (corner)</span></div>
+                            <div style="display:flex;justify-content:space-between;align-items:baseline;color:grey;gap:16px;"><span style="font-family:Arial,sans-serif;font-size:0.875rem;">● recording...</span><span style="font-family:'SF Mono',monospace;font-size:0.7rem;color:#6a6a78;text-align:right;">14px · Arial · 400 · action message</span></div>
                         </div>
                     </div>
 
                     <div style="margin-top:32px;">
-                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Spacing &amp; motion tokens</h3>
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--corner-pad</strong><br><span style="color:var(--color-gray-400);">12px / 14px</span></div>
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--ui-fade</strong><br><span style="color:var(--color-gray-400);">3000ms idle</span></div>
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--augment-tick</strong><br><span style="color:var(--color-gray-400);">300ms</span></div>
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--draw-fade-start</strong><br><span style="color:var(--color-gray-400);">5000ms</span></div>
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--draw-fade-full</strong><br><span style="color:var(--color-gray-400);">10000ms</span></div>
-                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>--frame-budget</strong><br><span style="color:var(--color-gray-400);">16ms / 60fps</span></div>
+                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Layout &amp; surface tokens</h3>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>corner inset</strong><br><span style="color:var(--color-gray-400);">10px from edges</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>overlay width</strong><br><span style="color:var(--color-gray-400);">280px · max 90vw</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>overlay radius</strong><br><span style="color:var(--color-gray-400);">24px</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>overlay padding</strong><br><span style="color:var(--color-gray-400);">16px</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>button radius</strong><br><span style="color:var(--color-gray-400);">12px</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>overlay shadow</strong><br><span style="color:var(--color-gray-400);">0 20px 40px rgba(0,0,0,0.25)</span></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:32px;">
+                        <h3 style="font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;color:var(--color-gray-500);text-transform:uppercase;margin-bottom:12px;">Motion tokens</h3>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>indicator fade</strong><br><span style="color:var(--color-gray-400);">opacity 1s · mode / song / effect</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>action fade</strong><br><span style="color:var(--color-gray-400);">opacity 1.5s ease-in-out</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>overlay enter</strong><br><span style="color:var(--color-gray-400);">opacity + transform 0.5s ease</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>augment tick</strong><br><span style="color:var(--color-gray-400);">300ms · X / 2-finger hold</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>draw fade start</strong><br><span style="color:var(--color-gray-400);">5000ms post-stroke</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>draw fade duration</strong><br><span style="color:var(--color-gray-400);">10000ms to clear</span></div>
+                            <div style="background:var(--color-white);border-radius:10px;padding:14px 16px;border:1px solid var(--color-gray-200);font-family:'SF Mono',monospace;font-size:0.78rem;"><strong>frame budget</strong><br><span style="color:var(--color-gray-400);">16ms · 60fps</span></div>
                         </div>
                     </div>
 
                     <div class="design-decisions" style="margin-top:24px;">
                         <div class="decision-card">
-                            <h4>System fonts only</h4>
-                            <p>system-ui for overlays, SF Mono / monospace for status. No web font loaded — zero blocking on first paint, native feel on every OS.</p>
+                            <h4>System fonts only, two stacks</h4>
+                            <p>Overlays (help, password, flash warning) use the full <code>-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial</code> stack so each OS shows its native interface font. Corner status text (mode / song / effect / action) drops down to plain <code>Arial, sans-serif</code> — short labels don't need the full ramp.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Six colors, no more</h4>
-                            <p>Black, two grays, three accent colors (record / camera / game). Every other color in the app comes from the effect itself, not the system.</p>
+                            <h4>Two non-canvas colors, plus error red</h4>
+                            <p>Status text is <code>grey</code> on black. Overlay text is <code>#ffffff</code> inside a translucent black panel. <code>#ff4444</code> only appears for true errors — auth failure, file load failure. There is no accent for record, camera, or game; the effect supplies every other color on screen.</p>
                         </div>
                         <div class="decision-card">
-                            <h4>Tokens live in CSS variables</h4>
-                            <p>One source of truth, tweakable per surface. Mobile uses 11px corner labels; desktop uses 14px — same token, different breakpoint.</p>
+                            <h4>One overlay surface, four use cases</h4>
+                            <p>Help, password, flash warning, and streaming auth all share the same panel: <code>280px</code> wide (90vw max), <code>rgba(0,0,0,0.6)</code> background with <code>backdrop-filter: blur(30px)</code>, <code>border-radius: 24px</code>, <code>box-shadow: 0 20px 40px rgba(0,0,0,0.25)</code>. Different content, identical surface.</p>
+                        </div>
+                        <div class="decision-card">
+                            <h4>Every UI element fades</h4>
+                            <p>Indicators (mode / song / effect) fade over 1s. Action messages over 1.5s. Overlays enter and leave with a 0.5s opacity + transform ease. Nothing pops on or off — the chrome arrives and leaves quietly.</p>
                         </div>
                     </div>
                 </div>
@@ -2053,10 +2070,10 @@
                             <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--color-gray-400);text-transform:uppercase;margin-bottom:8px;">Step 1 — Warning</p>
                             <div class="wireframe-frame browser" style="margin:0;">
                                 <div class="wireframe-screen" style="min-height:200px;background:#000;padding:0;position:relative;">
-                                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:0 18px;">
-                                        <div style="color:#ff5b5b;font-family:'SF Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;">⚠ PHOTOSENSITIVITY</div>
-                                        <div style="color:#e4e4ea;font-family:system-ui,sans-serif;font-size:0.85rem;line-height:1.5;max-width:240px;">This visualizer can produce flashing imagery. By continuing you acknowledge the risk.</div>
-                                        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid #e4e4ea;color:#e4e4ea;font-family:'SF Mono',monospace;font-size:0.7rem;border-radius:6px;">I understand</div>
+                                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);border-radius:14px;padding:14px 16px;width:74%;max-width:240px;display:flex;flex-direction:column;gap:8px;text-align:center;">
+                                        <div style="color:#fff;font-family:-apple-system,system-ui,sans-serif;font-size:0.78rem;font-weight:600;">⚠️ Flash Warning</div>
+                                        <div style="color:rgba(255,255,255,0.7);font-family:-apple-system,system-ui,sans-serif;font-size:0.6rem;font-weight:700;line-height:1.4;">If you are sensitive to flashing lights, please use caution.</div>
+                                        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.4);border-radius:8px;padding:5px 10px;color:#fff;font-family:-apple-system,system-ui,sans-serif;font-size:0.6rem;font-weight:600;">I Understand — Continue</div>
                                     </div>
                                 </div>
                             </div>
